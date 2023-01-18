@@ -1,24 +1,10 @@
-## AI@Princeton Website
-AI@Princeton Website built in React.
+## Tutorial Based on Bokoko portfolio website
+ai-house created with Blender models (GLTF) integrated with three.js
 
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-Installation:
-
-`npm install`  
-
-To Run Test Suite:  
-
-`npm test`  
-
-To Start Server:
-
-`npm start`  
-
-To Visit App:
-
-`localhost:3000/ideas`  
+Run vite app on your computer
 
 
