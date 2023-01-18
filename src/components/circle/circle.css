@@ -1,0 +1,35 @@
+.site__circles-container__circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+    border: 2px solid rgb(255, 255, 255);
+    background: #000;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin: 1rem 2.5rem;
+}
+
+.site__circles-container__circle p {
+    text-align: center;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 200px;
+    color: var(--color-text);
+}
+
+.site__circles-description {
+    max-width: 280px;
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 15px;
+}
+
+@media screen and (max-width: 550px) {
+
+    .site__circles-container__circle {
+        margin: 1rem 0;
+    }
+}
