@@ -6,6 +6,7 @@ import Time from "./Utils/Time"
 import World from "./World/World"
 import Resources from "./Utils/Resources"
 import assets from "./Utils/assets"
+import Theme from "./Theme"
 
 export default class Experience{
 
@@ -22,6 +23,7 @@ export default class Experience{
         this.sizes = new Sizes();
         this.camera = new Camera();
         this.resources = new Resources(assets); //assets is parameter for Resources constructor
+        this.theme = new Theme();
         this.world = new World();
         this.renderer = new Renderer();
 
@@ -31,7 +33,6 @@ export default class Experience{
         })
         this.time.on("update", ()=>{
             this.update();
-
         })
     }
 

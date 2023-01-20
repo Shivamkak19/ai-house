@@ -1,17 +1,55 @@
 import Experience from "../Experience"
 import * as THREE from "three"
 import GSAP from "gsap"
+import {ScrollTrigger} from "gsap/ScrollTrigger"
 
 export default class Controls{
     constructor(){
         this.experience = new Experience();
         this.scene = this.experience.scene;
+        this.sizes = this.experience.sizes;
         this.resources = this.experience.resources;
         this.time = this.experience.time;
         this.camera = this.experience.camera;
+        this.room = this.experience.world.room.actualRoom;
+
+        //Registers the GSAP plug in
+        GSAP.registerPlugin(ScrollTrigger);
         
+        this.setPath();
     }
 
+    setPath(){
+        //Creates animation for the room movement with ScrollTrigger
+
+        //Triggers are html elements (these serve as anchor points)
+        this.timeline = new GSAP.timeline();
+
+        //Consider scaling down the size of the model as you reduce window size as well
+        this.timeline.to(this.room.position, {
+            x: () =>{
+                return this.sizes.width * 0.0055;
+             }, 
+            scrollTrigger: {
+                trigger: ".first-move",
+                markers: true,
+                start: "top top", //marker location and activation location?
+                end: "bottom",
+                scrub: 0.8, //eases the scrub
+                invalidateOnRefresh: true,
+            }
+        })
+
+
+
+        //Automatic
+        // //Creates animation for the room movement
+        // this.timeline = new GSAP.timeline();
+        // this.timeline.to(this.room.position, {
+        //     x: 5,
+        //     duration: 20,
+        // })
+    }
     resize(){
 
     }

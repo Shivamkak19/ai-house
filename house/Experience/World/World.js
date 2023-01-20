@@ -13,6 +13,7 @@ export default class World{
         this.canvas = this.experience.canvas;
         this.camera = this.experience.camera;
         this.resources = this.experience.resources;
+        this.theme = this.experience.theme;
 
         //Creates world after receiving "ready" event
         this.resources.on("ready", ()=> {
@@ -22,6 +23,17 @@ export default class World{
             this.controls = new Controls();
         });
 
+        //Switches theme after receiving event from button click
+        this.theme.on("switch", (theme) =>{
+            this.switchTheme(theme);
+        })
+
+    }
+
+    switchTheme(theme){
+        if(this.environment){
+            this.environment.switchTheme(theme);
+        }
     }
 
     resize(){
@@ -35,6 +47,9 @@ export default class World{
         }
         if(this.controls){
             this.controls.update();
+        }
+        if(this.floor){
+            this.floor.update();
         }
 
         

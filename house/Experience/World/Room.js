@@ -1,6 +1,7 @@
 import Experience from "../Experience"
 import * as THREE from "three"
 import GSAP from "gsap"
+import { RectAreaLightHelper }  from "three/examples/jsm/helpers/RectAreaLightHelper.js"
 
 export default class Room{
     constructor(){
@@ -18,9 +19,9 @@ export default class Room{
         }
 
         this.setModel();
-        this.setAnimation();
         this.onMouseMove();
-        
+        this.setAnimation();
+
     }
 
     setModel(){
@@ -29,12 +30,14 @@ export default class Room{
             child.castShadow = true;
             child.receiveShadow = true;
 
-            if(child instanceof THREE.Group){
+            if(child instanceof THREE.Group){ //might not be working
                 child.children.forEach((groupchild)=>{
                     groupchild.castShadow = true;
                     groupchild.receiveShadow = true;
                 })
             }
+
+
 
             //Set materials of individual objects by Name ID from Blender
             //Consider simulating an environment map here
@@ -54,8 +57,28 @@ export default class Room{
             }
         })
 
+        //Area Light Over the Fish Tank (vertical)
+
+        const rectLight = new THREE.RectAreaLight( 0xffffff, 10, 3.5, 1);
+        rectLight.position.set( 6.9413, 4.5, 1.0311);
+        rectLight.rotation.y =  -Math.PI / 4;
+        this.actualRoom.add( rectLight )
+
+        //Horizontal Light
+        // const width = 2.5;
+        // const height = 3.5;
+        // const intensity = 10;
+        // const rectLight = new THREE.RectAreaLight( 0xffffff, intensity,  width, height );
+        // rectLight.position.set( 6.9413, 5, 1.0311);
+        // // rectLight.rotation.x = -Math.PI / 2;
+        // // rectLight.rotation.z = Math.PI / 4;
+        // this.actualRoom.add( rectLight )
+        
+        // const rectLightHelper = new RectAreaLightHelper( rectLight );
+        // rectLight.add( rectLightHelper );
+
         this.scene.add(this.actualRoom);
-        this.actualRoom.scale.set(0.11, 0.11, 0.11)
+        this.actualRoom.scale.set(0.51, 0.51, 0.51)
         this.actualRoom.rotation.y = 0;
     }
 

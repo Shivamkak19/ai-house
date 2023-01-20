@@ -12,17 +12,22 @@ export default class Camera{
 
         this.createPerspectiveCamera();
         this.createOrthographicCamera();
-        this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);       
-        this.controls.enableZoom = true; 
+        this.setOrbitControls();
     }
     
     //Creates a Camera, with parameters FOV, aspect ratio, near, far)
     createPerspectiveCamera(){
         this.perspectiveCamera = new THREE.PerspectiveCamera(70, this.sizes.aspect, .1, 1000);
-        this.perspectiveCamera.position.x = 29;
-        this.perspectiveCamera.position.y = 14;
-        this.perspectiveCamera.position.z = 12;
+        // this.perspectiveCamera.position.x = 29;
+        // this.perspectiveCamera.position.y = 14;
+        // this.perspectiveCamera.position.z = 12;
         
+        this.perspectiveCamera.position.x = 0;
+        this.perspectiveCamera.position.y = 3.5;
+        this.perspectiveCamera.position.z = 0;
+        this.perspectiveCamera.zoom = 3
+        this.helper = new THREE.CameraHelper(this.perspectiveCamera);
+
         this.scene.add(this.perspectiveCamera)
     }
 
@@ -33,29 +38,46 @@ export default class Camera{
             (this.sizes.aspect * this.sizes.frustrum) /2,
             this.sizes.frustrum/2,
             -this.sizes.frustrum/2,
-            -50,
-            50
+            -20,
+            20
         );
 
         //Adjusts camera view for LERP rotation with mouse move 
         //Could also use lookAt origin, but just used rotation.x
+        this.orthographicCamera.position.x = 0
         this.orthographicCamera.position.y = 3.5;
-        this.orthographicCamera.position.z = 5;
+        this.orthographicCamera.position.z = 0;
         this.orthographicCamera.rotation.x = -Math.PI / 6;
+        this.orthographicCamera.zoom = 0.25
 
         this.scene.add(this.orthographicCamera)
 
         //grid helper and axes helper 
-        const size = 20;
-        const divisions = 20;
+        // const size = 20;
+        // const divisions = 20;
         // const gridHelper = new THREE.GridHelper( size, divisions );
         // this.scene.add( gridHelper );
-        // const axesHelper = new THREE.AxesHelper( 10 );
+        // const axesHelper = new THREE.AxesHelper( 100 );
         // this.scene.add( axesHelper ); 
 
         //Adds grid to help see and adjust lights
-        // this.helper = new THREE.CameraHelper(this.orthographicCamera);
+        this.helper = new THREE.CameraHelper(this.orthographicCamera);
         // this.scene.add(this.helper);
+    }
+
+    setOrbitControls(){
+
+        this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);       
+        this.controls.enableZoom = true; 
+        
+        this.controls.minAzimuthAngle = -1 * (Math.PI / 2.5)
+        this.controls.maxAzimuthAngle = Math.PI / 2.5
+        this.controls.minPolarAngle = Math.PI / 16
+        this.controls.maxPolarAngle = Math.PI
+        this.controls.minDistance = 15
+        this.controls.maxDistance = 300
+        this.controls.enableDamping = true;
+        this.controls.dampingFactor = .05
     }
 
     //Resizes the camera parameters when window size changes
@@ -73,7 +95,7 @@ export default class Camera{
     update(){
         this.controls.update();
 
-        //Update for orthographic camera helper
+        // Update for orthographic camera helper
         // this.helper.matrixWorldNeedsUpdate = true;
         // this.helper.update();
         // this.helper.position.copy(this.orthographicCamera.position);

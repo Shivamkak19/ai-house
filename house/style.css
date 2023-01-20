@@ -1,13 +1,72 @@
+/* import from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
   margin:0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html, body{
+  font-family: "Montserrat", sans-serif;
+  color: var(--text-black);
+}
+
+/* targets transitions for "all" attributes for each element type used. Customize transitions later if needed */
+/* match with transition in lights (Environment.js) with duration/delay in GSAP, if needed */
+
+/* Check if you can set a different speed for turning toggle on vs off */
+h1,
+section,
+p,
+span,
+svg{
+  transition: all 5s;
+  /* transition: background-color 0.5s, color 0.5s; // Use if "all" causes bugs with border-radius transition. I don't seem to have this problem, so will keep "all" for transitions for now */
+}
+
+:root{
+  --text-black: rgb(47, 47, 47);
+  --primary-color: #faf4e5;
+  --color-pink: #e5a1aa;
+
+  /* Light Themed Variables */
+
+  --color-text-light: rgb(47, 47, 47);
+  --color-background-light: #FAF4e5;
+  --color-pink-light: #e5a1aa;
+  --color-green-light: #7AD0AC;
+  --color-blue-light: #8395CD;
+
+  /* Dark Themed Variables */
+  --color-text-dark: #FAF4e5;
+  --color-background-dark: #8395CD;
+
+}
+
+.light-theme{
+  --color-text: var(--color-text-light);
+  --color-background: var(--color-background-light);
+  --color-pink: var(--color-pink-light);
+  --color-green: var(--color-green-light);
+  --color-blue: var(--color-blue-light);
+}
+
+.dark-theme{
+  /* All color texts are set to the same color in dark mode */
+  --color-text: var(--color-text-dark);
+  --color-background: var(--color-background-dark);
+  --color-pink: var(--color-text-dark);
+  --color-green: var(--color-text-dark);
+  --color-blue: var(--color-text-dark);
+}
+
+
+/* Experience //////////////////////////////////////////// */
+
 .experience{
   position: fixed;
-  width: 100 vw;
-  height: 100 vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .experience-canvas{
@@ -15,3 +74,250 @@
   height: 100%;
   /*touch-action: manipulation; */
 }
+
+.minecraft-wrapper{
+  background-color: #bfd1e5;
+  color: #61443e;
+}
+
+.minecraft-subwrapper{
+  color: #a06851;
+}
+/* Main Page //////////////////////////////////////////// */
+
+.page{
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-wrapper{
+  position: relative;
+}
+
+/* Main Page //////////////////////////////////////////// */
+
+.toggle-bar{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  right: 48px;
+  z-index: 99999999999999;
+}
+
+.sun-wrapper, 
+.moon-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  /* Must set <path fill = "currentColor" ........></path> in html for svg to accept colors */
+
+}
+
+.toggle-button{
+  cursor: pointer;  /* creates the pointer effect on hover */ 
+  position: relative;
+  width: 56px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-pink);
+  border-radius: 999px;
+  margin: 0px 16px; /* 0 px top/bottom, 16px left/right */
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; /* google search good CSS box shadow, copied */
+}
+
+/* Creates toggle circle */
+.toggle-circle{
+  position: absolute;
+  left: 6px;
+  border-radius: 50%; /* makes circle shape */
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-background);
+  transition: all 0.2s ease-in-out /* animates changes to the div, can use anywhere */
+  
+}
+
+/* on hover for toggle-button div, changes style for toggle-circle div */
+.toggle-button:hover .toggle-circle{
+  transform: scale(0.9); /* Scales about center, as opposed to setting height/width from 20px to 16px, this scales about the left side */
+}
+
+.slide{
+  /* transform: translateX(24px); didn't work, must set slide class to another layer of wrapping to use transform */
+  /* Set the absolute position instead: */
+  left: 28px;
+}
+
+/* Section Formatting //////////////////////////////////////////// */
+
+.section-margin{
+  height: 300px;
+  width: 100%;
+}
+
+.section{
+  width: 50%;
+  padding: 1000px 4%;
+  margin: 0;
+  background-color: var(--color-background);
+}
+
+.left{
+  margin-right: auto;
+}
+
+.right{
+  margin-left: auto;
+}
+
+.section-intro-wrapper{
+  position: relative;
+  padding: 20% 5%;
+  border-bottom: 2px solid var(--color-pink);
+  padding-bottom: 400px;
+}
+
+.section-detail-wrapper{
+  position: relative;
+  padding: 20% 5%;
+
+}
+
+.section-heading{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.8;
+  margin-top: 64px;
+  color: var(--color-text);
+
+}
+
+.section-text{
+  line-height: 2;
+  margin-top: 18px;
+  font-size: 16px;
+  color: var(--color-text);
+
+}
+
+/* Text Decoration Section //////////////////////////////////////////// */
+
+.section-title{
+  position: relative;
+  color: var(--color-pink)
+}
+
+.section-title-text{
+  display: block; /* won't work without this */
+  font-size: 40px;
+  font-weight: 500;
+  transform-origin: left; /* Sets origin point to the left of the span */
+  transform: skewY(25deg); /* Skews span about the newly set origin point for rotated effect */
+  z-index: 5;
+  text-transform: uppercase;
+  color: var(--color-pink);
+
+}
+
+.styleOne,
+.styleTwo,
+.styleThree{
+  position: absolute;
+  display: block;
+  width: 100%;
+  max-width: 278px;
+  height: 60px;
+  border: 1px solid var(--color-pink);
+  transform-origin: left; 
+  transform: skewY(-25deg); 
+}
+
+.styleOne{
+  top: 0px;
+}
+
+.styleTwo{
+  top: 80px;
+}
+
+.styleThree{
+  top: 80px;
+  transform: skewY(25deg);
+  background-color: var(--color-pink)
+}
+
+/* By setting the position absolute, the number is locked to the parent container. 
+Then, you can set the position (bottom and right set here) to fix the position 
+of the number in the container, even as the container moves relatively to the page */
+
+.section-number{
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  color: var(--color-pink);
+  font-size: 24px;
+}
+
+/* Hero Section //////////////////////////////////////////// */
+
+.hero{
+  width: 100vw;
+  height: 100vh;
+}
+
+.hero-wrapper{
+  position: relative;
+  height: 100%;
+  width: calc(100% - 160px);
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.hero-main{
+  position: absolute;
+  bottom: 128px; /* 168 original */
+  left: 210px;
+  color: var(--color-text);
+
+}
+
+.hero-second{
+  position: absolute;
+  top: calc(50% - 120px);
+  right: 0;
+  color: var(--color-text);
+
+}
+
+.hero-main-title{
+  font-size: 90px;
+  color: var(--color-text);
+  text-align: center;
+
+}
+
+.hero-main-description{
+  padding-top: 12px;
+  font-size: 24px;
+  color: var(--color-text);
+  text-align: center;
+
+}
+
+.hero-second-subheading{
+  font-size: 32px;
+  text-transform: uppercase; 
+  color: var(--color-text);
+
+}
+

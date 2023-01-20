@@ -20,7 +20,8 @@ export default class Theme extends EventEmitter{
         this.toggleButton.addEventListener("click", ()=>{
             this.toggleCircle.classList.toggle("slide");
             this.theme = this.theme==="light"? "dark": "light"; //ternary operator
-            console.log(this.theme)
+            document.body.classList.toggle("dark-theme"); //dark on
+            document.body.classList.toggle("light-theme"); // light off
 
             //method from parent class, EventEmitter
             this.emit("switch", this.theme);
