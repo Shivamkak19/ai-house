@@ -2,7 +2,7 @@ export default [
     {
         name: "room",
         type: "glbModel",
-        path: "/Models/house 1.3.2.glb", //path in public to access model
+        path: "/Models/house 2.3.glb", //path in public to access model
     },
 
     {

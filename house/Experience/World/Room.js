@@ -21,10 +21,15 @@ export default class Room{
         this.setModel();
         this.onMouseMove();
         this.setAnimation();
+        
 
     }
 
+
     setModel(){
+
+        console.log(this.room)
+
         //Adds shadows for each child of the model (each mesh)
         this.actualRoom.children.forEach(child=>{
             child.castShadow = true;
@@ -37,30 +42,40 @@ export default class Room{
                 })
             }
 
-
-
             //Set materials of individual objects by Name ID from Blender
             //Consider simulating an environment map here
-            if(child.name ==="Water"){
-                child.material = new THREE.MeshPhysicalMaterial();
-                child.material.roughness = 0;
-                child.material.color.set(0x549dd2);
-                child.material.ior = 3;
-                child.material.transmission = 1;
-                child.material.opacity = 1;
+            if(child.name ==="Fish_Tank"){
+                child.children[0].material = new THREE.MeshPhysicalMaterial();
+                child.children[0].material.roughness = 0;
+                child.children[0].material.color.set(0x549dd2);
+                child.children[0].material.ior = 3;
+                child.children[0].material.transmission = 1;
+                child.children[0].material.opacity = 1;
             }
 
-            if(child.name ==="Computer_Screen"){
-                child.material = new THREE.MeshBasicMaterial({
+            if(child.name ==="Computer"){
+                child.children[1].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen,
                 });
             }
+
+            if(child.name === "Garden_Floor"){
+                child.position.x = -0.289521;
+                child.position.z = -8.835;
+            }
+
+            // Old Version
+            // if(child.name ==="Computer"){
+            //     child.material = new THREE.MeshBasicMaterial({
+            //         map: this.resources.items.screen,
+            //     });
+            // }
         })
 
         //Area Light Over the Fish Tank (vertical)
 
         const rectLight = new THREE.RectAreaLight( 0xffffff, 10, 3.5, 1);
-        rectLight.position.set( 6.9413, 4.5, 1.0311);
+        rectLight.position.set( 5.5, 4.5, 0.5311);
         rectLight.rotation.y =  -Math.PI / 4;
         this.actualRoom.add( rectLight )
 
@@ -84,7 +99,7 @@ export default class Room{
 
     setAnimation(){
         this.mixer =  new THREE.AnimationMixer(this.actualRoom);
-        this.swim = this.mixer.clipAction(this.room.animations[158]);
+        this.swim = this.mixer.clipAction(this.room.animations[1]);
         this.swim.play();
 
     }

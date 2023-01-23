@@ -45,8 +45,8 @@ export default class Camera{
         //Adjusts camera view for LERP rotation with mouse move 
         //Could also use lookAt origin, but just used rotation.x
         this.orthographicCamera.position.x = 0
-        this.orthographicCamera.position.y = 3.5;
-        this.orthographicCamera.position.z = 0;
+        this.orthographicCamera.position.y = -1.5;
+        this.orthographicCamera.position.z = -10;
         this.orthographicCamera.rotation.x = -Math.PI / 6;
         this.orthographicCamera.zoom = 0.25
 
@@ -70,12 +70,12 @@ export default class Camera{
         this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);       
         this.controls.enableZoom = true; 
         
-        this.controls.minAzimuthAngle = -1 * (Math.PI / 2.5)
-        this.controls.maxAzimuthAngle = Math.PI / 2.5
-        this.controls.minPolarAngle = Math.PI / 16
-        this.controls.maxPolarAngle = Math.PI
-        this.controls.minDistance = 15
-        this.controls.maxDistance = 300
+        // this.controls.minAzimuthAngle = -1 * (Math.PI / 2.5)
+        // this.controls.maxAzimuthAngle = Math.PI / 2.5
+        // this.controls.minPolarAngle = Math.PI / 16
+        // this.controls.maxPolarAngle = Math.PI
+        // this.controls.minDistance = 15
+        // this.controls.maxDistance = 300
         this.controls.enableDamping = true;
         this.controls.dampingFactor = .05
     }

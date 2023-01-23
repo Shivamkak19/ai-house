@@ -13,43 +13,198 @@ export default class Controls{
         this.camera = this.experience.camera;
         this.room = this.experience.world.room.actualRoom;
 
-        //Registers the GSAP plug in
-        GSAP.registerPlugin(ScrollTrigger);
-        
-        this.setPath();
-    }
-
-    setPath(){
-        //Creates animation for the room movement with ScrollTrigger
-
-        //Triggers are html elements (these serve as anchor points)
-        this.timeline = new GSAP.timeline();
-
-        //Consider scaling down the size of the model as you reduce window size as well
-        this.timeline.to(this.room.position, {
-            x: () =>{
-                return this.sizes.width * 0.0055;
-             }, 
-            scrollTrigger: {
-                trigger: ".first-move",
-                markers: true,
-                start: "top top", //marker location and activation location?
-                end: "bottom",
-                scrub: 0.8, //eases the scrub
-                invalidateOnRefresh: true,
+        this.room.children.forEach(child =>{
+            if(child.type==="RectAreaLight"){
+                this.rectLight = child;
             }
         })
 
-
-
-        //Automatic
-        // //Creates animation for the room movement
-        // this.timeline = new GSAP.timeline();
-        // this.timeline.to(this.room.position, {
-        //     x: 5,
-        //     duration: 20,
-        // })
+        //Registers the GSAP plug in
+        GSAP.registerPlugin(ScrollTrigger);
+        
+        this.setScrollTrigger();
     }
+
+    //matches the Media, has a different scroll Trigger based on size of the screen
+    //uses arrow function as opposed to function() {} from the docs, to retain access to local variables
+    setScrollTrigger(){
+        ScrollTrigger.matchMedia({
+	
+            //Desktop
+            "(min-width: 969px)": () => {
+
+                //Resets////////////////
+                this.room.scale.set(0.51, 0.51, 0.51);
+                this.rectLight.width = 3;
+                this.rectLight.height = 2;
+
+                //First section desktop/////////////////////////////////////////
+                this.firstMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".first-move",
+                        markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        invalidateOnRefresh: true,
+                    }
+                })
+
+                this.firstMoveTimeline.to(this.room.position, {
+                    x: () => {
+                        return this.sizes.width * 0.0059;
+                    }
+                })
+
+                //2nd section desktop//////////////////////////////////////////////
+                this.secondMoveTimeline = new GSAP.timeline({ 
+                    scrollTrigger: {
+                        trigger: ".second-move",
+                        markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 3,
+                        invalidateOnRefresh: true,
+                    }
+                })
+                .to(this.room.position, {
+                    x: () => {
+                        return this.sizes.width * -0.0029;
+                    },
+                    z: ()=>{
+                        return this.sizes.height * 0.002;
+                    },
+                },
+                "same" //makes position and scaling happen together
+                )                
+                .to(this.room.scale, {
+                    x: 1.2,
+                    y: 1.2,
+                    z: 1.2,
+                },
+                "same"
+                )     
+                .to(this.rectLight, {
+                    width: 8,
+                    height: 4,
+                    intensity: 10,
+                },
+                "same"
+                ) 
+                
+                //third section desktop//////////////////////////////////////////////////////
+                this.thirdMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".third-move",
+                        markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        invalidateOnRefresh: true,
+                    }
+                })
+                .to(this.camera.orthographicCamera.position, {
+                    x: -8.1,
+                    y: -10,
+                    }
+                )
+
+            },
+            
+            //Mobile/////////////////////////////////////////////////////////
+            "(max-width: 968px)": () => {
+
+                //Resets
+
+                this.room.scale.set(0.4, 0.4, 0.4)
+                this.room.position.set(0,0,0);
+                this.rectLight.width = 2;
+                this.rectLight.height = 1;
+
+                //First section mobile/////////////////////////////////////////
+                this.firstMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".first-move",
+                        markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        invalidateOnRefresh: true,
+                    }
+                })
+                .to(this.room.scale,{
+                    x: 0.5,
+                    y: 0.5,
+                    z: 0.5,
+                })
+
+                //2nd section mobile//////////////////////////////////////////////
+                this.secondMoveTimeline = new GSAP.timeline({ 
+                    scrollTrigger: {
+                        trigger: ".second-move",
+                        markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 3,
+                        invalidateOnRefresh: true,
+                    }
+                }).to(this.room.scale,{
+                    x: 0.5 * 2.5,
+                    y: 0.5 * 2.5,
+                    z: 0.5 * 2.5,
+                }, "same").to(this.rectLight, {
+                    width: 2 * 1.5,
+                    height: 1 * 1.5,
+                }, "same").to(this.room.position, {
+                    x: 5,
+                    y: 0,
+                }, "same")
+
+                //third section mobile//////////////////////////////////////////////////////
+
+                this.thirdMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".third-move",
+                        markers: true,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        invalidateOnRefresh: true,
+                    }
+                })
+            },
+          
+            //All - Animated GSAP for all media queries /////////////////////////////////
+            "all": () => {
+
+                //Mini platform animations
+                console.log(this.room.children);
+                this.thirdMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".third-move",
+                        markers: true,
+                        start: "center center",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        invalidateOnRefresh: true,
+                    }
+                })
+
+                this.room.children.forEach(child =>{
+                    if(child.name === "Garden_Floor"){
+                        GSAP.to(child.position, {
+                            x: -5.44055,
+                            z: 13.615,
+                            duration: 0.3
+                        })
+                    }
+                })
+
+            }
+          }); 
+    }
+
+
     resize(){
 
     }
@@ -58,6 +213,37 @@ export default class Controls{
 
     }
 }
+
+//Old setPath Function
+// setScrollTrigger(){
+//     //Creates animation for the room movement with ScrollTrigger
+
+//     //Triggers are html elements (these serve as anchor points)
+//     this.timeline = new GSAP.timeline();
+
+//     //Consider scaling down the size of the model as you reduce window size as well
+//     this.timeline.to(this.room.position, {
+//         x: () =>{
+//             return this.sizes.width * 0.0055;
+//          }, 
+//         scrollTrigger: {
+//             trigger: ".first-move",
+//             markers: true,
+//             start: "top top", //marker location and activation location?
+//             end: "bottom",
+//             scrub: 0.8, //eases the scrub
+//             invalidateOnRefresh: true,
+//         }
+//     })
+
+//     //Automatic
+//     // //Creates animation for the room movement
+//     // this.timeline = new GSAP.timeline();
+//     // this.timeline.to(this.room.position, {
+//     //     x: 5,
+//     //     duration: 20,
+//     // })
+// }
 
 /* Camera Customization
 

@@ -32,7 +32,8 @@ svg{
   /* Light Themed Variables */
 
   --color-text-light: rgb(47, 47, 47);
-  --color-background-light: #FAF4e5;
+  --color-background-light: rgba(250,244,229, .8);
+  /* --color-background-light: rgba(72, 72, 72, .8); */
   --color-pink-light: #e5a1aa;
   --color-green-light: #7AD0AC;
   --color-blue-light: #8395CD;
@@ -59,6 +60,7 @@ svg{
   --color-green: var(--color-text-dark);
   --color-blue: var(--color-text-dark);
 }
+
 
 
 /* Experience //////////////////////////////////////////// */
@@ -286,7 +288,7 @@ of the number in the container, even as the container moves relatively to the pa
 .hero-main{
   position: absolute;
   bottom: 128px; /* 168 original */
-  left: 210px;
+  left: 0;
   color: var(--color-text);
 
 }
@@ -321,3 +323,36 @@ of the number in the container, even as the container moves relatively to the pa
 
 }
 
+/* Other Colors Override */
+
+.blue-text{
+  color: var(--color-blue);
+}
+
+.blue-border{
+  border-color: var(--color-blue);
+}
+
+.blue-background{
+  background-color: var(--color-blue);
+}
+
+.green-text{
+  color: var(--color-green);
+}
+
+.green-border{
+  border-color: var(--color-green);
+}
+
+.green-background{
+  background-color: var(--color-green);
+}
+
+/* Media Queries, makes the site mobile responsive */ 
+
+@media (max-width: 968px){
+  .section{
+    width: 100%;
+  }
+}
