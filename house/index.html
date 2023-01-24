@@ -11,8 +11,21 @@
       <canvas id="canvas" class = ".experience-canvas"></canvas>
     </div>
 
+    <!-- Preloader //////////// -->
 
-    <div class="page">
+    <div class="preloader">
+      <div class="preloader-wrapper">
+        <div class="loading">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- /////////////////////////////////////// -->
+
+    <div class="page" asscroll-container>
 
       <div class="toggle-bar">
 
@@ -31,19 +44,28 @@
         </div>
       </div>
 
-      <div class="page-wrapper">
+      <!-- Must apply asscroll for the smooth scrolling -->
+      <div class="page-wrapper" asscroll> 
   
         <section class="hero">
           <div class="hero-wrapper">
 
+            <!-- Intro Materials ///////////////////// -->
+            <!-- Must set path fill to fill="currentColor" -->
+            <div class="arrow-svg-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 14.95q-.2 0-.375-.063-.175-.062-.325-.212L6.675 10.05q-.275-.275-.262-.688.012-.412.287-.687.275-.275.7-.275.425 0 .7.275l3.9 3.9 3.925-3.925q.275-.275.688-.263.412.013.687.288.275.275.275.7 0 .425-.275.7l-4.6 4.6q-.15.15-.325.212-.175.063-.375.063Z"/></svg>
+            </div>
+
+            <!-- //////////////////////////////// -->
+            <div class="intro-text">Welcome to AI @ Princeton</div>
             <div class="hero-main">
               <h1 class="hero-main-title">AI @ Princeton</h1>
               <p class="hero-main-description">Welcome to AI @ Princeton</p>
             </div>
 
             <div class="hero-second">
-              <!-- <p class="hero-second-subheading">AI Tiger Trek Information</p>
-              <p class="hero-second-description">Speaker's List</p> -->
+              <p class="hero-second-subheading first-sub">AI Tiger Trek Information</p>
+              <p class="hero-second-subheading second-sub">Speaker's List</p>
             </div>
 
           </div>
@@ -53,6 +75,11 @@
         <div class="first-move section-margin"></div>
 
           <section class="first-section section left">
+
+            <div class="progress-wrapper progress-bar-wrapper-left">
+              <div class="progress-bar"></div>
+            </div>
+
             <div class="section-intro-wrapper">
               <h1 class="section-title">
                 <span class="section-title-text">About </span>
@@ -78,9 +105,9 @@
 
           <section class="second-section section right">
 
-              <div class="progress-bar-wrapper-right">
-                <div class="right-progress-bar blue-background"></div>
-              </div>
+            <div class="progress-wrapper progress-bar-wrapper-right">
+              <div class="progress-bar blue-background"></div>
+            </div>
 
             <div class="section-intro-wrapper blue-text blue-border">
               <h1 class="section-title blue-text blue-border">
@@ -106,8 +133,8 @@
           <div class="third-move section-margin"></div>
 
           <section class="third-section section left">
-            <div class="progress-bar-wrapper-left">
-              <div class="left-progress-bar green-background"></div>
+            <div class="progress-wrapper progress-bar-wrapper-left">
+              <div class="progress-bar green-background"></div>
             </div>
 
             <div class="section-intro-wrapper green-text green-border">

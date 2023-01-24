@@ -11,6 +11,10 @@ html, body{
   color: var(--text-black);
 }
 
+/* body{
+  overflow: hidden;
+} */
+
 /* targets transitions for "all" attributes for each element type used. Customize transitions later if needed */
 /* match with transition in lights (Environment.js) with duration/delay in GSAP, if needed */
 
@@ -20,7 +24,7 @@ section,
 p,
 span,
 svg{
-  transition: all 5s;
+  /* transition: all 5s; */
   /* transition: background-color 0.5s, color 0.5s; // Use if "all" causes bugs with border-radius transition. I don't seem to have this problem, so will keep "all" for transitions for now */
 }
 
@@ -85,12 +89,77 @@ svg{
 .minecraft-subwrapper{
   color: #a06851;
 }
+
+/* Preloader ///////////////////////////////////////// */
+
+.hidden{
+  display: none;
+}
+
+.preloader{
+  background-color: var(--color-background-light);
+  width: 100%;
+  height: 100vh;
+  position: fixed; /* keeps loader page fixed on screen */
+  opacity: 1;
+  z-index: 9999999999999999999999;
+}
+
+.preloader-wrapper{
+  display: flex;
+  justify-content: center; /* keeps centered without using margins */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loading{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 6px; /* otherwise circles are too close */
+  background-color: var(--color-pink-light);
+  animation: load 1s ease-in-out infinite;
+}
+
+/* Pseudo selector: selects the n-th child of the class ".circle" (3 children) */
+/* Apply offset to each child of ".circle" to create wave effect */
+.circle:nth-child(2){
+  animation-delay: 0.1s;
+}
+.circle:nth-child(3){
+  animation-delay: 0.2s;
+}
+
+/* Must set keyframes for CSS animation. "load" is animation name, then set what the element does in this animation w/ keyframes*/
+@keyframes load {
+  0%{
+    transform: translateY(0);
+  }
+
+  20%{
+    transform: translateY(-12px);
+  }
+
+  40%{
+    transform: translateY(0);
+  }
+
+  /*If you use 0%, 20%, 40%, result is a continuous wave. 0%, 20%, 40% results in a stopping wave because keyframes reach completion at 40%, remain stagnant from 40% to 100% */
+}
+
 /* Main Page //////////////////////////////////////////// */
 
 .page{
-  z-index: 99999;
+  z-index: 999999;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -98,17 +167,62 @@ svg{
   position: relative;
 }
 
+/* Preloader Styles ///////////////////////////// */
+
+.animated{
+  display: inline-block; /* won't be able to move w/o this, default is "inline-element" */ 
+  transform: translateY(100%);
+}
+
+.intro-text{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-text);
+  transform: translate(-50%, -50%); /* the text, moves 50% of its height/width */
+}
+
+.arrow-svg-wrapper{
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  opacity: 0; /* Sets initial state, set to opacity: 1 at end of intro1 animation */
+  color: var(--color-text);
+  transform: translate(-50%, -50%);  
+  animation: bounce 0.5s ease-in alternate infinite; /* Animated arrow svg */
+}
+
+/* Sets keyframes for bounce animation with CSS only, no javascript */
+@keyframes bounce {
+  0%{
+    transform: translateY(0);
+  }
+
+  100%{
+    transform: translateY(8px);
+  }
+}
+
 /* Main Page //////////////////////////////////////////// */
 
 .toggle-bar{
   position: fixed;
   display: flex;
+
+  opacity: 0; /* Sets initial state, set to opacity: 1 at end of intro1 animation */
+
   flex-direction: row;
   justify-content: center;
   align-items: center;
   top: 48px;
   right: 48px;
-  z-index: 99999999999999;
+  z-index: 9999;
 }
 
 .sun-wrapper, 
@@ -168,19 +282,54 @@ svg{
 }
 
 .section{
+  position: relative;
   width: 50%;
   padding: 1000px 4%;
   margin: 0;
   background-color: var(--color-background);
+  overflow: hidden;
 }
 
 .left{
   margin-right: auto;
+  border-top-right-radius: 700px 700px;
+  border-bottom-right-radius: 0px 0px;
 }
 
 .right{
   margin-left: auto;
+  border-top-left-radius: 700px 700px;
+  border-bottom-left-radius: 0px 0px;
 }
+
+/* Progress  Bar //////////////////////////// */
+.progress-wrapper{
+  height: 0px;
+  width: 12px;
+  z-index: 9999;
+}
+
+.progress-bar-wrapper-left{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-bar-wrapper-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.progress-bar{
+  height: 100vh;
+  width: 100%;
+  background-color: var(--color-pink);
+  transform-origin: top center;
+  transform: scaleY(1);
+}
+
+/* Sections ///////////////////////////////*/
 
 .section-intro-wrapper{
   position: relative;
@@ -355,4 +504,29 @@ of the number in the container, even as the container moves relatively to the pa
   .section{
     width: 100%;
   }
+
+  .progress-bar-wrapper-left{
+    right: 0;
+    left: auto; /* overrides the left margin setting when shifted to mobile */ 
+  }
+
+  .hero-second{
+    top: 160px;
+  }
+  .hero-main{
+    bottom: 120px;
+  }
+  .hero-wrapper{
+    width: calc(100%- 60px);
+  }
+  .hero-main-title{
+    font-size: 32px;
+  }
+  .hero-main-description{
+    font-size: 18px;
+  }
+  .hero-second-subheading{
+    font-size: 18px;
+  }
+
 }

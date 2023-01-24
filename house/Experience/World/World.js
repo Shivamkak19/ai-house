@@ -4,9 +4,12 @@ import Environment from "./Environment"
 import Experience from "../Experience";
 import Floor from "./Floor";
 import * as THREE from "three"
+import { EventEmitter } from "events";
 
-export default class World{
+
+export default class World extends EventEmitter{
     constructor(){
+        super();
         this.experience = new Experience();
         this.sizes = this.experience.sizes;
         this.scene = this.experience.scene;
@@ -18,9 +21,10 @@ export default class World{
         //Creates world after receiving "ready" event
         this.resources.on("ready", ()=> {
             this.environment = new Environment();
-            this.room = new Room();
             this.floor = new Floor();
+            this.room = new Room();
             this.controls = new Controls();
+            this.emit("worldready");
         });
 
         //Switches theme after receiving event from button click

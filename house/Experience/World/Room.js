@@ -11,6 +11,7 @@ export default class Room{
         this.time = this.experience.time;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
+        this.roomChildren = {}; // Creates an empty object
 
         this.lerp = {
             current: 0,
@@ -28,10 +29,9 @@ export default class Room{
 
     setModel(){
 
-        console.log(this.room)
-
         //Adds shadows for each child of the model (each mesh)
         this.actualRoom.children.forEach(child=>{
+
             child.castShadow = true;
             child.receiveShadow = true;
 
@@ -59,10 +59,19 @@ export default class Room{
                 });
             }
 
+            //Setting the scale for animations
             if(child.name === "Garden_Floor"){
-                child.position.x = -0.289521;
-                child.position.z = -8.835;
+                child.position.x = 0.44;
+                child.position.z = 6.7;
             }
+
+            // if(child.name === "Mailbox" ||
+            //     child.name === "Lamp" ||
+            //     child.name === "Flower1" ||
+            //     child.name === "Flower2"        
+            // ){
+            //     child.scale.set(0,0,0);
+            // }
 
             // Old Version
             // if(child.name ==="Computer"){
@@ -70,14 +79,37 @@ export default class Room{
             //         map: this.resources.items.screen,
             //     });
             // }
+
+            child.scale.set(0, 0, 0);
+
+            if(child.name ==="cubicle"){
+                // child.scale.set(1, 1, 1);
+                child.position.set(0, -1.5, 0)
+                child.rotation.y = Math.PI / 4;
+            }
+
+            //Converts child name to lower case, assigns it to roomChildren object
+            this.roomChildren[child.name.toLowerCase()] = child;
         })
 
         //Area Light Over the Fish Tank (vertical)
 
-        const rectLight = new THREE.RectAreaLight( 0xffffff, 10, 3.5, 1);
-        rectLight.position.set( 5.5, 4.5, 0.5311);
-        rectLight.rotation.y =  -Math.PI / 4;
+        const width = 0.5;
+        const height = 0.7;
+        const intensity = 1;
+        const rectLight = new THREE.RectAreaLight(
+            0xffffff,
+            intensity,
+            width,
+            height
+        );        
+        rectLight.position.set(7.68244, 7, 0.5);
+        rectLight.rotation.x = -Math.PI / 2;
+        rectLight.rotation.z = Math.PI / 4;        
         this.actualRoom.add( rectLight )
+
+        this.roomChildren["rectLight"] = rectLight;
+
 
         //Horizontal Light
         // const width = 2.5;
@@ -93,7 +125,7 @@ export default class Room{
         // rectLight.add( rectLightHelper );
 
         this.scene.add(this.actualRoom);
-        this.actualRoom.scale.set(0.51, 0.51, 0.51)
+        this.actualRoom.scale.set(0.11, 0.11, 0.11)
         this.actualRoom.rotation.y = 0;
     }
 

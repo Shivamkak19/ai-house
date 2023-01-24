@@ -24,7 +24,7 @@ export default class Environment{
         this.gui.addColor(this.obj, "colorObj").onChange(() =>{
             this.sunLight.color.copy(this.obj.colorObj);
             this.ambientLight.color.copy(this.obj.colorObj)
-            console.log(this.obj.colorObj)
+            // console.log(this.obj.colorObj)
         });
 
         this.gui.add(this.obj, "intensity", 0, 10).onChange(() =>{
@@ -63,7 +63,7 @@ export default class Environment{
 
     //Animates the lights using GSAP, on receiving "switch" event from button click
     switchTheme(theme){
-        console.log(this.sunLight)
+        // console.log(this.sunLight)
         if(theme === "dark"){
             //Dark mode color
             GSAP.to(this.sunLight.color, {
