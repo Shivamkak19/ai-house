@@ -56,15 +56,15 @@ function generatePlane(){
 planeMesh.geometry.attributes.position.randomValues = randomValues
 planeMesh.geometry.attributes.position.originalPosition = planeMesh.geometry.attributes.position.array
 
-const colors = []
+const color = []
 for (let i = 0; i < planeMesh.geometry.attributes.position.count; i++){
-  colors.push(0.188,0.188,0.188)
+  color.push(0.188,0.188,0.188)
 }
 
 planeMesh.geometry.setAttribute(
   'color', 
   new THREE.BufferAttribute(
-    new Float32Array(colors), 3)
+    new Float32Array(color), 3)
 )  
   }
 

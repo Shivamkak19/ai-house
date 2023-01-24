@@ -6,6 +6,9 @@ import Time from "./Utils/Time"
 import World from "./World/World"
 import Resources from "./Utils/Resources"
 import assets from "./Utils/assets"
+import Theme from "./Theme"
+import Preloader from "./Preloader"
+import Controls from "./World/Controls"
 
 export default class Experience{
 
@@ -22,8 +25,15 @@ export default class Experience{
         this.sizes = new Sizes();
         this.camera = new Camera();
         this.resources = new Resources(assets); //assets is parameter for Resources constructor
+        this.theme = new Theme();
         this.world = new World();
+        this.preloader = new Preloader();
         this.renderer = new Renderer();
+
+        this.preloader.on("enablecontrols", ()=>{
+            console.log("yeee bruh")
+            this.controls = new Controls();
+        })
 
         //On Update function - on Event Emitters
         this.sizes.on("resize", ()=>{
@@ -31,7 +41,6 @@ export default class Experience{
         })
         this.time.on("update", ()=>{
             this.update();
-
         })
     }
 
@@ -43,6 +52,7 @@ export default class Experience{
     }
 
     update(){
+        this.preloader.update();
         this.camera.update();
         this.world.update();
         this.renderer.update();
