@@ -359,7 +359,6 @@ export default class Preloader extends EventEmitter{
 
     onScroll(e){
         if(e.deltaY > 0){
-            console.log("yo")
             this.removeEventListeners();
             this.playIntro2();
         }
