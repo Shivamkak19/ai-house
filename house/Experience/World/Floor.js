@@ -168,7 +168,6 @@ export default class Floor{
       const material2 = new THREE.MeshStandardMaterial( { color: 0xFF6C00 } );
       const material3 = new THREE.MeshStandardMaterial( { color: 0x0074FF } );
 
-      console.log()
 
       // material1.
       this.circle1 = new THREE.Mesh( geometry, material1 );
@@ -202,8 +201,6 @@ export default class Floor{
       this.circle1.material.opacity = 0.3;
       this.circle2.material.opacity = 0.4;
       this.circle3.material.opacity = 0.4;
-
-      console.log(this.circle1.material.opacity)
 
       this.scene.add(this.circle1);
       this.scene.add(this.circle2);
