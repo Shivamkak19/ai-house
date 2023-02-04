@@ -33,7 +33,6 @@ export default class Controls{
             this.setSmoothScroll();
             this.setScrollTrigger();
             document.querySelector(".page").style.overflow = "visible";
-            console.log("yooooo bruh")
         })
 
 
@@ -71,7 +70,7 @@ export default class Controls{
                     height: window.innerHeight,
                 };
             },
-            fixedMarkers: true,
+            fixedMarkers: false,
         });
 
         asscroll.on("update", ScrollTrigger.update);
@@ -101,14 +100,14 @@ export default class Controls{
                 this.room.scale.set(0.11, 0.11, 0.11);
                 this.rectLight.width = 0.5;
                 this.rectLight.height = 0.7;
-                // this.camera.orthographicCamera.position.set(0, 6.5, 10);
+                this.camera.orthographicCamera.position.set(0, 6.5, 10);
                 this.room.position.set(0, 0, 0);
 
                 //First section desktop/////////////////////////////////////////
                 this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".first-move",
-                        markers: true,
+                        markers: false,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 4,
@@ -126,7 +125,7 @@ export default class Controls{
                 this.secondMoveTimeline = new GSAP.timeline({ 
                     scrollTrigger: {
                         trigger: ".second-move",
-                        markers: true,
+                        markers: false,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 3,
@@ -157,12 +156,58 @@ export default class Controls{
                 },
                 "same"
                 ) 
+
+                //4th section desktop//////////////////////////////////////////////
+                this.secondMoveTimeline = new GSAP.timeline({ 
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        markers: false,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 5,
+                        invalidateOnRefresh: true,
+                    }
+                })
+    
+                .to(this.room.scale, {
+                    x: 0.3,
+                    y: 0.3,
+                    z: 0.3,
+                    duration: 2,
+
+                }, "same")    
+                .to(this.camera.orthographicCamera.position, {
+                    x: 1,
+                    y: 8,
+                    duration: 2,
+
+                }, "same") 
+
+                //5th section desktop//////////////////////////////////////////////
+                this.secondMoveTimeline = new GSAP.timeline({ 
+                    scrollTrigger: {
+                        trigger: ".fifth-move",
+                        markers: false,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 5,
+                        invalidateOnRefresh: true,
+                    }
+                })
+
+                .to(this.camera.orthographicCamera.position, {
+                    x: 6,
+                    y: 6.5,
+                }, "same") 
+                .to(this.camera.orthographicCamera.rotation, {
+                    y: 0.3,
+                }, "same") 
                 
                 //third section desktop//////////////////////////////////////////////////////
                 this.thirdMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".third-move",
-                        markers: true,
+                        markers: false,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 5,
@@ -170,10 +215,16 @@ export default class Controls{
                     }
                 })
                 .to(this.camera.orthographicCamera.position, {
-                    x: -2.1,
-                    y: 2,
-                    }
+                    x: 1,
+                    y: 5,
+                    }, "same"
                 )
+                .to(this.camera.orthographicCamera.rotation, {
+                    y: 0.2,
+                }, "same") 
+ 
+
+
 
             },
             
@@ -192,7 +243,7 @@ export default class Controls{
                 this.firstMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".first-move",
-                        markers: true,
+                        markers: false,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 2,
@@ -209,7 +260,7 @@ export default class Controls{
                 this.secondMoveTimeline = new GSAP.timeline({ 
                     scrollTrigger: {
                         trigger: ".second-move",
-                        markers: true,
+                        markers: false,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 3,
@@ -232,7 +283,7 @@ export default class Controls{
                 this.thirdMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".third-move",
-                        markers: true,
+                        markers: false,
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 2,
@@ -241,6 +292,40 @@ export default class Controls{
                 }).to(this.room.position, {
                     z: -4.5,
                 })
+
+                //fourth section mobile//////////////////////////////////////////////////////
+
+                this.thirdMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        markers: false,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        invalidateOnRefresh: true,
+                    }
+                }).to(this.room.position, {
+                    z: 0,
+                })
+
+                //fifth section mobile//////////////////////////////////////////////////////
+
+                this.thirdMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fifth-move",
+                        markers: false,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 2,
+                        invalidateOnRefresh: true,
+                    }
+                }).to(this.room.scale, {
+                    x: 0.35,
+                    y: 0.35,
+                    z: 0.35,
+                }, "same").to(this.room.position, {
+                    z: 2,
+                }, "same")
             },
           
             //All - Animated GSAP for all media queries /////////////////////////////////
@@ -314,7 +399,7 @@ export default class Controls{
                                 this.firstMoveTimeline = new GSAP.timeline({
                                     scrollTrigger: {
                                         trigger: ".first-move",
-                                        markers: true,
+                                        markers: false,
                                         start: "top top",
                                         end: "bottom bottom",
                                         scrub: 4,
@@ -331,17 +416,25 @@ export default class Controls{
                                 this.secondMoveTimeline = new GSAP.timeline({ 
                                     scrollTrigger: {
                                         trigger: ".second-move",
-                                        markers: true,
+                                        markers: false,
                                         start: "top top",
                                         end: "bottom bottom",
                                         scrub: 3,
                                         invalidateOnRefresh: true,
                                     }
-                                }).to(this.circle2.scale, {
+                                })
+                                .to(this.circle2.scale, {
                                     x: 3, 
                                     y: 3,
                                     z: 3,
-                                }, "same").to(this.room.position, {
+                                }, "same")
+                                .to(this.circle1.scale, {
+                                    x: 0, 
+                                    y: 0,
+                                    z: 0,
+                                }, "same")
+                                
+                                .to(this.room.position, {
                                     y: 0.7,
                                 }, "same")
                                 
@@ -349,7 +442,7 @@ export default class Controls{
                                 this.thirdMoveTimeline = new GSAP.timeline({
                                     scrollTrigger: {
                                         trigger: ".third-move",
-                                        markers: true,
+                                        markers: false,
                                         start: "top top",
                                         end: "bottom bottom",
                                         scrub: 5,
@@ -367,7 +460,7 @@ export default class Controls{
                 this.secondPartTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".third-move",
-                        markers: true,
+                        markers: false,
                         start: "center center",
                         end: "bottom bottom",
                         scrub: 5,
@@ -465,7 +558,7 @@ export default class Controls{
 //          }, 
 //         scrollTrigger: {
 //             trigger: ".first-move",
-//             markers: true,
+//             markers: false,
 //             start: "top top", //marker location and activation location?
 //             end: "bottom",
 //             scrub: 0.8, //eases the scrub

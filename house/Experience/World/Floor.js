@@ -39,12 +39,13 @@ export default class Floor{
         this.plane.position.x = 0; 
         this.plane.position.y = 0; 
         this.plane.position.z = -20; 
+        this.plane.visible = true; // Will set to true with GSAP
         this.plane.receiveShadow = true; //not working
     }
 
     generatePlane(){
       this.plane.geometry.dispose()
-      this.plane.geometry = new THREE.PlaneGeometry(400, 400, 50,50);
+      this.plane.geometry = new THREE.PlaneGeometry(400, 400, 100, 75);
     
       const {array} = this.plane.geometry.attributes.position
       const randomValues = []
@@ -69,9 +70,10 @@ export default class Floor{
     
     const colors = []
     for (let i = 0; i < this.plane.geometry.attributes.position.count; i++){
-      colors.push(0.1,0.1,0.1)
+      colors.push(0.1,0.1,1)
     }
-    
+    //set to (0.1, 0.1, 1) for purple
+
     this.plane.geometry.setAttribute(
       'color', 
       new THREE.BufferAttribute(
@@ -94,8 +96,8 @@ export default class Floor{
       const {array, originalPosition, randomValues} = this.plane.geometry.attributes.position
       for(let i = 0; i < array.length; i+= 3){
     
-        array[i] = originalPosition[i] + Math.cos(this.frame + randomValues[i]) * 0.01
-        array[i + 1] = originalPosition[i + 1] + Math.sin(this.frame + randomValues[i + 1]) * 0.01
+        array[i] = originalPosition[i] + Math.cos(this.frame + randomValues[i]) * 0.005
+        array[i + 1] = originalPosition[i + 1] + Math.sin(this.frame + randomValues[i + 1]) * 0.005
       }
     
       this.plane.geometry.attributes.position.needsUpdate = true
@@ -162,9 +164,13 @@ export default class Floor{
 
     setCircles(){
       const geometry = new THREE.CircleGeometry( 5, 64);
-      const material1 = new THREE.MeshStandardMaterial( { color: 0xe5a1aa } );
-      const material2 = new THREE.MeshStandardMaterial( { color: 0x8395CD } );
-      const material3 = new THREE.MeshStandardMaterial( { color: 0x7AD0AC } );
+      const material1 = new THREE.MeshStandardMaterial( { color: 0x040404 } );
+      const material2 = new THREE.MeshStandardMaterial( { color: 0xFF6C00 } );
+      const material3 = new THREE.MeshStandardMaterial( { color: 0x0074FF } );
+
+      console.log()
+
+      // material1.
       this.circle1 = new THREE.Mesh( geometry, material1 );
       this.circle2 = new THREE.Mesh( geometry, material2 );
       this.circle3 = new THREE.Mesh( geometry, material3 );
@@ -188,6 +194,16 @@ export default class Floor{
       this.circle1.receiveShadow = true;
       this.circle2.receiveShadow = true;
       this.circle3.receiveShadow = true;
+
+      this.circle1.material.transparent = true;
+      this.circle2.material.transparent = true;
+      this.circle3.material.transparent = true;
+
+      this.circle1.material.opacity = 0.3;
+      this.circle2.material.opacity = 0.4;
+      this.circle3.material.opacity = 0.4;
+
+      console.log(this.circle1.material.opacity)
 
       this.scene.add(this.circle1);
       this.scene.add(this.circle2);
