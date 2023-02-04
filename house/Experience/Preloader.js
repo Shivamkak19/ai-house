@@ -16,11 +16,15 @@ export default class Preloader extends EventEmitter{
         this.world = this.experience.world;
         this.device = this.sizes.device;
 
+
         this.sizes.on("switchdevice", (device) => {
             this.device = device;
         })
 
         this.world.on("worldready", ()=>{
+
+            this.floor = this.experience.world.floor;
+
             this.setAssets();
             this.playIntro();
         })
@@ -75,7 +79,7 @@ export default class Preloader extends EventEmitter{
                     x: -1,
                     ease: "power1.out",
                     duration: 1,
-                    onComplete: resolve,
+                    // onComplete: resolve,
                 })
             }
     
@@ -91,7 +95,7 @@ export default class Preloader extends EventEmitter{
                     z: -1,
                     ease: "power1.out",
                     duration: 0.7,
-                    onComplete: resolve,
+                    // onComplete: resolve,
 
                 })
             }
@@ -104,15 +108,19 @@ export default class Preloader extends EventEmitter{
             })
             .to(".arrow-svg-wrapper", {
                 opacity: 1,
+                onComplete: resolve,
             }, ">-0.5")
             
-            .to(".toggle-bar", {
-                opacity: 1,
-                onComplete: resolve,
-            }, ">-0.3")
+
+            // .to(this.floor.plane, {
+            //     visible: true,
+            //     ease: 0.8,
+            //     scrub: true,
+            //     duration: 30,
+            //     onComplete: resolve,
+            // })
 
         })
-
     }
 
     intro2(){
@@ -167,15 +175,7 @@ export default class Preloader extends EventEmitter{
                 x: 1, 
                 y: 1,
                 z: 1,
-            })
-
-            .to(this.roomChildren.fish_tank.scale, {
-                x: 1,
-                y: 1,
-                z: 1,
-                ease: "back.out.(2.2)",
-                duration: 0.5,
-            })
+            }, ">0.3")
             
             .to(this.roomChildren.cubicle.scale, {
                 x: 0,
@@ -209,13 +209,23 @@ export default class Preloader extends EventEmitter{
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
-            }, ">-0.5").to(this.roomChildren.stool.scale, {
+            }).to(this.roomChildren.stool.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
-            }, ">-0.4").to(this.roomChildren.clock.scale, {
+            })
+            
+            .to(this.roomChildren.fish_tank.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+                ease: "back.out.(2.2)",
+                duration: 0.5,
+            })
+
+            .to(this.roomChildren.clock.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
@@ -227,37 +237,77 @@ export default class Preloader extends EventEmitter{
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
-            }, ">-0.2").to(this.roomChildren.computer.scale, {
+            }, ">-0.2")
+
+            .to(this.roomChildren.cos126.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
-            }, ">-0.1").to(this.roomChildren.fish.scale, {
+            }, ">-0.2")
+            
+            .to(this.roomChildren.computer.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+                ease: "back.out.(2.2)",
+                duration: 0.5,
+            }, ">-0.2")
+
+            .to(this.roomChildren.cos226.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+                ease: "back.out.(2.2)",
+                duration: 0.5,
+            }, ">-0.2")
+            
+            .to(this.roomChildren.smallprinceton.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+                ease: "back.out.(2.2)",
+                duration: 0.5,
+            }, ">-0.2")
+            
+            .to(this.roomChildren.fish.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(1.2)",
                 duration: 0.5,
-            }, ">-0.1").to(this.roomChildren.rectLight.scale, {
+            }, ">-0.2").to(this.roomChildren.rectLight.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
-            }).to(this.roomChildren.shelf_1.scale, {
+            }, ">-0.2").to(this.roomChildren.shelf_1.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
-            }).to(this.roomChildren.shelf_2.scale, {
+            }, ">-0.2")
+            
+            .to(this.roomChildren.shelf_2.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
-            }).to(this.roomChildren.chair.scale, {
+            }, ">-0.2")
+
+            .to(this.roomChildren.cos.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+                ease: "back.out.(2.2)",
+                duration: 0.5,
+            }, ">-0.2")
+            
+            .to(this.roomChildren.chair.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
@@ -287,8 +337,22 @@ export default class Preloader extends EventEmitter{
                 z: 1,
                 ease: "back.out.(2.2)",
                 duration: 0.5,
+            })
+
+            .to("#logoID", {
+                opacity: 1,
+            })
+
+            .to(".toggle-bar", {
+                opacity: 1,
+            }, ">-0.1")
+
+            .to(".navContainer", {
+                opacity: 1,
                 onComplete: resolve,
             })
+
+
             
         })
     }

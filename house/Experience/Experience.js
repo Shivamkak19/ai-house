@@ -9,6 +9,7 @@ import assets from "./Utils/assets"
 import Theme from "./Theme"
 import Preloader from "./Preloader"
 import Controls from "./World/Controls"
+import Navbar from "./World/Navbar"
 
 export default class Experience{
 
@@ -30,8 +31,11 @@ export default class Experience{
         this.preloader = new Preloader();
         this.renderer = new Renderer();
 
+        // this.navbar = new Navbar();
+
+
         this.preloader.on("enablecontrols", ()=>{
-            console.log("yeee bruh")
+            // console.log("yeee bruh")
             this.controls = new Controls();
         })
 
@@ -42,6 +46,7 @@ export default class Experience{
         this.time.on("update", ()=>{
             this.update();
         })
+        
     }
 
     //functions

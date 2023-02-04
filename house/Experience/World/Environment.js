@@ -72,9 +72,9 @@ export default class Environment{
                 b: 120 / 255,
             });
             GSAP.to(this.ambientLight.color, {
-                r: 58 / 255, 
-                g: 71/ 255, 
-                b: 120 / 255,
+                r: 34 / 255, 
+                g: 25/ 255, 
+                b: 119 / 255,
             });
 
             //Dark Mode intensity

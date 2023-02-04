@@ -1,14 +1,52 @@
 /* import from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* General Blueprint Style */
+
+@font-face {
+	font-family: 'bpicons';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../fonts/bpicons/bpicons.eot');
+	src: url('../fonts/bpicons/bpicons.eot?#iefix') format('embedded-opentype'), url('../fonts/bpicons/bpicons.woff') format('woff'), url('../fonts/bpicons/bpicons.ttf') format('truetype'), url('../fonts/bpicons/bpicons.svg#bpicons') format('svg');
+}
+
 *{
   margin:0;
   padding: 0;
   box-sizing: border-box;
 }
 
+.hidden2{
+  overflow: hidden;
+}
+
+.highZ{
+  z-index: 99999999999999999999999999999;
+}
+
+.positionFix{
+  position: fixed;
+}
+
+.cancel{
+  display: none;
+}
+
+.no-interaction {
+ pointer-events: none;
+ overflow: hidden;
+}
+
+.hidden-section {
+  display: block;
+}
+
+
 html, body{
   font-family: "Montserrat", sans-serif;
   color: var(--text-black);
+  scroll-behavior: smooth;
 }
 
 /* body{
@@ -25,46 +63,190 @@ p,
 span,
 svg{
   /* transition: all 5s; */
-  /* transition: background-color 0.5s, color 0.5s; // Use if "all" causes bugs with border-radius transition. I don't seem to have this problem, so will keep "all" for transitions for now */
+  transition: background-color 5s, color 2s; /* Use if "all" causes bugs with border-radius transition. I don't seem to have this problem, so will keep "all" for transitions for now */
 }
 
 :root{
   --text-black: rgb(47, 47, 47);
   --primary-color: #faf4e5;
-  --color-pink: #e5a1aa;
+  --color-orange1: #e5a1aa;
 
   /* Light Themed Variables */
 
   --color-text-light: rgb(47, 47, 47);
-  --color-background-light: rgba(250,244,229, .8);
+  --color-background-light: rgba(250,244,229, 0.4);
   /* --color-background-light: rgba(72, 72, 72, .8); */
-  --color-pink-light: #e5a1aa;
-  --color-green-light: #7AD0AC;
-  --color-blue-light: #8395CD;
+  --color-orange1-light: #FCB908;
+  --color-orange2-light: #FCB908;
+  --color-blue-light: #099BE4;
 
   /* Dark Themed Variables */
   --color-text-dark: #FAF4e5;
-  --color-background-dark: #8395CD;
+  --color-background-dark: #1f2024;
 
 }
 
 .light-theme{
   --color-text: var(--color-text-light);
   --color-background: var(--color-background-light);
-  --color-pink: var(--color-pink-light);
-  --color-green: var(--color-green-light);
+  --color-orange1: var(--color-orange1-light);
+  --color-orange2: var(--color-orange2-light);
   --color-blue: var(--color-blue-light);
+
+  --color-button: var(--primary-color);
+  --color-header: var(--color-background-dark);
+  --color-navText: var(--color-text-dark);
+
 }
 
 .dark-theme{
   /* All color texts are set to the same color in dark mode */
   --color-text: var(--color-text-dark);
   --color-background: var(--color-background-dark);
-  --color-pink: var(--color-text-dark);
-  --color-green: var(--color-text-dark);
+  --color-orange1: var(--color-text-dark);
+  --color-orange2: var(--color-text-dark);
   --color-blue: var(--color-text-dark);
+
+  --color-button: var(--color-background-dark);
+  --color-header: var(--color-background-light);
+  --color-navText: var(--color-text-light);
 }
 
+/* Navbar ////////////////////////////////////////////*/
+
+
+.navContainer{
+  opacity: 0;
+  position: absolute;
+  height: 13vh;
+  width: 100%;
+  z-index: 99;
+  background-color: var(--color-header);
+}
+
+#logoID{
+  opacity: 0;
+  width: 16vw;
+  transition: transform 1s ease-in-out;
+}
+
+#logoID:hover {
+  transform: scale(1.03);
+}
+
+
+.logo-wrapper{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  z-index: 9999;
+  top: -5vh;
+  left: 3vw;
+}
+
+
+.navbar{
+  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  position: relative;
+  display: flex;
+
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 6vh;
+  right: 48px;
+  z-index: 100;
+}
+
+.nav-link{
+padding-left: 5vw;
+color: var(--color-text);
+
+}
+
+.page-link{
+  position: relative;
+  color: var(--color-navText);
+  font-size: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+	letter-spacing: 3px;
+  transition: color 0.5s ease-in-out;
+}  
+
+.page-link:after {
+  content: "";
+  position: absolute;
+  bottom: -0.6em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  height: 1.5px;
+  background-color: var(--color-navText);
+  transition: width 1.5s ease-in-out;
+}
+
+.page-link:hover {
+  color: var(--color-orange1-light);
+}
+
+.page-link:hover:after {
+  width: 60%;
+}
+
+.page-link:active {
+  color: rgba(var(--color-navText), 0.1);
+}
+
+.footer{
+  position: absolute;
+  bottom: 0px;
+  height: 7vh;
+  width: 100%;
+  z-index: 99;
+  background-color: #FCB908;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+
+  
+  }
+  
+  /* Try 2 //////////// */
+/* 
+  .container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .main-nav{
+
+  }
+
+  .main-nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .main-nav ul li{
+    float: left;
+    margin-left: 15px;
+  }
+
+  .main-nav ul li a{
+    text-decoration: none;
+  } */
 
 
 /* Experience //////////////////////////////////////////// */
@@ -97,7 +279,7 @@ svg{
 }
 
 .preloader{
-  background-color: var(--color-background-light);
+  background-color: var(--color-background-dark);
   width: 100%;
   height: 100vh;
   position: fixed; /* keeps loader page fixed on screen */
@@ -124,7 +306,7 @@ svg{
   height: 10px;
   border-radius: 50%;
   margin: 6px; /* otherwise circles are too close */
-  background-color: var(--color-pink-light);
+  background-color: var(--color-orange1-light);
   animation: load 1s ease-in-out infinite;
 }
 
@@ -220,8 +402,8 @@ svg{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  top: 48px;
-  right: 48px;
+  top: 6vh;
+  right: 10.5vw;
   z-index: 9999;
 }
 
@@ -231,7 +413,7 @@ svg{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: var(--color-text);
+  color: var(--color-navText);
   /* Must set <path fill = "currentColor" ........></path> in html for svg to accept colors */
 
 }
@@ -244,7 +426,7 @@ svg{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-pink);
+  background-color: var(--color-orange1);
   border-radius: 999px;
   margin: 0px 16px; /* 0 px top/bottom, 16px left/right */
   border: none;
@@ -258,7 +440,7 @@ svg{
   border-radius: 50%; /* makes circle shape */
   width: 20px;
   height: 20px;
-  background-color: var(--color-background);
+  background-color: var(--color-button);
   transition: all 0.2s ease-in-out /* animates changes to the div, can use anywhere */
   
 }
@@ -277,14 +459,18 @@ svg{
 /* Section Formatting //////////////////////////////////////////// */
 
 .section-margin{
-  height: 300px;
+  height: 100px;
   width: 100%;
 }
 
 .section{
   position: relative;
   width: 50%;
-  padding: 1000px 4%;
+  /* padding: 200px 4%; */
+  padding-top: 2vh;
+  padding-bottom: 400px;
+  padding-right: 10vw;
+  padding-left: 5vw;
   margin: 0;
   background-color: var(--color-background);
   overflow: hidden;
@@ -300,6 +486,19 @@ svg{
   margin-left: auto;
   border-top-left-radius: 700px 700px;
   border-bottom-left-radius: 0px 0px;
+}
+
+.third-section{
+  position: relative;
+  width: 50%;
+  /* padding: 200px 4%; */
+  padding-top: 2vh;
+  padding-bottom: 200px;
+  padding-right: 10vw;
+  padding-left: 5vw;
+  margin: 0;
+  background-color: var(--color-background);
+  overflow: hidden;
 }
 
 /* Progress  Bar //////////////////////////// */
@@ -324,7 +523,7 @@ svg{
 .progress-bar{
   height: 100vh;
   width: 100%;
-  background-color: var(--color-pink);
+  background-color: var(--color-orange1);
   transform-origin: top center;
   transform: scaleY(1);
 }
@@ -334,13 +533,13 @@ svg{
 .section-intro-wrapper{
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--color-pink);
-  padding-bottom: 400px;
+  border-bottom: 2px solid var(--color-orange1);
+  padding-bottom: 4vh;
 }
 
 .section-detail-wrapper{
   position: relative;
-  padding: 20% 5%;
+  padding: 1% 5%;
 
 }
 
@@ -348,7 +547,7 @@ svg{
   font-size: 18px;
   font-weight: 700;
   line-height: 1.8;
-  margin-top: 64px;
+  margin-top: 4vh;
   color: var(--color-text);
 
 }
@@ -365,7 +564,7 @@ svg{
 
 .section-title{
   position: relative;
-  color: var(--color-pink)
+  color: var(--color-orange1)
 }
 
 .section-title-text{
@@ -376,7 +575,7 @@ svg{
   transform: skewY(25deg); /* Skews span about the newly set origin point for rotated effect */
   z-index: 5;
   text-transform: uppercase;
-  color: var(--color-pink);
+  color: var(--color-orange1);
 
 }
 
@@ -388,7 +587,7 @@ svg{
   width: 100%;
   max-width: 278px;
   height: 60px;
-  border: 1px solid var(--color-pink);
+  border: 1px solid var(--color-orange1);
   transform-origin: left; 
   transform: skewY(-25deg); 
 }
@@ -404,7 +603,7 @@ svg{
 .styleThree{
   top: 80px;
   transform: skewY(25deg);
-  background-color: var(--color-pink)
+  background-color: var(--color-orange1)
 }
 
 /* By setting the position absolute, the number is locked to the parent container. 
@@ -415,7 +614,7 @@ of the number in the container, even as the container moves relatively to the pa
   position: absolute;
   bottom: 15px;
   right: 0;
-  color: var(--color-pink);
+  color: var(--color-orange1);
   font-size: 24px;
 }
 
@@ -436,8 +635,8 @@ of the number in the container, even as the container moves relatively to the pa
 
 .hero-main{
   position: absolute;
-  bottom: 128px; /* 168 original */
-  left: 0;
+  bottom: 130px; /* 168 original */
+  left: 13vw;
   color: var(--color-text);
 
 }
@@ -452,6 +651,13 @@ of the number in the container, even as the container moves relatively to the pa
 
 .hero-main-title{
   font-size: 90px;
+  color: var(--color-text);
+  text-align: center;
+
+}
+
+.hero-main-title-sub{
+  font-size: 5em;
   color: var(--color-text);
   text-align: center;
 
@@ -472,6 +678,8 @@ of the number in the container, even as the container moves relatively to the pa
 
 }
 
+
+
 /* Other Colors Override */
 
 .blue-text{
@@ -486,16 +694,16 @@ of the number in the container, even as the container moves relatively to the pa
   background-color: var(--color-blue);
 }
 
-.green-text{
-  color: var(--color-green);
+.orange2-text{
+  color: var(--color-orange2);
 }
 
-.green-border{
-  border-color: var(--color-green);
+.orange2-border{
+  border-color: var(--color-orange2);
 }
 
-.green-background{
-  background-color: var(--color-green);
+.orange2-background{
+  background-color: var(--color-orange2);
 }
 
 /* Media Queries, makes the site mobile responsive */ 
@@ -529,4 +737,57 @@ of the number in the container, even as the container moves relatively to the pa
     font-size: 18px;
   }
 
+  /* //////////////// */
+
+  .navContainer{
+    opacity: 0;
+    position: fixed;
+    height: 18vh;
+    width: 100%;
+    z-index: 99;
+    background-color: var(--color-header);
+  }
+
+  #logoID{
+    width: 175px;
+    transition: transform 1s ease-in-out;
+  }
+
+  #logoID:hover {
+    transform: scale(1.03);
+  }
+
+  .logo-wrapper{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    z-index: 9999;
+    top: 7vh;
+    left: 10vw;
+  }
+
+  .toggle-bar{
+    position: fixed;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: 14vh;
+    right: 10.5vw;
+    z-index: 9999;
+  }
+
+  .page-link{
+    position: relative;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+  } 
+
+  
+    /* //////////////// */
+
+
 }
+

@@ -22,6 +22,7 @@ export default class Room{
         this.setModel();
         this.onMouseMove();
         this.setAnimation();
+
         
 
     }
@@ -44,7 +45,7 @@ export default class Room{
 
             //Set materials of individual objects by Name ID from Blender
             //Consider simulating an environment map here
-            if(child.name ==="Fish_Tank"){
+            if(child.name ==="fish_tank"){
                 child.children[0].material = new THREE.MeshPhysicalMaterial();
                 child.children[0].material.roughness = 0;
                 child.children[0].material.color.set(0x549dd2);
