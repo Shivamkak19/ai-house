@@ -215,13 +215,14 @@ export default class Controls{
                     }
                 })
                 .to(this.camera.orthographicCamera.position, {
-                    x: -2.1,
-                    y: 2,
-                    }
+                    x: 1,
+                    y: 5,
+                    }, "same"
                 )
                 .to(this.camera.orthographicCamera.rotation, {
-                    y: 0.0,
+                    y: 0.2,
                 }, "same") 
+ 
 
 
 
