@@ -1,4 +1,4 @@
-import Experience from "../Experience"
+import Experience from "../Experience/Experience"
 import * as THREE from "three"
 import GSAP from "gsap"
 

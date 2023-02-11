@@ -1,6 +1,6 @@
 import './style.css'
 import Experience from "./Experience/Experience"
-import Transition from './navbar/js/transition'
+// import Transition from './navbar/js/transition'
 
 // const transition = new Transition();
 
