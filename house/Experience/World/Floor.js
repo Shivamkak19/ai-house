@@ -25,6 +25,8 @@ export default class Floor{
 
         this.setFloor();
         this.setCircles();
+
+
         this.onMouseMove();
         this.generatePlane();
 
@@ -70,7 +72,7 @@ export default class Floor{
     
     const colors = []
     for (let i = 0; i < this.plane.geometry.attributes.position.count; i++){
-      colors.push(0.1,0.1,1)
+      colors.push(242 /255, 185/255, 18 /255)
     }
     //set to (0.1, 0.1, 1) for purple
 
@@ -88,6 +90,7 @@ export default class Floor{
       }) 
 
     }
+
 
     animate(){
       this.raycaster.setFromCamera(this.mouse, this.camera.orthographicCamera)
@@ -166,7 +169,7 @@ export default class Floor{
       const geometry = new THREE.CircleGeometry( 5, 64);
       const material1 = new THREE.MeshStandardMaterial( { color: 0x040404 } );
       const material2 = new THREE.MeshStandardMaterial( { color: 0xFF6C00 } );
-      const material3 = new THREE.MeshStandardMaterial( { color: 0x0074FF } );
+      const material3 = new THREE.MeshStandardMaterial( { color: 0xFF2500 } );
 
 
       // material1.

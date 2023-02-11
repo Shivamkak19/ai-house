@@ -117,7 +117,7 @@ svg{
 
 .navContainer{
   opacity: 0;
-  position: absolute;
+  position: fixed;
   height: 13vh;
   width: 100%;
   z-index: 99;
@@ -127,7 +127,7 @@ svg{
 #logoID{
   opacity: 0;
   width: 16vw;
-  transition: transform 1s ease-in-out;
+  transition: transform .5s ease-in-out;
 }
 
 #logoID:hover {
@@ -186,7 +186,7 @@ color: var(--color-text);
   width: 0%;
   height: 1.5px;
   background-color: var(--color-navText);
-  transition: width 1.5s ease-in-out;
+  transition: width .4s ease-in-out;
 }
 
 .page-link:hover {
@@ -539,7 +539,7 @@ color: var(--color-text);
 .progress-wrapper{
   height: 0px;
   width: 12px;
-  z-index: 9999;
+  z-index: 98;
 }
 
 .progress-bar-wrapper-left{

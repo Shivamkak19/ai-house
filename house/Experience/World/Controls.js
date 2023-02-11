@@ -30,7 +30,7 @@ export default class Controls{
         //Added because the overflow: hidden wasn't working
         this.preloader = this.experience.preloader;
         this.preloader.on("enablecontrols", ()=>{
-            this.setSmoothScroll();
+            // this.setSmoothScroll();
             this.setScrollTrigger();
             document.querySelector(".page").style.overflow = "visible";
         })
@@ -44,7 +44,7 @@ export default class Controls{
     setupASScroll() {
         // https://github.com/ashthornton/asscroll
         const asscroll = new ASScroll({
-            ease: 0.1,
+            ease: 0.075,
             disableRaf: true,
         });
 
@@ -110,16 +110,23 @@ export default class Controls{
                         markers: false,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 4,
+                        scrub: 1.5,
                         invalidateOnRefresh: true,
                     }
                 })
 
-                this.firstMoveTimeline.to(this.room.position, {
-                    x: () => {
+                .fromTo(this.room.position, {x: 0}, 
+                    {x: () => {
                         return this.sizes.width * 0.0014;
-                    }
-                })
+                    }, 
+                    duration: 1})
+
+
+                // this.firstMoveTimeline.to(this.room.position, {
+                //     x: () => {
+                //         return this.sizes.width * 0.0014;
+                //     }
+                // })
 
                 //2nd section desktop//////////////////////////////////////////////
                 this.secondMoveTimeline = new GSAP.timeline({ 
@@ -128,10 +135,27 @@ export default class Controls{
                         markers: false,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 3,
+                        scrub: 1.5,
                         invalidateOnRefresh: true,
                     }
                 })
+
+                // .fromTo(this.room.position, 
+                //     {x: () => {
+                //     return this.sizes.width * 0.0014;
+                //     },
+                //     z: 0}, 
+
+                //     {x: () => {
+                //         return 1;
+                //     }, 
+                //     z: ()=>{
+                //         return this.sizes.height * 0.0032;
+                //     },
+                //     duration: 1})
+
+     
+
                 .to(this.room.position, {
                     x: () => {
                         return 1;
@@ -141,7 +165,15 @@ export default class Controls{
                     },
                 },
                 "same" //makes position and scaling happen together
-                )                
+                )    
+                
+                // .fromTo(this.room.scale, {x: 0.11, y: 0.11, z: 0.11}, 
+                //     {x: 0.4, y: 0.4, z: 0.4, duration: 1}, "same")
+
+
+                // .fromTo(this.rectLight, {width: 0.5, height: 0.7, intensity: 7}, 
+                //     {width: 0.5 *4, height: 0.7 *4, intensity: 10, duration: 1}, "same")           
+                
                 .to(this.room.scale, {
                     x: 0.4,
                     y: 0.4,
@@ -164,22 +196,29 @@ export default class Controls{
                         markers: false,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 5,
+                        scrub: 1.5,
                         invalidateOnRefresh: true,
                     }
                 })
+
+                // .fromTo(this.room.scale, {x: 0.4, y: 0.4, z: 0.4}, 
+                //     {x: 0.3, y: 0.3, z: 0.3, duration: 1}, "same2")
+
+
+                // .fromTo(this.camera.orthographicCamera.position, {x: 0, y: 6.5}, 
+                //     {x: 1, y: 8, duration: 1}, "same2")           
     
                 .to(this.room.scale, {
                     x: 0.3,
                     y: 0.3,
                     z: 0.3,
-                    duration: 2,
+                    duration: 0.5,
 
                 }, "same")    
                 .to(this.camera.orthographicCamera.position, {
                     x: 1,
                     y: 8,
-                    duration: 2,
+                    duration: 0.5,
 
                 }, "same") 
 
@@ -190,17 +229,24 @@ export default class Controls{
                         markers: false,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 5,
+                        scrub: 1.5,
                         invalidateOnRefresh: true,
                     }
                 })
 
+                // .fromTo(this.camera.orthographicCamera.position, {y: 8}, 
+                //     {y: 6.5, duration: 1}, "same3")   
+
+                // .fromTo(this.room.rotation, {y: 0}, 
+                //     {y: Math.PI / 2, duration: 1}, "same3")
+
+
                 .to(this.camera.orthographicCamera.position, {
-                    x: 6,
+                    x: 1,
                     y: 6.5,
                 }, "same") 
-                .to(this.camera.orthographicCamera.rotation, {
-                    y: 0.3,
+                .to(this.room.rotation, {
+                    y: Math.PI / 2,
                 }, "same") 
                 
                 //third section desktop//////////////////////////////////////////////////////
@@ -210,17 +256,33 @@ export default class Controls{
                         markers: false,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 5,
+                        scrub: 1.5,
                         invalidateOnRefresh: true,
                     }
                 })
+
+                // .fromTo(this.camera.orthographicCamera.position, {x: 1, y: 6.5}, 
+                //     {x: -1.25, y: 6, duration: 1}, "same4")   
+
+                // .fromTo(this.room.rotation, {y: Math.PI / 2}, 
+                //     {y: 0, duration: 1}, "same4")
+
+                // .fromTo(this.room.scale, {x: 0.3, y: 0.3, z: 0.3}, 
+                // {x: 0.16, y: 0.16, z: 0.16, duration: 1}, "same4")
+
                 .to(this.camera.orthographicCamera.position, {
-                    x: 1,
-                    y: 5,
+                    x: -1.25,
+                    y: 6,
                     }, "same"
                 )
-                .to(this.camera.orthographicCamera.rotation, {
-                    y: 0.2,
+                .to(this.room.rotation, {
+                    y: 0,
+                }, "same") 
+
+                .to(this.room.scale, {
+                    x: 0.16,
+                    y: 0.16,
+                    z: 0.16,
                 }, "same") 
  
 
@@ -384,9 +446,9 @@ export default class Controls{
                         scaleY: 0,
                         scrollTrigger: {
                             trigger: section,
-                            start: "top top",
-                            end: "bottom bottom",
-                            scrub: 0.4,
+                            start: "+=100",
+                            end: "+=500",
+                            scrub: 0.8,
                             pin: this.progressWrapper,
                             pinSpacing: false,
                         }
@@ -461,8 +523,8 @@ export default class Controls{
                     scrollTrigger: {
                         trigger: ".third-move",
                         markers: false,
-                        start: "center center",
-                        end: "bottom bottom",
+                        start: "-=175",
+                        end: "+=1000",
                         scrub: 5,
                         invalidateOnRefresh: true,
                     }

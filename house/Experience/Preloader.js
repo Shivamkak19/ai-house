@@ -175,7 +175,7 @@ export default class Preloader extends EventEmitter{
                 x: 1, 
                 y: 1,
                 z: 1,
-            }, ">0.3")
+            }, ">0.4")
             
             .to(this.roomChildren.cubicle.scale, {
                 x: 0,
@@ -201,20 +201,20 @@ export default class Preloader extends EventEmitter{
                 stagger: 0.07, 
                 ease: "back.out(1.7)",               
         ///////////////////////////////////////////////////////////////////
-        //">-0.3" tags play the animations earlier, to make the animation more fluid
+        //">-0.4" tags play the animations earlier, to make the animation more fluid
         
             }, "introText").to(this.roomChildren.table_base.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
+                duration: 0.4,
             }).to(this.roomChildren.stool.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
+                duration: 0.4,
             })
             
             .to(this.roomChildren.fish_tank.scale, {
@@ -222,89 +222,89 @@ export default class Preloader extends EventEmitter{
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            })
+                duration: 0.4,
+            }, ">-0.5")
 
             .to(this.roomChildren.clock.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.3").to(this.roomChildren.desk_content.scale, {
+                duration: 0.4,
+            }, ">-0.325").to(this.roomChildren.desk_content.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2")
+                duration: 0.4,
+            }, ">-0.3125")
 
             .to(this.roomChildren.cos126.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2")
+                duration: 0.4,
+            }, ">-0.3")
             
             .to(this.roomChildren.computer.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2")
+                duration: 0.4,
+            }, ">-0.2875")
 
             .to(this.roomChildren.cos226.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2")
+                duration: 0.4,
+            }, ">-0.275")
             
             .to(this.roomChildren.smallprinceton.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2")
+                duration: 0.4,
+            }, ">-0.2625")
             
             .to(this.roomChildren.fish.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(1.2)",
-                duration: 0.5,
-            }, ">-0.2").to(this.roomChildren.rectLight.scale, {
+                duration: 0.4,
+            }, ">-0.25").to(this.roomChildren.rectLight.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2").to(this.roomChildren.shelf_1.scale, {
+                duration: 0.4,
+            }, ">-0.2375").to(this.roomChildren.shelf_1.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2")
+                duration: 0.4,
+            }, ">-0.2250")
             
             .to(this.roomChildren.shelf_2.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            }, ">-0.2")
+                duration: 0.4,
+            }, ">-0.2125")
 
             .to(this.roomChildren.cos.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
+                duration: 0.4,
             }, ">-0.2")
             
             .to(this.roomChildren.chair.scale, {
@@ -312,7 +312,7 @@ export default class Preloader extends EventEmitter{
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
+                duration: 0.4,
             }, "chair").to(this.roomChildren.chair.rotation, {
                 y: 4 * Math.PI + Math.PI / 4,
                 ease: "power2.out",
@@ -322,7 +322,7 @@ export default class Preloader extends EventEmitter{
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
+                duration: 0.4,
             }, "chair")
             
             //Last arrow-svg animation after room animation is complete ////////////////////////////
@@ -336,21 +336,21 @@ export default class Preloader extends EventEmitter{
                 y: 1,
                 z: 1,
                 ease: "back.out.(2.2)",
-                duration: 0.5,
-            })
+                duration: 0.4,
+            }, "chair")
 
             .to("#logoID", {
                 opacity: 1,
-            })
+            }, "chair")
 
             .to(".toggle-bar", {
                 opacity: 1,
-            }, ">-0.1")
+            }, "chair")
 
             .to(".navContainer", {
                 opacity: 1,
                 onComplete: resolve,
-            })
+            }, "chair")
 
 
             
