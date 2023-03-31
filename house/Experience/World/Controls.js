@@ -2,7 +2,8 @@ import Experience from "../Experience"
 import * as THREE from "three"
 import GSAP from "gsap"
 import {ScrollTrigger} from "gsap/ScrollTrigger"
-import ASScroll from '@ashthornton/asscroll'
+// import Scrollbar from 'smooth-scrollbar';
+
 
 export default class Controls{
     constructor(){
@@ -21,8 +22,8 @@ export default class Controls{
         })
 
         this.circle1 = this.experience.world.floor.circle1;
-        this.circle2 = this.experience.world.floor.circle2;
-        this.circle3 = this.experience.world.floor.circle3;
+        // this.circle2 = this.experience.world.floor.circle2;
+        // this.circle3 = this.experience.world.floor.circle3;
 
         //Registers the GSAP plug in
         GSAP.registerPlugin(ScrollTrigger);        
@@ -41,54 +42,10 @@ export default class Controls{
     //matches the Media, has a different scroll Trigger based on size of the screen
     //uses arrow function as opposed to function() {} from the docs, to retain access to local variables
 
-    setupASScroll() {
-        // https://github.com/ashthornton/asscroll
-        const asscroll = new ASScroll({
-            ease: 0.075,
-            disableRaf: true,
-        });
-
-        GSAP.ticker.add(asscroll.update);
-
-        ScrollTrigger.defaults({
-            scroller: asscroll.containerElement,
-        });
-
-        ScrollTrigger.scrollerProxy(asscroll.containerElement, {
-            scrollTop(value) {
-                if (arguments.length) {
-                    asscroll.currentPos = value;
-                    return;
-                }
-                return asscroll.currentPos;
-            },
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                };
-            },
-            fixedMarkers: false,
-        });
-
-        asscroll.on("update", ScrollTrigger.update);
-        ScrollTrigger.addEventListener("refresh", asscroll.resize);
-
-        requestAnimationFrame(() => {
-            asscroll.enable({
-                newScrollElements: document.querySelectorAll(
-                    ".gsap-marker-start, .gsap-marker-end, [asscroll]"
-                ),
-            });
-        });
-        return asscroll;
-    }
-
-    setSmoothScroll(){
-        this.asscroll = this.setupASScroll();
-    }
+    // setSmoothScroll(){
+    //     Scrollbar.init(document.querySelector('#my-scrollbar'));
+    //     Scrollbar.initAll()
+    // }
 
     setScrollTrigger(){
         ScrollTrigger.matchMedia({
@@ -474,122 +431,6 @@ export default class Controls{
                                 })
                 
                 
-                                //2nd section desktop//////////////////////////////////////////////
-                                this.secondMoveTimeline = new GSAP.timeline({ 
-                                    scrollTrigger: {
-                                        trigger: ".second-move",
-                                        markers: false,
-                                        start: "top top",
-                                        end: "bottom bottom",
-                                        scrub: 3,
-                                        invalidateOnRefresh: true,
-                                    }
-                                })
-                                .to(this.circle2.scale, {
-                                    x: 3, 
-                                    y: 3,
-                                    z: 3,
-                                }, "same")
-                                .to(this.circle1.scale, {
-                                    x: 0, 
-                                    y: 0,
-                                    z: 0,
-                                }, "same")
-                                
-                                .to(this.room.position, {
-                                    y: 0.7,
-                                }, "same")
-                                
-                                //third section desktop//////////////////////////////////////////////////////
-                                this.thirdMoveTimeline = new GSAP.timeline({
-                                    scrollTrigger: {
-                                        trigger: ".third-move",
-                                        markers: false,
-                                        start: "top top",
-                                        end: "bottom bottom",
-                                        scrub: 5,
-                                        invalidateOnRefresh: true,
-                                    }
-                                }).to(this.circle3.scale, {
-                                    x: 3, 
-                                    y: 3,
-                                    z: 3,
-                                })
-                
-
-                //Mini platform animations/////////////////////////////////////////////////////////
-                // console.log(this.room.children);
-                this.secondPartTimeline = new GSAP.timeline({
-                    scrollTrigger: {
-                        trigger: ".third-move",
-                        markers: false,
-                        start: "-=175",
-                        end: "+=1000",
-                        scrub: 5,
-                        invalidateOnRefresh: true,
-                    }
-                })
-
-                this.room.children.forEach((child) =>{
-                    if(child.name === "Garden_Floor"){
-                        this.first = GSAP.to(child.position, {
-                            x: -2.08961 ,
-                            z: 9.284,
-                            ease: "back.out(2)",
-                            duration: 0.3
-                        })
-                    }
-                })
-
-                this.room.children.forEach((child) =>{
-                    if(child.name === "Mailbox"){
-                        this.second = GSAP.to(child.scale, {
-                            x: 1 ,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(2)",
-                            duration: 0.3
-                        })
-                    }
-                })
-                this.room.children.forEach((child) =>{
-                    if(child.name === "Lamp"){
-                        this.third = GSAP.to(child.scale, {
-                            x: 1 ,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(2)",
-                            duration: 0.3
-                        })
-                    }
-                })
-                this.room.children.forEach((child) =>{
-                    if(child.name === "Flower1"){
-                        this.fourth = GSAP.to(child.scale, {
-                            x: 1 ,
-                            y: 1,
-                            z: 1,
-                            ease: "back.out(2)",
-                            duration: 0.3
-                        })
-                    }
-                })
-                this.room.children.forEach((child) =>{
-                    if(child.name === "Flower2"){
-                        this.fifth = GSAP.to(child.scale, {
-                            x: 1 ,
-                            y: 1,
-                            z: 1,
-                            duration: 0.3
-                        })
-                    }
-                })
-
-                this.secondPartTimeline.add(this.first, "+=0.2");
-                this.secondPartTimeline.add(this.second, "+=0.2");
-                this.secondPartTimeline.add(this.third, "+=0.2");
-                this.secondPartTimeline.add(this.fourth, "+=0.2");
-                this.secondPartTimeline.add(this.fifth, "+=0.2");
             }
           }); 
 
