@@ -9,7 +9,6 @@ import assets from "./Utils/assets"
 import Theme from "./Theme"
 import Preloader from "./Preloader"
 import Controls from "./World/Controls"
-import Navbar from "./World/Navbar"
 
 export default class Experience{
 
