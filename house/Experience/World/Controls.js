@@ -3,6 +3,8 @@ import * as THREE from "three"
 import GSAP from "gsap"
 import {ScrollTrigger} from "gsap/ScrollTrigger"
 import ASScroll from '@ashthornton/asscroll'
+import Scrollbar from 'smooth-scrollbar';
+
 
 
 export default class Controls{
@@ -31,12 +33,32 @@ export default class Controls{
         //Added because the overflow: hidden wasn't working
         this.preloader = this.experience.preloader;
         this.preloader.on("enablecontrols", ()=>{
-            // this.setSmoothScroll();
+            this.setSmoothScroll();
             this.setScrollTrigger();
             document.querySelector(".page").style.overflow = "visible";
         })
 
 
+    }
+
+    setOtherScroll(){
+        const scroller = document.querySelector('.scroller');
+
+const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.1, delegateTo: document, alwaysShowTracks: true });
+
+ScrollTrigger.scrollerProxy(".scroller", {
+  scrollTop(value) {
+    if (arguments.length) {
+      bodyScrollBar.scrollTop = value;
+    }
+    return bodyScrollBar.scrollTop;
+  }
+});
+
+bodyScrollBar.addListener(ScrollTrigger.update);
+
+ScrollTrigger.defaults({ scroller: scroller });
+console.log("operation");
     }
 
     setupASScroll() {
@@ -60,7 +82,7 @@ export default class Controls{
                 return asscroll.currentPos;
             },
             getBoundingClientRect() {
-                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
+                return { top: 100, left: 100, width: window.innerWidth, height: window.innerHeight }
             },
             fixedMarkers: true
         });
@@ -77,7 +99,7 @@ export default class Controls{
     }
 
     setSmoothScroll(){
-        this.asscroll = this.setupASScroll();
+        this.asscroll = this.setOtherScroll();
     }
     
     setScrollTrigger(){
