@@ -31,7 +31,7 @@ export default class Controls{
         //Added because the overflow: hidden wasn't working
         this.preloader = this.experience.preloader;
         this.preloader.on("enablecontrols", ()=>{
-            this.setSmoothScroll();
+            // this.setSmoothScroll();
             this.setScrollTrigger();
             document.querySelector(".page").style.overflow = "visible";
         })
