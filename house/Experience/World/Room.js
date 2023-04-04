@@ -28,6 +28,8 @@ export default class Room{
     }
 
 
+
+
     setModel(){
 
         //Adds shadows for each child of the model (each mesh)
@@ -141,9 +143,12 @@ export default class Room{
         window.addEventListener("mousemove", (e) => {
             //normalizes the rotation value from -1 to 1, think (x + y / 2 vs. x - y / 2)
             this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
+            this.scale =  ((e.clientY - window.innerHeight / 2) * 2) / window.innerHeight;
 
             //For up/down rotation, target clientY as well
             this.lerp.target = this.rotation * .1;
+            this.lerp.target2 = this.scale * .1;
+
         })
     }
 
@@ -155,6 +160,10 @@ export default class Room{
 
         this.lerp.current = GSAP.utils.interpolate(this.lerp.current, this.lerp.target, this.lerp.ease);
         this.actualRoom.rotation.y = this.lerp.current;
+
+        // this.lerp.current2 = GSAP.utils.interpolate(this.lerp.current2, this.lerp.target2, this.lerp.ease);
+        
+        console.log(this.actualRoom.scale);
 
         //Control speed of animation
         this.mixer.update(this.time.delta * 0.0009);

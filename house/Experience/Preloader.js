@@ -27,6 +27,7 @@ export default class Preloader extends EventEmitter{
 
             this.setAssets();
             this.playIntro();
+
         })
     }
 
@@ -360,7 +361,7 @@ export default class Preloader extends EventEmitter{
     onScroll(e){
         if(e.deltaY > 0){
             this.removeEventListeners();
-            this.playIntro2();
+            // this.playIntro2();
         }
     }
 
@@ -393,6 +394,9 @@ export default class Preloader extends EventEmitter{
         await this.intro1();
         this.moveFlag = true;
 
+        this.playIntro2();
+        console.log("hit 1")
+
         //onScroll cannot remove itself, so establish a pointer
         this.scrollOnceEvent = this.onScroll.bind(this);
         this.touchStart = this.onTouch.bind(this);
@@ -402,9 +406,17 @@ export default class Preloader extends EventEmitter{
         window.addEventListener("wheel", this.scrollOnceEvent);
         window.addEventListener("touchstart", this.touchStart);
         window.addEventListener("touchmove", this.touchMove);
+
+        
     }
 
     async playIntro2(){
+
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+
+        await delay(1000);
+        console.log("hit 2")
+
         this.moveFlag = false;
         this.scaleFlag = true;
         await this.intro2();

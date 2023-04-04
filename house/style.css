@@ -76,7 +76,7 @@ svg{
   /* Light Themed Variables */
 
   --color-text-light: rgb(47, 47, 47);
-  --color-background-light: rgba(250,244,229, 0.6);
+  --color-background-light: rgba(250,244,229, 0.9);
   /* --color-background-light: rgba(72, 72, 72, .8); */
   --color-orange1-light: #FCB908;
   --color-orange2-light: #FCB908;

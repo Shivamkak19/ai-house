@@ -2,7 +2,7 @@ import Experience from "../Experience"
 import * as THREE from "three"
 import GSAP from "gsap"
 import {ScrollTrigger} from "gsap/ScrollTrigger"
-// import Scrollbar from 'smooth-scrollbar';
+import ASScroll from '@ashthornton/asscroll'
 
 
 export default class Controls{
@@ -31,7 +31,7 @@ export default class Controls{
         //Added because the overflow: hidden wasn't working
         this.preloader = this.experience.preloader;
         this.preloader.on("enablecontrols", ()=>{
-            // this.setSmoothScroll();
+            this.setSmoothScroll();
             this.setScrollTrigger();
             document.querySelector(".page").style.overflow = "visible";
         })
@@ -39,51 +39,73 @@ export default class Controls{
 
     }
 
-    //matches the Media, has a different scroll Trigger based on size of the screen
-    //uses arrow function as opposed to function() {} from the docs, to retain access to local variables
+    setupASScroll() {
+        // https://github.com/ashthornton/asscroll
+        const asscroll = new ASScroll({
+            disableRaf: true
+        });
+    
+        GSAP.ticker.add(asscroll.update);
+    
+        ScrollTrigger.defaults({
+            scroller: asscroll.containerElement
+        });
+    
+        ScrollTrigger.scrollerProxy(asscroll.containerElement, {
+            scrollTop(value) {
+                if (arguments.length) {
+                    asscroll.currentPos = value;
+                    return;
+                }
+                return asscroll.currentPos;
+            },
+            getBoundingClientRect() {
+                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
+            },
+            fixedMarkers: true
+        });
+    
+        asscroll.on("update", ScrollTrigger.update);
+        ScrollTrigger.addEventListener("refresh", asscroll.resize);
+        
+        requestAnimationFrame(() => {
+           asscroll.enable({
+                newScrollElements: document.querySelectorAll(".gsap-marker-start, .gsap-marker-end, [asscroll]")
+            }); 
+        });
+        return asscroll;
+    }
 
-    // setSmoothScroll(){
-    //     Scrollbar.init(document.querySelector('#my-scrollbar'));
-    //     Scrollbar.initAll()
-    // }
-
+    setSmoothScroll(){
+        this.asscroll = this.setupASScroll();
+    }
+    
     setScrollTrigger(){
+
         ScrollTrigger.matchMedia({
-	
-            //Desktop
             "(min-width: 969px)": () => {
 
                 //Resets////////////////
-                this.room.scale.set(0.11, 0.11, 0.11);
-                this.rectLight.width = 0.5;
-                this.rectLight.height = 0.7;
                 this.camera.orthographicCamera.position.set(0, 6.5, 10);
-                this.room.position.set(0, 0, 0);
 
                 //First section desktop/////////////////////////////////////////
-                this.firstMoveTimeline = new GSAP.timeline({
+                this.firstMoveTimeline = new GSAP.timeline({ 
                     scrollTrigger: {
                         trigger: ".first-move",
                         markers: false,
                         start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1.5,
+                        end: "+=250",
+                        scrub: 1,
                         invalidateOnRefresh: true,
                     }
                 })
 
-                .fromTo(this.room.position, {x: 0}, 
-                    {x: () => {
-                        return this.sizes.width * 0.0014;
-                    }, 
-                    duration: 1})
+                .to(this.camera.orthographicCamera.position, {
+                    x: -2,
+                    y: 6.5,
+                    z: 10,
+                }) 
 
-
-                // this.firstMoveTimeline.to(this.room.position, {
-                //     x: () => {
-                //         return this.sizes.width * 0.0014;
-                //     }
-                // })
 
                 //2nd section desktop//////////////////////////////////////////////
                 this.secondMoveTimeline = new GSAP.timeline({ 
@@ -91,157 +113,73 @@ export default class Controls{
                         trigger: ".second-move",
                         markers: false,
                         start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1.5,
+                        end: "+=250",
+                        scrub: 1,
                         invalidateOnRefresh: true,
                     }
                 })
-
-                // .fromTo(this.room.position, 
-                //     {x: () => {
-                //     return this.sizes.width * 0.0014;
-                //     },
-                //     z: 0}, 
-
-                //     {x: () => {
-                //         return 1;
-                //     }, 
-                //     z: ()=>{
-                //         return this.sizes.height * 0.0032;
-                //     },
-                //     duration: 1})
-
-     
-
-                .to(this.room.position, {
-                    x: () => {
-                        return 1;
-                    },
-                    z: ()=>{
-                        return this.sizes.height * 0.0032;
-                    },
-                },
-                "same" //makes position and scaling happen together
-                )    
-                
-                // .fromTo(this.room.scale, {x: 0.11, y: 0.11, z: 0.11}, 
-                //     {x: 0.4, y: 0.4, z: 0.4, duration: 1}, "same")
-
-
-                // .fromTo(this.rectLight, {width: 0.5, height: 0.7, intensity: 7}, 
-                //     {width: 0.5 *4, height: 0.7 *4, intensity: 10, duration: 1}, "same")           
-                
-                .to(this.room.scale, {
-                    x: 0.4,
-                    y: 0.4,
-                    z: 0.4,
-                },
-                "same"
-                )     
-                .to(this.rectLight, {
-                    width: 0.5 * 4,
-                    height: 0.7 * 4,
-                    intensity: 10,
-                },
-                "same"
-                ) 
-
-                //4th section desktop//////////////////////////////////////////////
-                this.secondMoveTimeline = new GSAP.timeline({ 
-                    scrollTrigger: {
-                        trigger: ".fourth-move",
-                        markers: false,
-                        start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1.5,
-                        invalidateOnRefresh: true,
-                    }
-                })
-
-                // .fromTo(this.room.scale, {x: 0.4, y: 0.4, z: 0.4}, 
-                //     {x: 0.3, y: 0.3, z: 0.3, duration: 1}, "same2")
-
-
-                // .fromTo(this.camera.orthographicCamera.position, {x: 0, y: 6.5}, 
-                //     {x: 1, y: 8, duration: 1}, "same2")           
-    
-                .to(this.room.scale, {
-                    x: 0.3,
-                    y: 0.3,
-                    z: 0.3,
-                    duration: 0.5,
-
-                }, "same")    
-                .to(this.camera.orthographicCamera.position, {
-                    x: 1,
-                    y: 8,
-                    duration: 0.5,
-
-                }, "same") 
-
-                //5th section desktop//////////////////////////////////////////////
-                this.secondMoveTimeline = new GSAP.timeline({ 
-                    scrollTrigger: {
-                        trigger: ".fifth-move",
-                        markers: false,
-                        start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1.5,
-                        invalidateOnRefresh: true,
-                    }
-                })
-
-                // .fromTo(this.camera.orthographicCamera.position, {y: 8}, 
-                //     {y: 6.5, duration: 1}, "same3")   
-
-                // .fromTo(this.room.rotation, {y: 0}, 
-                //     {y: Math.PI / 2, duration: 1}, "same3")
-
 
                 .to(this.camera.orthographicCamera.position, {
-                    x: 1,
+                    x: 2,
                     y: 6.5,
-                }, "same") 
-                .to(this.room.rotation, {
-                    y: Math.PI / 2,
-                }, "same") 
-                
-                //third section desktop//////////////////////////////////////////////////////
-                this.thirdMoveTimeline = new GSAP.timeline({
+                    z: 10,
+                }) 
+
+
+                //3rd section desktop//////////////////////////////////////////////
+                this.thirdMoveTimeline = new GSAP.timeline({ 
                     scrollTrigger: {
                         trigger: ".third-move",
                         markers: false,
                         start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1.5,
+                        end: "+=250",
+                        scrub: 1,
                         invalidateOnRefresh: true,
                     }
                 })
 
-                // .fromTo(this.camera.orthographicCamera.position, {x: 1, y: 6.5}, 
-                //     {x: -1.25, y: 6, duration: 1}, "same4")   
+                .to(this.camera.orthographicCamera.position, {
+                    x: -2,
+                    y: 6.5,
+                    z: 10,
+                }) 
 
-                // .fromTo(this.room.rotation, {y: Math.PI / 2}, 
-                //     {y: 0, duration: 1}, "same4")
-
-                // .fromTo(this.room.scale, {x: 0.3, y: 0.3, z: 0.3}, 
-                // {x: 0.16, y: 0.16, z: 0.16, duration: 1}, "same4")
+                //4th section desktop//////////////////////////////////////////////
+                this.fourthMoveTimeline = new GSAP.timeline({ 
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        markers: false,
+                        start: "top top",
+                        end: "+=250",
+                        scrub: 1,
+                        invalidateOnRefresh: true,
+                    }
+                })
 
                 .to(this.camera.orthographicCamera.position, {
-                    x: -1.25,
-                    y: 6,
-                    }, "same"
-                )
-                .to(this.room.rotation, {
-                    y: 0,
-                }, "same") 
+                    x: 2,
+                    y: 6.5,
+                    z: 10,
+                }) 
 
-                .to(this.room.scale, {
-                    x: 0.16,
-                    y: 0.16,
-                    z: 0.16,
-                }, "same") 
- 
+                
+                //5th section desktop//////////////////////////////////////////////////////
+                this.fifthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fifth-move",
+                        markers: false,
+                        start: "top top",
+                        end: "+=250",
+                        scrub: 1,
+                        invalidateOnRefresh: true,
+                    }
+                })
+
+                .to(this.camera.orthographicCamera.position, {
+                    x: -2,
+                    y: 6.5,
+                    z: 10,
+                }) 
 
 
 
@@ -251,12 +189,7 @@ export default class Controls{
             "(max-width: 968px)": () => {
 
                 //Resets
-
-                this.room.scale.set(0.07, 0.07, 0.07)
                 this.room.position.set(0,0,0);
-                this.rectLight.width = 0.3;
-                this.rectLight.height = 0.4;
-                this.camera.orthographicCamera.position.set(0, 6.5, 10);
 
                 //First section mobile/////////////////////////////////////////
                 this.firstMoveTimeline = new GSAP.timeline({
@@ -314,7 +247,7 @@ export default class Controls{
 
                 //fourth section mobile//////////////////////////////////////////////////////
 
-                this.thirdMoveTimeline = new GSAP.timeline({
+                this.fourthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".fourth-move",
                         markers: false,
@@ -329,7 +262,7 @@ export default class Controls{
 
                 //fifth section mobile//////////////////////////////////////////////////////
 
-                this.thirdMoveTimeline = new GSAP.timeline({
+                this.fifthMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".fifth-move",
                         markers: false,
@@ -412,30 +345,17 @@ export default class Controls{
                     })
                 })
 
-                //Circle Animations//////////////////////////////////////////////
-
-                                //First section desktop/////////////////////////////////////////
-                                this.firstMoveTimeline = new GSAP.timeline({
-                                    scrollTrigger: {
-                                        trigger: ".first-move",
-                                        markers: false,
-                                        start: "top top",
-                                        end: "bottom bottom",
-                                        scrub: 4,
-                                        invalidateOnRefresh: true,
-                                    }
-                                }).to(this.circle1.scale, {
-                                    x: 3, 
-                                    y: 3,
-                                    z: 3,
-                                })
-                
-                
-            }
-          }); 
-
-
+             }
+        })
     }
+
+    //matches the Media, has a different scroll Trigger based on size of the screen
+    //uses arrow function as opposed to function() {} from the docs, to retain access to local variables
+
+    // setSmoothScroll(){
+    //     Scrollbar.init(document.querySelector('#my-scrollbar'));
+    //     Scrollbar.initAll()
+    // }
 
 
     resize(){
