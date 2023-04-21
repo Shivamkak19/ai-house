@@ -30,14 +30,10 @@ export default class Controls{
         //Registers the GSAP plug in
         GSAP.registerPlugin(ScrollTrigger);        
 
-        //Added because the overflow: hidden wasn't working
-        this.preloader = this.experience.preloader;
-        this.preloader.on("enablecontrols", ()=>{
-            this.setSmoothScroll();
-            this.setScrollTrigger();
-            document.querySelector(".page-index1").style.overflow = "visible";
-        })
-
+        console.log("got to controls2");
+        this.setSmoothScroll();
+        this.setScrollTrigger();
+        document.querySelector(".page-second").style.overflow = "visible";
 
     }
 

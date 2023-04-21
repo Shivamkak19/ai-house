@@ -10,6 +10,14 @@ import Theme from "./Theme"
 import Preloader from "./Preloader"
 import Controls from "./World/Controls"
 
+import Controls2 from "./World/Controls2"
+import World2 from "./World/World2"
+import Preloader2 from "./Preloader2"
+
+import Controls3 from "./World/Controls3"
+import World3 from "./World/World3"
+
+
 export default class Experience{
 
     static instance;
@@ -26,16 +34,39 @@ export default class Experience{
         this.camera = new Camera();
         this.resources = new Resources(assets); //assets is parameter for Resources constructor
         this.theme = new Theme();
-        this.world = new World();
-        this.preloader = new Preloader();
         this.renderer = new Renderer();
 
-        // this.navbar = new Navbar();
+        //Set local variable to current page
+        const currentPage = sessionStorage.getItem("currentPage");
+        console.log(currentPage);
+
+        //Set customizations
+        if(currentPage === "index"){
+            console.log("loading index customization");
+            this.world = new World();
+            this.preloader = new Preloader();
+
+            this.preloader.on("enablecontrols", ()=>{
+                this.controls = new Controls();
+            })
+        }
+        if(currentPage === "second"){
+            console.log("loading second customization");
+            this.world = new World2();
+            this.preloader = new Preloader2();
 
 
-        this.preloader.on("enablecontrols", ()=>{
-            this.controls = new Controls();
-        })
+        }
+        else if(currentPage === "aitt"){
+            console.log("loading aitt customization");
+
+            this.world = new World3();
+            this.preloader = new Preloader2();
+
+        }
+        else if(currentPage === "resources"){
+            console.log("loading resources customization");
+        }
 
         //On Update function - on Event Emitters
         this.sizes.on("resize", ()=>{

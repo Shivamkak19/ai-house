@@ -42,6 +42,29 @@
   display: block;
 }
 
+.aitt-body{
+  overflow: auto;
+}
+
+.aitt-wrapper, .second-wrapper{
+  /* background-color: var(--color-aitt); */
+
+}
+
+.page-index1{
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page-aitt, .page-second{
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  
+}
 
 html, body{
   font-family: "Montserrat", sans-serif;
@@ -49,12 +72,20 @@ html, body{
   scroll-behavior: smooth;
 }
 
-
-
-body{
+.aitt-body{
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+.home-body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+} */
 
 /* targets transitions for "all" attributes for each element type used. Customize transitions later if needed */
 /* match with transition in lights (Environment.js) with duration/delay in GSAP, if needed */
@@ -78,6 +109,10 @@ svg{
 
   --color-text-light: rgb(47, 47, 47);
   --color-background-light: rgba(250,244,229, 0.9);
+
+  --color2: rgba(187, 187, 187, 0.802);
+
+
   /* --color-background-light: rgba(72, 72, 72, .8); */
   --color-orange1-light: #FCB908;
   --color-orange2-light: #FCB908;
@@ -99,6 +134,8 @@ svg{
   --color-button: var(--primary-color);
   --color-header: var(--color-background-dark);
   --color-navText: var(--color-text-dark);
+
+  --color-aitt: var(--color2);
 
 }
 
@@ -127,8 +164,24 @@ svg{
   background-color: var(--color-header);
 }
 
+.navContainer2{
+  opacity: 1;
+  position: fixed;
+  height: 13vh;
+  width: 100%;
+  z-index: 1500;
+  background-color: var(--color-header);
+}
+
 #logoID{
   opacity: 0;
+  width: 16vw;
+  z-index: 1000;
+  transition: transform .5s ease-in-out;
+}
+
+#logoID2{
+  opacity: 1;
   width: 16vw;
   z-index: 1000;
   transition: transform .5s ease-in-out;
@@ -293,27 +346,17 @@ color: var(--color-text);
   position: fixed;
   width: 100vw;
   height: 100vh;
-}
-
-.experience-canvas{
   width: 100%;
   height: 100%;
-  /*touch-action: manipulation; */
 }
 
-.minecraft-wrapper{
-  background-color: #bfd1e5;
-  color: #61443e;
-}
-
-.minecraft-subwrapper{
-  color: #a06851;
-}
 
 /* Preloader ///////////////////////////////////////// */
 
 .hidden{
   display: none;
+  transition: all 2s;
+
 }
 
 .preloader{
@@ -323,6 +366,10 @@ color: var(--color-text);
   position: fixed; /* keeps loader page fixed on screen */
   opacity: 1;
   z-index: 3000;
+}
+
+.opacity{
+opacity: 0.5;
 }
 
 .preloader-wrapper{
@@ -376,12 +423,7 @@ color: var(--color-text);
 
 /* Main Page //////////////////////////////////////////// */
 
-.page{
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
+
 
 .page-wrapper{
   position: relative;
@@ -436,6 +478,20 @@ color: var(--color-text);
   display: flex;
 
   opacity: 0; /* Sets initial state, set to opacity: 1 at end of intro1 animation */
+
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 6vh;
+  right: 10.5vw;
+  z-index: 3000;
+}
+
+.toggle-bar2{
+  position: fixed;
+  display: flex;
+
+  opacity: 1; /* Sets initial state, set to opacity: 1 at end of intro1 animation */
 
   flex-direction: row;
   justify-content: center;
@@ -513,6 +569,21 @@ color: var(--color-text);
   background-color: var(--color-background);
   overflow: hidden;
 }
+
+.section2{
+  position: relative;
+  width: 100%;
+  /* padding: 200px 4%; */
+  padding-top: 2vh;
+  padding-bottom: 350px;
+  padding-right: 10vw;
+  padding-left: 10vw;
+  margin: 0;
+  background-color: var(--color-background);
+  overflow: hidden;
+}
+
+
 
 .left{
   margin-right: auto;
