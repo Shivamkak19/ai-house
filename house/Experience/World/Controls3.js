@@ -23,20 +23,13 @@ export default class Controls{
             }
         })
 
-        this.circle1 = this.experience.world.floor.circle1;
-        // this.circle2 = this.experience.world.floor.circle2;
-        // this.circle3 = this.experience.world.floor.circle3;
-
         //Registers the GSAP plug in
         GSAP.registerPlugin(ScrollTrigger);        
 
-        //Added because the overflow: hidden wasn't working
-        this.preloader = this.experience.preloader;
-        this.preloader.on("enablecontrols", ()=>{
-            this.setSmoothScroll();
-            this.setScrollTrigger();
-            document.querySelector(".page-index1").style.overflow = "visible";
-        })
+        console.log("hit alternate controls3");
+        this.setSmoothScroll();
+        this.setScrollTrigger();
+        document.querySelector(".page-aitt").style.overflow = "visible";
 
 
     }
@@ -108,100 +101,100 @@ console.log("operation");
             "(min-width: 969px)": () => {
 
                 //Resets////////////////
-                this.camera.orthographicCamera.position.set(0, 6.5, 10);
+                // this.camera.orthographicCamera.position.set(0, 6.5, 10);
 
-                //First section desktop/////////////////////////////////////////
-                this.firstMoveTimeline = new GSAP.timeline({ 
-                    scrollTrigger: {
-                        trigger: "#anchor1",
-                        markers: false,
-                        start: "top top",
-                        end: "+=250",
-                        scrub: 1,
-                        invalidateOnRefresh: true,
-                    }
-                })
+                // //First section desktop/////////////////////////////////////////
+                // this.firstMoveTimeline = new GSAP.timeline({ 
+                //     scrollTrigger: {
+                //         trigger: "#anchor1",
+                //         markers: false,
+                //         start: "top top",
+                //         end: "+=250",
+                //         scrub: 1,
+                //         invalidateOnRefresh: true,
+                //     }
+                // })
 
-                .to(this.camera.orthographicCamera.position, {
-                    x: -2,
-                    y: 6.5,
-                    z: 10,
-                }) 
+                // .to(this.camera.orthographicCamera.position, {
+                //     x: -2,
+                //     y: 6.5,
+                //     z: 10,
+                // }) 
 
 
                 //2nd section desktop//////////////////////////////////////////////
-                this.secondMoveTimeline = new GSAP.timeline({ 
-                    scrollTrigger: {
-                        trigger: "#anchor2",
-                        markers: false,
-                        start: "top top",
-                        end: "+=250",
-                        scrub: 1,
-                        invalidateOnRefresh: true,
-                    }
-                })
+                // this.secondMoveTimeline = new GSAP.timeline({ 
+                //     scrollTrigger: {
+                //         trigger: "#anchor2",
+                //         markers: false,
+                //         start: "top top",
+                //         end: "+=250",
+                //         scrub: 1,
+                //         invalidateOnRefresh: true,
+                //     }
+                // })
 
-                .to(this.camera.orthographicCamera.position, {
-                    x: 2,
-                    y: 6.5,
-                    z: 10,
-                }) 
+                // .to(this.camera.orthographicCamera.position, {
+                //     x: 2,
+                //     y: 6.5,
+                //     z: 10,
+                // }) 
 
 
                 //3rd section desktop//////////////////////////////////////////////
-                this.thirdMoveTimeline = new GSAP.timeline({ 
-                    scrollTrigger: {
-                        trigger: "#anchor3",
-                        markers: false,
-                        start: "top top",
-                        end: "+=250",
-                        scrub: 1,
-                        invalidateOnRefresh: true,
-                    }
-                })
+                // this.thirdMoveTimeline = new GSAP.timeline({ 
+                //     scrollTrigger: {
+                //         trigger: "#anchor3",
+                //         markers: false,
+                //         start: "top top",
+                //         end: "+=250",
+                //         scrub: 1,
+                //         invalidateOnRefresh: true,
+                //     }
+                // })
 
-                .to(this.camera.orthographicCamera.position, {
-                    x: -2,
-                    y: 6.5,
-                    z: 10,
-                }) 
+                // .to(this.camera.orthographicCamera.position, {
+                //     x: -2,
+                //     y: 6.5,
+                //     z: 10,
+                // }) 
 
                 //4th section desktop//////////////////////////////////////////////
-                this.fourthMoveTimeline = new GSAP.timeline({ 
-                    scrollTrigger: {
-                        trigger: ".fourth-move",
-                        markers: false,
-                        start: "top top",
-                        end: "+=250",
-                        scrub: 1,
-                        invalidateOnRefresh: true,
-                    }
-                })
+                // this.fourthMoveTimeline = new GSAP.timeline({ 
+                //     scrollTrigger: {
+                //         trigger: ".fourth-move",
+                //         markers: false,
+                //         start: "top top",
+                //         end: "+=250",
+                //         scrub: 1,
+                //         invalidateOnRefresh: true,
+                //     }
+                // })
 
-                .to(this.camera.orthographicCamera.position, {
-                    x: 2,
-                    y: 6.5,
-                    z: 10,
-                }) 
+                // .to(this.camera.orthographicCamera.position, {
+                //     x: 2,
+                //     y: 6.5,
+                //     z: 10,
+                // }) 
 
                 
                 //5th section desktop//////////////////////////////////////////////////////
-                this.fifthMoveTimeline = new GSAP.timeline({
-                    scrollTrigger: {
-                        trigger: "#anchor5",
-                        markers: false,
-                        start: "top top",
-                        end: "+=250",
-                        scrub: 1,
-                        invalidateOnRefresh: true,
-                    }
-                })
+                // this.fifthMoveTimeline = new GSAP.timeline({
+                //     scrollTrigger: {
+                //         trigger: "#anchor5",
+                //         markers: false,
+                //         start: "top top",
+                //         end: "+=250",
+                //         scrub: 1,
+                //         invalidateOnRefresh: true,
+                //     }
+                // })
 
-                .to(this.camera.orthographicCamera.position, {
-                    x: -2,
-                    y: 6.5,
-                    z: 10,
-                }) 
+                // .to(this.camera.orthographicCamera.position, {
+                //     x: -2,
+                //     y: 6.5,
+                //     z: 10,
+                // }) 
 
 
 
