@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+  </head>
+  <body>
+    <div class="reveal" style="width: 500px">
+      <div class="slides">
+        <section>Slide 1</section>
+        <section>Slide 2</section>
+
+        <section data-background-image="AI-logo4.png">
+            <h2>Image</h2>
+          </section>
+          <section data-background-image="AI-logo4.png" 
+                    data-background-size="100px" data-background-repeat="repeat">
+            <h2>This background image will be sized to 100px and repeated</h2>
+          </section>
+      </div>
+    </div>
+    <script src="reveal.js-master/dist/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+
+        embedded: false,
+         // Parallax background image
+  parallaxBackgroundImage: '', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+
+// Parallax background size
+parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+// Number of pixels to move the parallax background per slide
+// - Calculated automatically unless specified
+// - Set to 0 to disable movement along an axis
+parallaxBackgroundHorizontal: 200,
+parallaxBackgroundVertical: 50
+      });
+    </script>
+  </body>
+</html>

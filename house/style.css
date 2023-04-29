@@ -575,7 +575,7 @@ opacity: 0.5;
   width: 100%;
   /* padding: 200px 4%; */
   padding-top: 2vh;
-  padding-bottom: 350px;
+  padding-bottom: 150px;
   padding-right: 10vw;
   padding-left: 10vw;
   margin: 0;
@@ -585,6 +585,13 @@ opacity: 0.5;
 
 }
 
+.section-slide{
+  background-color: var(--color-background-dark);
+}
+
+
+
+/* slide plugin */
 
 
 .left{
@@ -648,10 +655,22 @@ opacity: 0.5;
   padding-bottom: 4vh;
 }
 
+.section-intro-wrapper-slide{
+  position: relative;
+  padding: 10% 5%;
+  border-bottom: 2px solid var(--color-orange1);
+  padding-bottom: 4vh;
+}
+
 .section-detail-wrapper{
   position: relative;
   padding: 1% 5%;
 
+}
+
+.aitt-slide{
+  width: 100%;
+  height: 70vh;
 }
 
 .section-heading{
@@ -817,6 +836,9 @@ of the number in the container, even as the container moves relatively to the pa
   background-color: var(--color-orange2);
 }
 
+.aitt-slide-text{
+  color: var(--color-orange1-light);
+}
 /* Media Queries, makes the site mobile responsive */ 
 
 @media (max-width: 968px){
