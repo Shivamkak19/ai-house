@@ -50,7 +50,7 @@ export default class Experience{
                 this.controls = new Controls();
             })
         }
-        if(currentPage === "second"){
+        if(currentPage === "home"){
             console.log("loading second customization");
             this.world = new World2();
             this.preloader = new Preloader2();
@@ -66,6 +66,9 @@ export default class Experience{
         }
         else if(currentPage === "resources"){
             console.log("loading resources customization");
+            
+            this.world = new World3();
+            this.preloader = new Preloader2();
         }
 
         //On Update function - on Event Emitters

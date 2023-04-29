@@ -9,7 +9,7 @@ import { EventEmitter } from "events";
 import Floor3 from "./Floor3";
 import Room3 from "./Room3";
 import Controls3 from "./Controls3";
-
+import Environment3 from "./Environment3";
 
 export default class World extends EventEmitter{
     constructor(){
@@ -24,7 +24,7 @@ export default class World extends EventEmitter{
 
         //Creates world after receiving "ready" event
         this.resources.on("ready", ()=> {
-            this.environment = new Environment();
+            this.environment = new Environment3();
             this.floor = new Floor3();
             this.room = new Room3();
             this.controls = new Controls3();

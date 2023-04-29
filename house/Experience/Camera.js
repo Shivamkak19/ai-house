@@ -18,9 +18,9 @@ export default class Camera{
     //Creates a Camera, with parameters FOV, aspect ratio, near, far)
     createPerspectiveCamera(){
         this.perspectiveCamera = new THREE.PerspectiveCamera(70, this.sizes.aspect, .1, 1000);
-        this.perspectiveCamera.position.x = 40;
-        this.perspectiveCamera.position.y = 30;
-        this.perspectiveCamera.position.z = 10;
+        this.perspectiveCamera.position.x = 0;
+        this.perspectiveCamera.position.y = 1;
+        this.perspectiveCamera.position.z = 5;
         
         // this.perspectiveCamera.position.x = 0;
         // this.perspectiveCamera.position.y = 3.5;
