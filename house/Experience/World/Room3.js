@@ -19,6 +19,8 @@ export default class Room{
             ease: 0.1,
         }
 
+        
+
         this.setModel();
         this.onMouseMove();
         this.setAnimation();

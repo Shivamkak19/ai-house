@@ -8,8 +8,8 @@ const currentPageUrl = window.location.pathname;
 // Set the sessionStorage variable based on the current page
 if (currentPageUrl.includes("index")) {
   sessionStorage.setItem("currentPage", "index");
-} else if(currentPageUrl.includes("second")){
-  sessionStorage.setItem("currentPage", "second");
+} else if(currentPageUrl.includes("home")){
+  sessionStorage.setItem("currentPage", "home");
 } else if (currentPageUrl.includes("aitt")) {
   sessionStorage.setItem("currentPage", "aitt");
 } else if (currentPageUrl.includes("resources")) {
