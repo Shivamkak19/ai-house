@@ -1,5 +1,5 @@
 import './style.css'
-import Experience from "./Experience/Experience"
+import Experience from "../Experience/Experience"
 
 
 // Get the current page URL

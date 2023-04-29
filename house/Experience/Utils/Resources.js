@@ -15,9 +15,10 @@ export default class Resources extends EventEmitter{
         this.assets = assets;
         this.items = {};
 
-        // disabling video texture
+        // disabling video texture: 1
+        // enable: queue = 2
         // this.assets.length
-        this.queue = 1; 
+        this.queue = 2; 
 
         this.loaded = 0;
 
@@ -43,31 +44,31 @@ export default class Resources extends EventEmitter{
 
             // disabled video texture to improve performance
 
-            // else if(asset.type === "videoTexture"){
-            //     this.video = {};
-            //     this.videoTexture = {};
+            else if(asset.type === "videoTexture"){
+                this.video = {};
+                this.videoTexture = {};
 
-            //     //Hardcoding the video texture
-            //     this.video[asset.name] = document.createElement("video");
-            //     this.video[asset.name].src = asset.path;
-            //     this.video[asset.name].muted = true;
-            //     this.video[asset.name].playsInline = true;
-            //     this.video[asset.name].autoplay = true;
-            //     this.video[asset.name].loop = true;
-            //     this.video[asset.name].play();
+                //Hardcoding the video texture
+                this.video[asset.name] = document.createElement("video");
+                this.video[asset.name].src = asset.path;
+                this.video[asset.name].muted = true;
+                this.video[asset.name].playsInline = true;
+                this.video[asset.name].autoplay = true;
+                this.video[asset.name].loop = true;
+                this.video[asset.name].play();
 
-            //     //div element
-            //     this.videoTexture[asset.name] = new THREE.VideoTexture(this.video[asset.name]);
-            //     this.videoTexture[asset.name].flipY = false;
-            //     this.videoTexture[asset.name].minFilter = THREE.NearestFilter;
-            //     this.videoTexture[asset.name].magFilter = THREE.NearestFilter;
-            //     this.videoTexture[asset.name].generateMigmaps = false;
-            //     this.videoTexture[asset.name].encoding = THREE.sRGBEncoding;
+                //div element
+                this.videoTexture[asset.name] = new THREE.VideoTexture(this.video[asset.name]);
+                this.videoTexture[asset.name].flipY = false;
+                this.videoTexture[asset.name].minFilter = THREE.NearestFilter;
+                this.videoTexture[asset.name].magFilter = THREE.NearestFilter;
+                this.videoTexture[asset.name].generateMigmaps = false;
+                this.videoTexture[asset.name].encoding = THREE.sRGBEncoding;
 
-            // //     this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
+                this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
 
 
-            // }
+            }
         }
     }
 
