@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <!-- "Low Poly - Tiger" (https://skfb.ly/6YOEX) by tadeus is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Princeton Website</title>
 
-    <link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
-    <link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
-    <link rel="stylesheet" href="reveal.js-master/plugin/highlight/monokai.css">
-
-    
+    <script>
+      //Assign page to index for initial load of website
+        sessionStorage.setItem("currentPage", "index");
+    </script>
   </head>
 
-  <body class="light-theme aitt-body">
+  <body class="light-theme home-body">
+
 
     <div class="experience">
       <canvas id="canvas"></canvas>
     </div>
 
-    <div class="preloader opacity">
+    <!-- Preloader //////////// -->
+
+    <div class="preloader">
       <div class="preloader-wrapper">
         <div class="loading">
           <div class="circle"></div>
@@ -27,246 +32,212 @@
         </div>
       </div>
     </div>
+
+    <!-- /////////////////////////////////////// -->
+
     
     <div class="header">
 
-
-      <div class="logo-wrapper">
-        <a href="home.html"><image id="logoID2" src="./AI-logo4.png"></image></a>
-      </div>
-
-
-      <div class="navContainer2">
-
-        <nav class="navbar">
-          <div class="nav-link"><a class="page-link" href="home.html">Home</a></div>
-          <div class="nav-link"><a class="page-link" href="resources.html">Resources</a></div>
-          <div class="nav-link"><a class="page-link" href="aitt.html">AI Tiger Trek</a></div>
-
-        </nav>
-      </div>
-
-      <div class="toggle-bar2">
-
-        <div class="sun-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M11 5V1h2v4Zm6.65 2.75-1.375-1.375 2.8-2.875 1.4 1.425ZM19 13v-2h4v2Zm-8 10v-4h2v4ZM6.35 7.7 3.5 4.925l1.425-1.4L7.75 6.35Zm12.7 12.8-2.775-2.875 1.35-1.35 2.85 2.75ZM1 13v-2h4v2Zm3.925 7.5-1.4-1.425 2.8-2.8.725.675.725.7ZM12 18q-2.5 0-4.25-1.75T6 12q0-2.5 1.75-4.25T12 6q2.5 0 4.25 1.75T18 12q0 2.5-1.75 4.25T12 18Zm0-2q1.65 0 2.825-1.175Q16 13.65 16 12q0-1.65-1.175-2.825Q13.65 8 12 8q-1.65 0-2.825 1.175Q8 10.35 8 12q0 1.65 1.175 2.825Q10.35 16 12 16Zm0-4Z"/></svg>
+        <div class="logo-wrapper">
+          <a href="home.html"><image id="logoID" src="./AI-logo4.png"></image></a>
         </div>
-        <button class="toggle-button">
-          <!-- <div class="circle-wrapper"> -->
-          <div class="toggle-circle">
-            
+
+        <div class="navContainer">
+
+          <nav class="navbar">
+            <div class="nav-link"><a class="page-link" href="home.html">Home</a></div>
+            <div class="nav-link"><a class="page-link" href="resources.html">Resources</a></div>
+            <div class="nav-link"><a class="page-link" href="aitt.html">AI Tiger Trek</a></div>
+
+          </nav>
+        </div>
+
+        <div class="toggle-bar">
+
+          <div class="sun-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M11 5V1h2v4Zm6.65 2.75-1.375-1.375 2.8-2.875 1.4 1.425ZM19 13v-2h4v2Zm-8 10v-4h2v4ZM6.35 7.7 3.5 4.925l1.425-1.4L7.75 6.35Zm12.7 12.8-2.775-2.875 1.35-1.35 2.85 2.75ZM1 13v-2h4v2Zm3.925 7.5-1.4-1.425 2.8-2.8.725.675.725.7ZM12 18q-2.5 0-4.25-1.75T6 12q0-2.5 1.75-4.25T12 6q2.5 0 4.25 1.75T18 12q0 2.5-1.75 4.25T12 18Zm0-2q1.65 0 2.825-1.175Q16 13.65 16 12q0-1.65-1.175-2.825Q13.65 8 12 8q-1.65 0-2.825 1.175Q8 10.35 8 12q0 1.65 1.175 2.825Q10.35 16 12 16Zm0-4Z"/></svg>
           </div>
-        <!-- </div> -->
-        </button>
-        <div class="moon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025.337.025.662.075-1.025.725-1.637 1.887Q11.1 6.15 11.1 7.5q0 2.25 1.575 3.825Q14.25 12.9 16.5 12.9q1.375 0 2.525-.613 1.15-.612 1.875-1.637.05.325.075.662Q21 11.65 21 12q0 3.75-2.625 6.375T12 21Zm0-2q2.2 0 3.95-1.212 1.75-1.213 2.55-3.163-.5.125-1 .2-.5.075-1 .075-3.075 0-5.238-2.162Q9.1 10.575 9.1 7.5q0-.5.075-1t.2-1q-1.95.8-3.162 2.55Q5 9.8 5 12q0 2.9 2.05 4.95Q9.1 19 12 19Zm-.25-6.75Z"/></svg>
+          <button class="toggle-button">
+            <!-- <div class="circle-wrapper"> -->
+            <div class="toggle-circle">
+              
+            </div>
+          <!-- </div> -->
+          </button>
+          <div class="moon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025.337.025.662.075-1.025.725-1.637 1.887Q11.1 6.15 11.1 7.5q0 2.25 1.575 3.825Q14.25 12.9 16.5 12.9q1.375 0 2.525-.613 1.15-.612 1.875-1.637.05.325.075.662Q21 11.65 21 12q0 3.75-2.625 6.375T12 21Zm0-2q2.2 0 3.95-1.212 1.75-1.213 2.55-3.163-.5.125-1 .2-.5.075-1 .075-3.075 0-5.238-2.162Q9.1 10.575 9.1 7.5q0-.5.075-1t.2-1q-1.95.8-3.162 2.55Q5 9.8 5 12q0 2.9 2.05 4.95Q9.1 19 12 19Zm-.25-6.75Z"/></svg>
+          </div>
         </div>
-      </div>
-</div>
+  </div>
   
-    <div class="page-aitt scroller">
+    <div class="page-index1 scroller">
+
 
       <!-- Must apply asscroll for the smooth scrolling -->
-        <div class="page-wrapper aitt-wrapper"> 
-    
-          <div class="logo-wrapper">
-            <a href="index2.html"><image id="logoID" src="./AI-logo4.png"></image></a>
-          </div>
-
-            <div id="anchor1"></div>
-
-            <section class="hero">
-            <div class="hero-wrapper">
-                <div class="hero-main">
-                <h1 class="hero-main-title">AI @ Princeton</h1>
-                <p class="hero-main-description">AI Tiger Trek 2023 Details</p>
-                </div>
-
-            </div>
-            </section>
-
-            
-          <!-- Start of AITT content -->
-
-        <div id="tigertrek">
-          
-            <div class="third-move section-margin" id="anchor4"></div>
-    
-              <section class="first-section section2 left">
-    
-    
-                <div class="section-intro-wrapper">
-                  <h1 class="section-title">
-    
-                    <h1 class="hero-main-title-sub">AI Tiger Trek</h1>
-    
-                  </h1>
-                  <span class="section-number"> 1 </span>
-                </div>
-    
-                <div class="section-detail-wrapper">
-                  <h3 class="section-heading">What Is It</h3>
-                  <p class="section-text">
-                    AI TigerTrek is a new, heavily-subsidized, student-led trip over Spring Break hosted by AI@Princeton and E-Club. We will bring a team of 15 of our most passionate thinkers, builders, and student entrepreneurs to Silicon Valley to meet legendary researchers, founders, and decision-makers in the field of Artificial Intelligence (AI). 
-                  </p>
-                  <h3 class="section-heading">Who Should Join</h3>
-                  <p class="section-text">
-                    We wish to create a team with diverse perspectives and interests in AI. Technical understanding of AI is NOT REQUIRED, and we will host a pre-trip Backprop Bootcamp to walk our members through everything they need to know. We look for passion and creativity! 
+      <div class="page-wrapper"> 
   
+        <div id="anchor0"></div>
 
-  
-                  </p>
-                  <h3 class="section-heading">What to Expect</h3>
-                  <ol class="section-text">
-                    <li>1. Off-the-record discussions with industry leaders and top researchers in AI, with domains from hardware design to neural rendering to AI policy</li>
-                    <li>2. Workshops and hackathons with the team — meet and build with your future co-founders, co-authors, and lifelong friends</li>
-                    <li>3. A lifelong coast-to-coast community with mentors across industry and academia</li>
-                  </ol>
-                  
-                </div>
-              </section>
-    
-            <!-- Text Section 5 -->
-            <div class="fourth-move section-margin" id="anchor4.2"></div>
-    
-            <section class="second-section section2 right">
-    
-    
-              <div class="section-intro-wrapper blue-text blue-border">
-                <h1 class="section-title blue-text blue-border">
-                
-                  <h1 class="hero-main-title-sub">Schedule Details</h1>
-    
-                </h1>
-                <span class="section-number blue-text"> 2 </span>
-              </div>
-    
-              <div class="section-detail-wrapper">
-                <h3 class="section-heading">Speakers List</h3>
-                <p class="section-text">
-  
-                </p>
-                <h3 class="section-heading">Schedule</h3>
-                <p class="section-text">
-  
-                </p>
-                <h3 class="section-heading">Key Details</h3>
-                <p class="section-text">
-  
-                </p>
+        <section class="hero">
+          <div class="hero-wrapper">
 
-              </div>
-
-            </section>
-
-            <!-- Text Section 5 -->
-            <div class="fourth-move section-margin" id="anchor4.2"></div>
-
-            <section class="second-section section2 section-slide right">
-    
-    
-              <div class="section-intro-wrapper-slide blue-text blue-border">
-                <h1 class="section-title blue-text blue-border">
-                
-                  <h1 class="hero-main-title-sub aitt-slide-text">Gallery</h1>
-    
-                </h1>
-                <span class="section-number blue-text"> 3 </span>
-              </div>
-    
-              <div class="section-detail-wrapper reveal aitt-slide">
-
-                <div class="dre">
-                  <div class="slides">
-                    <!-- intro slide -->
-                    <section data-autoslide="50000">
-                      <pre><code data-line-numbers="4,5,6" style="background-color: rgba(0, 0, 0, 0);">
-                        <table>
-                          <tr>
-                            <td>View Our</td>
-                            <td>2023</td>
-                            <td>Tiger Trek</td>
-                          </tr>
-                          <tr>
-                            <td>Use</td>
-                            <td>Arrows</td>
-                            <td>To Navigate</td>
-                          </tr>
-                        </table>
-                        
-                        </code></pre>
-                    </section>
-
-                    <section data-background-image="AI-slide.jpg"></section>
-
-                    <section>
-                      <section data-background-image="AI-slide2.jpg"></section>
-                      <section data-background-image="AI-slide3.jpg"></section>
-                    </section>
-
-                  </div>
-                </div>
-
-
-              </div>
-
-            </section>
-    
-          </div>
-          
-          <!-- End of AITT content -->
-
-
-            <div class="footer">
-                <li>
-                    <div class="nav-link"></div><p class="page-link">AI @ Princeton</p>
-                        <p class="page-link">January 2023</p>
-                </li>
+            <!-- Intro Materials ///////////////////// -->
+            <!-- Must set path fill to fill="currentColor" -->
+            <div class="arrow-svg-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 14.95q-.2 0-.375-.063-.175-.062-.325-.212L6.675 10.05q-.275-.275-.262-.688.012-.412.287-.687.275-.275.7-.275.425 0 .7.275l3.9 3.9 3.925-3.925q.275-.275.688-.263.412.013.687.288.275.275.275.7 0 .425-.275.7l-4.6 4.6q-.15.15-.325.212-.175.063-.375.063Z"/></svg>
             </div>
 
-        </div>
+            <!-- //////////////////////////////// -->
+            <div class="intro-text zero-move">Welcome to AI @ Princeton</div>
+            <div class="hero-main">
+              <h1 class="hero-main-title">AI @ Princeton</h1>
+              <p class="hero-main-description">Welcome to AI @ Princeton</p>
+            </div>
+
+            <div class="hero-second">
+              <p class="hero-second-subheading first-sub"></p>
+              <p class="hero-second-subheading second-sub"></p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Text Section 1 -->
+        <div class="first-move section-margin" id="anchor1"></div>
+
+          <section class="first-section section left">
+
+            <div class="progress-wrapper progress-bar-wrapper-left">
+              <div class="progress-bar"></div>
+            </div>
+
+            <div class="section-intro-wrapper">
+              <h1 class="section-title">
+
+                <h1 class="hero-main-title-sub">About Us</h1>
+
+              </h1>
+              <span class="section-number"> 1 </span>
+            </div>
+
+            <div class="section-detail-wrapper">
+              <h3 class="section-heading">Who We Are</h3>
+              <p class="section-text">
+                Our aim is to create a place to expose Princeton undergrads to the state of the art of AI research in an accessible way. We hope that this website will serve as a central hub for announcements and resources that our club members are working hard to put out for anyone interested in doing AI at Princeton!
+              </p>
+              <h3 class="section-heading">How to Join</h3>
+              <p class="section-text">
+                Joining the club is as simple as joining the listserv! AI@Princeton has no requirements for membership, as our club serves as a community for undergraduate students interested in AI. We generally host weekly events, and all club information can be found through our listserv emails.
+              </p>
+              <h3 class="section-heading">Faculty Involvement</h3>
+              <p class="section-text">
+                We work closely with the Princeton COS department to provide resources and opportunities for students interested in AI. 
+                We have also been fortunate enough in the past to invite individuals like Professor Olga Russakovsky to come speak at our events!
+
+              </p>
+            </div>
+          </section>
+
+        <!-- Text Section 2 -->
+        <div class="second-move section-margin" id="anchor2"></div>
+
+          <section class="second-section section right">
+
+            <div class="progress-wrapper progress-bar-wrapper-right">
+              <div class="progress-bar blue-background"></div>
+            </div>
+
+            <div class="section-intro-wrapper blue-text blue-border">
+              <h1 class="section-title blue-text blue-border">
+              
+                <h1 class="hero-main-title-sub">Quick Resources</h1>
+
+              </h1>
+              <span class="section-number blue-text"> 2 </span>
+            </div>
+
+            <div class="section-detail-wrapper">
+              <h3 class="section-heading">Our Most Recent Presentation</h3>
+
+              <a href="https://docs.google.com/presentation/d/1JoAOG86qtoDQQ2sDSuhpJnYGyAjSDaC3xmCPb9OyVOg/edit#slide=id.p "
+               class="text-button section-text">Theoretical ML</a>
+
+              <h3 class="section-heading">Introduction to Theoretical Machine Learning: </h3>
+              <p class="section-text">
+                Theoretical machine learning/deep learning is an important yet often ignored subfield of AI/ML that drives the intuition behind many powerful AI model design choices. In this discussion, we introduce topics like PAC learning, neural network initialization analysis, and neural network gaussian process results and tie them back to their practical use cases!
+              </p>
+              <!-- <h3 class="section-heading">Presentations Folder</h3> -->
+
+              <a href="https://drive.google.com/drive/folders/1leWkP9_NHFa-TknM89CD7qXC5_L6sj6_?usp=sharing "
+              class="text-button section-text">Presentations Folder</a>
+
+              <p class="section-text">
+
+              </p>
+              <h3 class="section-heading">Recommended Reads</h3>
+              
+              <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+               class="text-button section-text">Transformers Primer</a>
+
+              <a href="https://docs.google.com/presentation/d/1MhbDvxc5a9nAsIbczTYtxvxGR9WcdGFFKaruzxsm0qw/edit"
+               class="text-button section-text">Physics-Inspired ML</a>
+
+              <a href="https://docs.google.com/presentation/d/1DmclZdQr3DmZUKBku1nkJwzsGdLjJJ6VKVtKxPsFIxM/edit#slide=id.g1248f570055_0_217"
+               class="text-button section-text">DALL-E2</a>
+
+            </div>
+          </section>
+
+          <!-- Text Section 5 -->
+          <div class="fifth-move section-margin" id="anchor5"></div>
+          <section class="third-section section left">
+            <div class="progress-wrapper progress-bar-wrapper-left">
+              <div class="progress-bar green-background"></div>
+            </div>
+
+            <div class="section-intro-wrapper green-text green-border">
+              <h1 class="section-title green-text green-border">
+              
+                <h1 class="hero-main-title-sub">Reach Out!</h1>
+
+              </h1>
+              <span class="section-number green-text"> 3 </span>
+            </div>
+
+            <div class="section-detail-wrapper">
+              <h3 class="section-heading">Email</h3>
+              <p class="section-text">
+                If you are interested in getting in touch with the club or have any questions, please email alzhang@princeton.edu.
+              </p>
+              <h3 class="section-heading">Leadership Team</h3>
+              <p class="section-text">
+                (information pending)
+              </p>
+              <h3 class="section-heading" id="twitter">Twitter</h3>
+              <p class="section-text">
+
+              </p>
+              <a href="https://twitter.com/aiprinceton " class="text-button section-text">Visit Twitter!</a>
+
+
+            </div>
+          </section>
+
+
+          <div class="footer">
+            <li>
+              <div class="nav-link"></div><p class="page-link">AI @ Princeton</p>
+              <p class="page-link">January 2023</p>
+            </li>
+          </div>
+      </div>
     </div>
 
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="/main.js"></script>
-    
 
-    <!-- Presentation Slides Script -->
     <script src="reveal.js-master/plugin/highlight/highlight.js"></script>
     <script src="reveal.js-master/dist/reveal.js"></script>
-    <script>
-      Reveal.initialize({
-
-      //theme for code slide style
-      plugins: [ RevealHighlight ],
-
-      backgroundTransition: 'slide',
-
-
-      // The "normal" size of the presentation, aspect ratio will
-      // be preserved when the presentation is scaled to fit different
-      // resolutions. Can be specified using percentage units.
-      width: 960,
-      height: 700,
-
-      // Factor of the display size that should remain empty around
-      // the content
-      margin: 0.04,
-
-      // Bounds for smallest/largest possible scale to apply to content
-      minScale: 0.2,
-      maxScale: 2.0,
-
-      //auto play the slides
-      autoSlide: 5000,
-      loop: true,
-      });
-
-      // Reveal.toggleOverview( true );
-
-    </script>
-        <!-- Presentation Slides Script -->
 
   </body>
 </html>
