@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -r reveal.js-master dist/",
+    "build": "vite build",
 
     "preview": "vite preview"
   },
