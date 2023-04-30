@@ -10,16 +10,16 @@ module.exports = {
         resources: './Framework/resources.html',
         home: './Framework/home.html',
 
-        reveal1: './reveal.js.files/dist/theme/white.css',
-        reveal2: './reveal.js.files/dist/reveal.css',
-        reveal3: './reveal.js.files/dist/reveal.js',
+        reveal1: './reveal.js.files/frame/theme/white.css',
+        reveal2: './reveal.js.files/frame/reveal.css',
+        reveal3: './reveal.js.files/frame/reveal.js',
         reveal4: './reveal.js.files/plugin/highlight/highlight.js',
         reveal5: './reveal.js.files/plugin/highlight/monokai.css',
 
-        reveal6: './reveal.js.files/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot',
-        reveal7: './reveal.js.files/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot?#iefix',
-        reveal8: './reveal.js.files/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff',
-        reveal9: './reveal.js.files/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf',
+        reveal6: './reveal.js.files/frame/theme/fonts/source-sans-pro/source-sans-pro-regular.eot',
+        reveal7: './reveal.js.files/frame/theme/fonts/source-sans-pro/source-sans-pro-regular.eot?#iefix',
+        reveal8: './reveal.js.files/frame/theme/fonts/source-sans-pro/source-sans-pro-regular.woff',
+        reveal9: './reveal.js.files/frame/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf',
 
 
       }
