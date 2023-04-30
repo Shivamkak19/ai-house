@@ -1,43 +1,5 @@
-// module.exports = {
-//     build: {
-//       rollupOptions: {
-//         input: {
-//           main: './index.html',
-//           aitt: './Framework/aitt.html',
-//           resources: './Framework/resources.html',
-//           home: './Framework/home.html'
-
-//         }
-//       }
-//     }
-//   }
-
-
-//   import { defineConfig } from 'vite';
-// import copy from 'rollup-plugin-copy';
-
-// module.exports = defineConfig({
-//   build: {
-//     rollupOptions: {
-//       input: {
-//         main: './index.html',
-//         aitt: './Framework/aitt.html',
-//         resources: './Framework/resources.html',
-//         home: './Framework/home.html'
-//       },
-//       plugins: [
-//         copy({
-//           targets: [
-//             { src: './reveal.js-master/**/*', dest: 'dist' },
-//           ],
-//           // Other options...
-//         }),
-//       ],
-//     }
-//   }
-// });
-
-const copy = require('rollup-plugin-copy');
+const path = require('path');
+const fs = require('fs-extra');
 
 module.exports = {
   build: {
@@ -46,17 +8,20 @@ module.exports = {
         main: './index.html',
         aitt: './Framework/aitt.html',
         resources: './Framework/resources.html',
-        home: './Framework/home.html'
-      },
-      plugins: [
-        copy({
-          targets: [
-            { src: 'reveal.js-master/**/*', dest: 'dist' },
-          ],
-          // Other options...
-        }),
-      ],
+        home: './Framework/home.html',
+      }
     },
+    outDir: 'dist'
   },
+  // Copy reveal.js-master folder after build
+  plugins: [
+    {
+      name: 'copy-revealjs',
+      async writeBundle() {
+        const revealPath = path.resolve(__dirname, 'reveal.js-master');
+        const distPath = path.resolve(__dirname, 'dist', 'reveal.js-master');
+        await fs.copy(revealPath, distPath);
+      }
+    }
+  ]
 };
-
