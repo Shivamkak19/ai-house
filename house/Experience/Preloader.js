@@ -37,8 +37,6 @@ export default class Preloader extends EventEmitter{
         convert(document.querySelector(".intro-text"));
         convert(document.querySelector(".hero-main-title"));
         convert(document.querySelector(".hero-main-description"));
-        convert(document.querySelector(".hero-second-subheading"));
-        convert(document.querySelector(".second-sub"));
 
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
