@@ -606,17 +606,18 @@ of the number in the container, even as the container moves relatively to the pa
   background-color: var(--color-background-dark);
 }
 
-.aitt-slide{
-  width: 100%;
-  height: 70vh;
-}
-
 .slideMod{
   padding: 10% 5%;
 }
 
 .aitt-slide-text{
   color: var(--color-orange1-light);
+}
+
+.aitt-slide{
+  width: 100%;
+  height: 600px;
+  cursor: none;
 }
 
 
@@ -707,25 +708,6 @@ END OF CSS FOR DESKTOP
 .navbar.open {
   opacity: 1;
   visibility: visible;
-}
-
-.close-button {
-  position: absolute;
-  top: 3vh;
-  left: 3vw;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar.open .close-button {
-  display: block;
 }
 
 .nav-link {
