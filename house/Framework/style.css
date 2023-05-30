@@ -631,6 +631,10 @@ END OF CSS FOR DESKTOP
 
 /* General ---------------------------------------- */
 
+.scroller{
+  overflow-x: hidden;
+}
+
 .section{
   width: 100%;
 }
@@ -714,7 +718,6 @@ END OF CSS FOR DESKTOP
 .nav-link {
   justify-content: center;
   align-items: center;
-  margin-right: 15%;
 
   padding: 1rem;
   color: white;
@@ -740,7 +743,7 @@ END OF CSS FOR DESKTOP
 }
 
 .hero-main{
-  left: 2vw;
+  left: 5vw;
   bottom: 0vw;
   text-align: center;
 }
