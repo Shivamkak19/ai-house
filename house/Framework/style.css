@@ -780,12 +780,12 @@ END OF CSS FOR DESKTOP
   justify-content: center;
   align-items: center;
   top: 4vh;
-  right: 20px;
+  right: 27vw;
   z-index: 3000;
 }
 
 .toggle-mobile-mod{
-  right: 27vw;
+  right: 7vw;
 }
 
 .sun-wrapper, 
