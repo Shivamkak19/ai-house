@@ -628,35 +628,201 @@ END OF CSS FOR DESKTOP
 /* Media Queries for Mobile Responsiveness ---------------------------------------------------------------- */
 @media (max-width: 968px){
 
-  .section{
-    width: 100%;
-  }
+/* General ---------------------------------------- */
+.section{
+  width: 100%;
+}
+.progress-bar-wrapper-left{
+  right: 0;
+  left: auto; /* overrides the left margin setting when shifted to mobile */ 
+}
 
-  .progress-bar-wrapper-left{
-    right: 0;
-    left: auto; /* overrides the left margin setting when shifted to mobile */ 
-  }
+/* Logo Styles -------------------------------------- */
+#logoID{
+  width: 45vw;
+}
 
-  .hero-second{
-    top: 160px;
-  }
-  .hero-main{
-    bottom: 120px;
-  }
-  .hero-wrapper{
-    width: calc(100%- 60px);
-  }
-  .hero-main-title{
-    font-size: 32px;
-  }
-  .hero-main-description{
-    font-size: 18px;
-  }
-  .hero-second-subheading{
-    font-size: 18px;
-  }
+.logo-wrapper{
+  top: -1vh;
+  left: 2vw;
+}
+
+/* Navbar styles ----------------------------------- */
+.navContainer {
+  position: fixed;
+  top: 11vh;
+  left: 80vw;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-text);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  z-index: 3000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navContainer:before,
+.navContainer:after,
+.navContainer span {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-navText);
+  border-radius: 2px;
+}
+
+.navContainer:before {
+  top: 10px;
+}
+
+.navContainer:after {
+  bottom: 10px;
+}
+
+.navContainer span {
+  top: 20px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navbar.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-button {
+  position: absolute;
+  top: 3vh;
+  left: 3vw;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar.open .close-button {
+  display: block;
+}
+
+.nav-link {
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+  display: none;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.navbar.open .nav-link {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Hero Section Content Styles ----------------------- */
+.hero{
+  width: 120vw;
+  height: 100vh;
+}
+
+.hero-wrapper{
+  width: 100%;
+  margin: 0;
+}
+
+.hero-main{
+  left: 2vw;
+}
+
+.hero-main-title{
+  font-size: 3.1em;
+}
+
+.hero-main-description{
+  padding-top: 12px;
+  font-size: 24px;
+}
+
+.hero-main-title-sub{
+  font-size: 3em;
+}
 
 
+/* Intro text animation styles ------------------------ */
+.intro-text{
+  padding-right: 15vw;
+  font-weight: 800;
+  font-size: 1.5em;
+  transform: translate(-50%, -50%); 
+}
+
+
+/* Sun/Night Mode Toggle Bar Styles ------------------- */
+
+/* .header {
+  position: fixed;
+  top: 0;
+  height: 20vh;
+  width: 100%;
+  z-index: 1500;
+  background-color: #1919192c;
+} */
+
+  
+.toggle-bar{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 4vh;
+  right: 20px;
+  z-index: 3000;
+}
+
+.toggle-mobile-mod{
+  right: 27vw;
+}
+
+.sun-wrapper, 
+.moon-wrapper{
+  color: var(--color-text-light);
+}
+
+/* Reveal.js gallery Styles on AITT Page -------------- */
+.aitt-slide {
+  margin-top: 3vh;
+  width: 100%;
+  height: 30vh;
+}
+
+.slides section[data-background-image] {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 }
 
