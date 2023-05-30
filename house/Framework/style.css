@@ -640,8 +640,9 @@ END OF CSS FOR DESKTOP
 }
 .progress-bar-wrapper-left{
   right: 0;
-  left: auto; /* overrides the left margin setting when shifted to mobile */ 
+  left: 0; /* overrides the left margin setting when shifted to mobile */ 
 }
+
 
 /* Logo Styles -------------------------------------- */
 #logoID{
@@ -744,7 +745,7 @@ END OF CSS FOR DESKTOP
 
 .hero-main{
   left: 5vw;
-  bottom: 0vw;
+  bottom: 30vw;
   text-align: center;
 }
 
@@ -758,7 +759,7 @@ END OF CSS FOR DESKTOP
 }
 
 .hero-main-title-sub{
-  font-size: 5em;
+  font-size: 3em;
 }
 
 
@@ -768,6 +769,12 @@ END OF CSS FOR DESKTOP
   font-weight: 800;
   font-size: 1.5em;
   transform: translate(-50%, -50%); 
+}
+
+.arrow-svg-wrapper{
+  position: absolute;
+  top: 90%;
+  left: 40%;
 }
 
 
