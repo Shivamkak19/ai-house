@@ -14,6 +14,10 @@ export default class Floor{
         this.renderer = this.experience.renderer;
         this.frame = 0;
 
+        this.sizes = this.experience.sizes;
+        this.device = this.sizes.device;
+
+
         this.mouse = {
           x: undefined,
           y: undefined
@@ -84,12 +88,39 @@ export default class Floor{
     }
 
     onMouseMove(){
-      addEventListener("mousemove", (event) => {
+
+      if(this.device === "desktop"){
+        addEventListener("mousemove", (event) => {
+          this.mouse.x = (2* (event.clientX / innerWidth)) - 1
+          this.mouse.y = (-2* (event.clientY / innerHeight)) + 1 
+        }) 
+    }
+    else{
+      addEventListener("click", (event) => {
         this.mouse.x = (2* (event.clientX / innerWidth)) - 1
         this.mouse.y = (-2* (event.clientY / innerHeight)) + 1 
       }) 
 
+      addEventListener("onscroll", (event) => {
+        this.mouse.x = (2* (event.clientX / innerWidth)) - 1
+        this.mouse.y = (-2* (event.clientY / innerHeight)) + 1 
+      }) 
     }
+    }
+
+    onTouchMove(e){
+      console.log(e)
+
+      this.initialY = e.touches[0].clientY;
+
+      let currentY = e.touches[0].clientY;
+      let difference = this.initialY - currentY;
+      if(difference > 0){
+          console.log("swiped up");
+
+      }
+      this.initialY = null;
+  }
 
 
     animate(){
