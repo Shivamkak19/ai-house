@@ -29,6 +29,7 @@ export default class Resources extends EventEmitter {
     this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
   }
 
+  //Sets res to 1/2 for no GPU detected
   startLoading() {
     const gpuPresent = this.checkGPUPresence();
 
