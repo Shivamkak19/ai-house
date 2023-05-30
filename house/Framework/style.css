@@ -1,8 +1,9 @@
+/* Setting Fonts ------------------------------------- */
+
 /* import from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* General Blueprint Style */
-
 @font-face {
 	font-family: 'bpicons';
 	font-weight: normal;
@@ -11,59 +12,12 @@
 	src: url('../fonts/bpicons/bpicons.eot?#iefix') format('embedded-opentype'), url('../fonts/bpicons/bpicons.woff') format('woff'), url('../fonts/bpicons/bpicons.ttf') format('truetype'), url('../fonts/bpicons/bpicons.svg#bpicons') format('svg');
 }
 
+
+/* Basic page settings ------------------------------------- */
 *{
   margin:0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.hidden2{
-  overflow: hidden;
-}
-
-.highZ{
-  z-index: 100;
-}
-
-.positionFix{
-  position: fixed;
-}
-
-.cancel{
-  display: none;
-}
-
-.no-interaction {
- pointer-events: none;
- overflow: hidden;
-}
-
-.hidden-section {
-  display: block;
-}
-
-.aitt-body{
-  overflow: auto;
-}
-
-.aitt-wrapper, .second-wrapper{
-  /* background-color: var(--color-aitt); */
-
-}
-
-.page-index1{
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.page-aitt, .page-second{
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-  
 }
 
 html, body{
@@ -72,46 +26,103 @@ html, body{
   scroll-behavior: smooth;
 }
 
-.aitt-body{
+.aitt-body, .resources-body, .home-body{
   overflow-x: hidden;
   overflow-y: hidden;
 }
 
-.home-body{
-  overflow-x: hidden;
-  overflow-y: hidden;
+.index-page{
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* body{
-  overflow-x: hidden;
-  overflow-y: hidden;
-} */
+.aitt-page, .home-page, .resources-page{
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  
+}
 
-/* targets transitions for "all" attributes for each element type used. Customize transitions later if needed */
-/* match with transition in lights (Environment.js) with duration/delay in GSAP, if needed */
+.page-wrapper{
+  position: relative;
+}
 
-/* Check if you can set a different speed for turning toggle on vs off */
+
+/* Basic transitions for color/night mode toggle ------------------ */
 h1,
 section,
 p,
 span,
 svg{
   /* transition: all 5s; */
-  transition: background-color 5s, color 2s; /* Use if "all" causes bugs with border-radius transition. I don't seem to have this problem, so will keep "all" for transitions for now */
+  transition: background-color 5s, color 2s;
 }
 
+/* Variable Styles for Toggle On/Off ------------------------------- */
+.hidden{
+  display: none;
+  transition: all 2s;
+}
+
+.opacity-none{
+  opacity: 0;
+}
+
+.opacity-half{
+  opacity: 0.5;
+  }
+
+.opacity-full{
+  opacity: 1;
+}
+
+.animated{
+  display: inline-block; /* won't be able to move w/o this, default is "inline-element" */ 
+  transform: translateY(100%);
+}
+
+.slide{
+  /* transform: translateX(24px); didn't work, must set slide class to another layer of wrapping to use transform */
+  /* Set the absolute position instead: */
+  left: 28px;
+}
+
+/* Keyframes used in CSS below --------------------------------------------- */
+@keyframes bounce {
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(8px);
+  }
+}
+
+@keyframes load {
+  0%{
+    transform: translateY(0);
+  }
+  20%{
+    transform: translateY(-12px);
+  }
+  40%{
+    transform: translateY(0);
+  }
+  /*If you use 0%, 20%, 40%, result is a continuous wave. 0%, 20%, 40% results in a stopping wave because keyframes reach completion at 40%, remain stagnant from 40% to 100% */
+}
+
+/* Setting the document colors --------------------------------- */
 :root{
   --text-black: rgb(47, 47, 47);
   --primary-color: #faf4e5;
   --color-orange1: #e5a1aa;
 
   /* Light Themed Variables */
-
   --color-text-light: rgb(47, 47, 47);
   --color-background-light: rgba(250,244,229, 0.9);
-
   --color2: rgba(187, 187, 187, 0.802);
-
 
   /* --color-background-light: rgba(72, 72, 72, .8); */
   --color-orange1-light: #FCB908;
@@ -121,9 +132,9 @@ svg{
   /* Dark Themed Variables */
   --color-text-dark: #FAF4e5;
   --color-background-dark: #1f2024;
-
 }
 
+/* Setting color themes --------------------------------------- */
 .light-theme{
   --color-text: var(--color-text-light);
   --color-background: var(--color-background-light);
@@ -140,7 +151,6 @@ svg{
 }
 
 .dark-theme{
-  /* All color texts are set to the same color in dark mode */
   --color-text: var(--color-text-dark);
   --color-background: var(--color-background-dark);
   --color-orange1: var(--color-text-dark);
@@ -152,20 +162,28 @@ svg{
   --color-navText: var(--color-text-light);
 }
 
-/* Navbar ////////////////////////////////////////////*/
-
-
-.navContainer{
-  opacity: 0;
-  position: fixed;
-  height: 13vh;
-  width: 100%;
-  z-index: 1500;
-  background-color: var(--color-header);
+/* Color Overrides ---------------------------------------------- */
+.blue-text{
+  color: var(--color-blue);
+}
+.blue-border{
+  border-color: var(--color-blue);
+}
+.blue-background{
+  background-color: var(--color-blue);
+}
+.orange2-text{
+  color: var(--color-orange2);
+}
+.orange2-border{
+  border-color: var(--color-orange2);
+}
+.orange2-background{
+  background-color: var(--color-orange2);
 }
 
-.navContainer2{
-  opacity: 1;
+/* Navbar styles ---------------------------------------------- */
+.navContainer{
   position: fixed;
   height: 13vh;
   width: 100%;
@@ -174,23 +192,14 @@ svg{
 }
 
 #logoID{
-  opacity: 0;
   width: 16vw;
   z-index: 1000;
   transition: transform .5s ease-in-out;
 }
 
-#logoID2{
-  opacity: 1;
-  width: 16vw;
-  z-index: 1000;
-  transition: transform .5s ease-in-out;
-}
-
-#logoID:hover {
+#logoID:hover{
   transform: scale(1.03);
 }
-
 
 .logo-wrapper{
   position: fixed;
@@ -202,13 +211,11 @@ svg{
   left: 3vw;
 }
 
-
 .navbar{
   font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
 
   position: relative;
   display: flex;
-
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -220,7 +227,6 @@ svg{
 .nav-link{
 padding-left: 5vw;
 color: var(--color-text);
-
 }
 
 .page-link{
@@ -258,6 +264,7 @@ color: var(--color-text);
   color: rgba(var(--color-navText), 0.1);
 }
 
+/* Footer styles ----------------------------------------------------- */
 .footer{
   position: absolute;
   bottom: 0px;
@@ -265,18 +272,14 @@ color: var(--color-text);
   width: 100%;
   z-index: 1000;
   background-color: #FCB908;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 1em;
-
-  
   }
-  
-  /* Button ///////////////*/
 
+  /* General Button Styles ------------------------------------------------ */
   .text-button {
     display: inline-block;
     background-color: var(--color-background);
@@ -284,8 +287,6 @@ color: var(--color-text);
     text-decoration: none;
     border-radius: 5px;
     transition: all 0.2s ease-in-out;
-
-
     border: none;
     border-radius: 50px;
     padding: 10px 20px;
@@ -300,7 +301,6 @@ color: var(--color-text);
   .text-button:hover {
     box-shadow: 0px 0px 10px var(--color-orange1-light);
     transform: translateY(-3px);
-
     transform: scale(1.05);
     background-color: var(--color-background);
   }
@@ -309,39 +309,7 @@ color: var(--color-text);
     padding-bottom: 5px;
   }
 
-  /* Try 2 //////////// */
-/* 
-  .container{
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-  }
-
-  .main-nav{
-
-  }
-
-  .main-nav ul{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .main-nav ul li{
-    float: left;
-    margin-left: 15px;
-  }
-
-  .main-nav ul li a{
-    text-decoration: none;
-  } */
-
-
-/* Experience //////////////////////////////////////////// */
-
+/* Canvas for three.js Experience ------------------------------------------------------- */
 .experience{
   position: fixed;
   width: 100vw;
@@ -350,15 +318,7 @@ color: var(--color-text);
   height: 100%;
 }
 
-
-/* Preloader ///////////////////////////////////////// */
-
-.hidden{
-  display: none;
-  transition: all 2s;
-
-}
-
+/* Preloader Loading Screen Styles ------------------------------------------ */
 .preloader{
   background-color: var(--color-background-dark);
   width: 100%;
@@ -366,10 +326,6 @@ color: var(--color-text);
   position: fixed; /* keeps loader page fixed on screen */
   opacity: 1;
   z-index: 3000;
-}
-
-.opacity{
-opacity: 0.5;
 }
 
 .preloader-wrapper{
@@ -404,52 +360,48 @@ opacity: 0.5;
   animation-delay: 0.2s;
 }
 
-/* Must set keyframes for CSS animation. "load" is animation name, then set what the element does in this animation w/ keyframes*/
-@keyframes load {
-  0%{
-    transform: translateY(0);
-  }
+/* Hero Section Content Styles ------------------------------------------------------- */
 
-  20%{
-    transform: translateY(-12px);
-  }
-
-  40%{
-    transform: translateY(0);
-  }
-
-  /*If you use 0%, 20%, 40%, result is a continuous wave. 0%, 20%, 40% results in a stopping wave because keyframes reach completion at 40%, remain stagnant from 40% to 100% */
+.hero{
+  width: 100vw;
+  height: 100vh;
 }
 
-/* Main Page //////////////////////////////////////////// */
-
-
-
-.page-wrapper{
+.hero-wrapper{
   position: relative;
+  height: 100%;
+  width: calc(100% - 160px);
+  margin: 0 auto;
+  max-width: 1100px;
 }
 
-/* Preloader Styles ///////////////////////////// */
-
-.animated{
-  display: inline-block; /* won't be able to move w/o this, default is "inline-element" */ 
-  transform: translateY(100%);
-}
-
-.intro-text{
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-
+.hero-main{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  font-weight: 500;
-  font-size: 16px;
+  bottom: 130px; /* 168 original */
+  left: 13vw;
   color: var(--color-text);
-  transform: translate(-50%, -50%); /* the text, moves 50% of its height/width */
 }
 
+.hero-main-title{
+  font-size: 90px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.hero-main-description{
+  padding-top: 12px;
+  font-size: 24px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.hero-main-title-sub{
+  font-size: 5em;
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* Intro text animation styles --------------------------------------------- */
 .arrow-svg-wrapper{
   position: absolute;
   top: 90%;
@@ -460,39 +412,23 @@ opacity: 0.5;
   animation: bounce 0.5s ease-in alternate infinite; /* Animated arrow svg */
 }
 
-/* Sets keyframes for bounce animation with CSS only, no javascript */
-@keyframes bounce {
-  0%{
-    transform: translateY(0);
-  }
-
-  100%{
-    transform: translateY(8px);
-  }
+.intro-text{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-text);
+  transform: translate(-50%, -50%); /* the text, moves 50% of its height/width */
 }
 
-/* Main Page //////////////////////////////////////////// */
-
+/* Sun/Night Mode Toggle Bar Styles ------------------------------------------ */
 .toggle-bar{
   position: fixed;
   display: flex;
-
-  opacity: 0; /* Sets initial state, set to opacity: 1 at end of intro1 animation */
-
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  top: 6vh;
-  right: 10.5vw;
-  z-index: 3000;
-}
-
-.toggle-bar2{
-  position: fixed;
-  display: flex;
-
-  opacity: 1; /* Sets initial state, set to opacity: 1 at end of intro1 animation */
-
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -513,7 +449,9 @@ opacity: 0.5;
 }
 
 .toggle-button{
-  cursor: pointer;  /* creates the pointer effect on hover */ 
+  /* creates the pointer effect on hover */ 
+  cursor: pointer;  
+
   position: relative;
   width: 56px;
   height: 28px;
@@ -524,102 +462,27 @@ opacity: 0.5;
   border-radius: 999px;
   margin: 0px 16px; /* 0 px top/bottom, 16px left/right */
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; /* google search good CSS box shadow, copied */
+
+  /* google search good CSS box shadow, copied */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
 }
 
-/* Creates toggle circle */
 .toggle-circle{
   position: absolute;
   left: 6px;
-  border-radius: 50%; /* makes circle shape */
+  border-radius: 50%; 
   width: 20px;
   height: 20px;
   background-color: var(--color-button);
-  transition: all 0.2s ease-in-out /* animates changes to the div, can use anywhere */
-  
+  transition: all 0.2s ease-in-out 
 }
 
-/* on hover for toggle-button div, changes style for toggle-circle div */
 .toggle-button:hover .toggle-circle{
-  transform: scale(0.9); /* Scales about center, as opposed to setting height/width from 20px to 16px, this scales about the left side */
+  /* Scales about center, setting h/w 20 -> 16px scales from left side */
+  transform: scale(0.9); 
 }
 
-.slide{
-  /* transform: translateX(24px); didn't work, must set slide class to another layer of wrapping to use transform */
-  /* Set the absolute position instead: */
-  left: 28px;
-}
-
-/* Section Formatting //////////////////////////////////////////// */
-
-.section-margin{
-  height: 100px;
-  width: 100%;
-}
-
-.section{
-  position: relative;
-  width: 50%;
-  /* padding: 200px 4%; */
-  padding-top: 2vh;
-  padding-bottom: 350px;
-  padding-right: 10vw;
-  padding-left: 10vw;
-  margin: 0;
-  background-color: var(--color-background);
-  overflow: hidden;
-}
-
-.section2{
-  position: relative;
-  width: 100%;
-  /* padding: 200px 4%; */
-  padding-top: 2vh;
-  padding-bottom: 150px;
-  padding-right: 10vw;
-  padding-left: 10vw;
-  margin: 0;
-  background-color: var(--color-background);
-  overflow: hidden;
-
-
-}
-
-.section-slide{
-  background-color: var(--color-background-dark);
-}
-
-
-
-/* slide plugin */
-
-
-.left{
-  margin-right: auto;
-  border-top-right-radius: 700px 700px;
-  border-bottom-right-radius: 0px 0px;
-}
-
-.right{
-  margin-left: auto;
-  border-top-left-radius: 700px 700px;
-  border-bottom-left-radius: 0px 0px;
-}
-
-.third-section{
-  position: relative;
-  width: 50%;
-  /* padding: 200px 4%; */
-  padding-top: 2vh;
-  padding-bottom: 200px;
-  padding-right: 10vw;
-  padding-left: 5vw;
-  margin: 0;
-  background-color: var(--color-background);
-  overflow: hidden;
-}
-
-/* Progress  Bar //////////////////////////// */
+/* Progress Bar Styles -------------------------------------------------- */
 .progress-wrapper{
   height: 0px;
   width: 12px;
@@ -646,7 +509,55 @@ opacity: 0.5;
   transform: scaleY(1);
 }
 
-/* Sections ///////////////////////////////*/
+/* Content Sections Styles ------------------------------------------------- */
+.section-margin{
+  height: 100px;
+  width: 100%;
+}
+
+/* Index page section */
+.section{
+  position: relative;
+  width: 50%;
+  padding-top: 2vh;
+  padding-bottom: 350px;
+  padding-right: 10vw;
+  padding-left: 10vw;
+  margin: 0;
+  background-color: var(--color-background);
+  overflow: hidden;
+}
+
+/* Override for last section on page */
+.fifth-section{
+  padding-bottom: 200px;
+  padding-left: 5vw;
+}
+
+/* All other pages section */
+.section-notIndexPage{
+  position: relative;
+  width: 100%;
+  padding-top: 2vh;
+  padding-bottom: 150px;
+  padding-right: 10vw;
+  padding-left: 10vw;
+  margin: 0;
+  background-color: var(--color-background);
+  overflow: hidden;
+}
+
+.left{
+  margin-right: auto;
+  border-top-right-radius: 700px 700px;
+  border-bottom-right-radius: 0px 0px;
+}
+
+.right{
+  margin-left: auto;
+  border-top-left-radius: 700px 700px;
+  border-bottom-left-radius: 0px 0px;
+}
 
 .section-intro-wrapper{
   position: relative;
@@ -655,22 +566,14 @@ opacity: 0.5;
   padding-bottom: 4vh;
 }
 
-.section-intro-wrapper-slide{
+.section-title{
   position: relative;
-  padding: 10% 5%;
-  border-bottom: 2px solid var(--color-orange1);
-  padding-bottom: 4vh;
+  color: var(--color-orange1)
 }
 
 .section-detail-wrapper{
   position: relative;
   padding: 1% 5%;
-
-}
-
-.aitt-slide{
-  width: 100%;
-  height: 70vh;
 }
 
 .section-heading{
@@ -679,7 +582,6 @@ opacity: 0.5;
   line-height: 1.8;
   margin-top: 4vh;
   color: var(--color-text);
-
 }
 
 .section-text{
@@ -687,59 +589,11 @@ opacity: 0.5;
   margin-top: 18px;
   font-size: 16px;
   color: var(--color-text);
-
 }
 
-/* Text Decoration Section //////////////////////////////////////////// */
-
-.section-title{
-  position: relative;
-  color: var(--color-orange1)
-}
-
-.section-title-text{
-  display: block; /* won't work without this */
-  font-size: 40px;
-  font-weight: 500;
-  transform-origin: left; /* Sets origin point to the left of the span */
-  transform: skewY(25deg); /* Skews span about the newly set origin point for rotated effect */
-  z-index: 100;
-  text-transform: uppercase;
-  color: var(--color-orange1);
-
-}
-
-.styleOne,
-.styleTwo,
-.styleThree{
-  position: absolute;
-  display: block;
-  width: 100%;
-  max-width: 278px;
-  height: 60px;
-  border: 1px solid var(--color-orange1);
-  transform-origin: left; 
-  transform: skewY(-25deg); 
-}
-
-.styleOne{
-  top: 0px;
-}
-
-.styleTwo{
-  top: 80px;
-}
-
-.styleThree{
-  top: 80px;
-  transform: skewY(25deg);
-  background-color: var(--color-orange1)
-}
-
-/* By setting the position absolute, the number is locked to the parent container. 
+/* General notes: By setting the position absolute, the number is locked to the parent container. 
 Then, you can set the position (bottom and right set here) to fix the position 
 of the number in the container, even as the container moves relatively to the page */
-
 .section-number{
   position: absolute;
   bottom: 15px;
@@ -748,100 +602,33 @@ of the number in the container, even as the container moves relatively to the pa
   font-size: 24px;
 }
 
-/* Hero Section //////////////////////////////////////////// */
-
-.hero{
-  width: 100vw;
-  height: 100vh;
+/* Reveal.js gallery Styles on AITT Page ------------------------------------- */
+.section-slide{
+  background-color: var(--color-background-dark);
 }
 
-.hero-wrapper{
-  position: relative;
-  height: 100%;
-  width: calc(100% - 160px);
-  margin: 0 auto;
-  max-width: 1100px;
+.aitt-slide{
+  width: 100%;
+  height: 70vh;
 }
 
-.hero-main{
-  position: absolute;
-  bottom: 130px; /* 168 original */
-  left: 13vw;
-  color: var(--color-text);
-
-}
-
-.hero-second{
-  position: absolute;
-  top: calc(50% - 120px);
-  right: 0;
-  color: var(--color-text);
-
-}
-
-.hero-main-title{
-  font-size: 90px;
-  color: var(--color-text);
-  text-align: center;
-
-}
-
-.hero-main-title-sub{
-  font-size: 5em;
-  color: var(--color-text);
-  text-align: center;
-
-}
-
-.hero-main-description{
-  padding-top: 12px;
-  font-size: 24px;
-  color: var(--color-text);
-  text-align: center;
-
-}
-
-.hero-second-subheading{
-  font-size: 32px;
-  text-transform: uppercase; 
-  color: var(--color-text);
-
-}
-
-
-
-/* Other Colors Override */
-
-.blue-text{
-  color: var(--color-blue);
-}
-
-.blue-border{
-  border-color: var(--color-blue);
-}
-
-.blue-background{
-  background-color: var(--color-blue);
-}
-
-.orange2-text{
-  color: var(--color-orange2);
-}
-
-.orange2-border{
-  border-color: var(--color-orange2);
-}
-
-.orange2-background{
-  background-color: var(--color-orange2);
+.slideMod{
+  padding: 10% 5%;
 }
 
 .aitt-slide-text{
   color: var(--color-orange1-light);
 }
-/* Media Queries, makes the site mobile responsive */ 
 
+
+
+/* //////////////////////-------------------------------------------------------
+END OF CSS FOR DESKTOP
+/////////////////////-------------------------------------------------------- */
+
+/* Media Queries for Mobile Responsiveness ---------------------------------------------------------------- */
 @media (max-width: 968px){
+
   .section{
     width: 100%;
   }
