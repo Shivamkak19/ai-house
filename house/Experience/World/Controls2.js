@@ -33,7 +33,7 @@ export default class Controls{
         console.log("got to controls2");
         this.setSmoothScroll();
         this.setScrollTrigger();
-        document.querySelector(".home-page").style.overflow = "visible";
+        document.querySelector(".home-page").style.overflowy = "visible";
 
     }
 
