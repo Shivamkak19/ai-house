@@ -35,7 +35,7 @@ export default class Controls{
         this.preloader.on("enablecontrols", ()=>{
             this.setSmoothScroll();
             this.setScrollTrigger();
-            document.querySelector(".index-page").style.overflow = "visible";
+            document.querySelector(".index-page").style.overflowy = "visible";
         })
 
 

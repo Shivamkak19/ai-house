@@ -630,6 +630,7 @@ END OF CSS FOR DESKTOP
 @media (max-width: 968px){
 
 /* General ---------------------------------------- */
+
 .section{
   width: 100%;
 }
@@ -711,6 +712,10 @@ END OF CSS FOR DESKTOP
 }
 
 .nav-link {
+  justify-content: center;
+  align-items: center;
+  margin-right: 15%;
+
   padding: 1rem;
   color: white;
   font-weight: bold;
@@ -736,10 +741,12 @@ END OF CSS FOR DESKTOP
 
 .hero-main{
   left: 2vw;
+  bottom: 0vw;
+  text-align: center;
 }
 
 .hero-main-title{
-  font-size: 3.1em;
+  font-size: 10vw;
 }
 
 .hero-main-description{
@@ -748,7 +755,7 @@ END OF CSS FOR DESKTOP
 }
 
 .hero-main-title-sub{
-  font-size: 3em;
+  font-size: 5em;
 }
 
 
@@ -780,7 +787,7 @@ END OF CSS FOR DESKTOP
   justify-content: center;
   align-items: center;
   top: 4vh;
-  right: 27vw;
+  right: 7vw;
   z-index: 3000;
 }
 
