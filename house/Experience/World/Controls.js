@@ -124,7 +124,8 @@ export default class Controls{
             this.asscroll = this.setDesktopScroll();
         }
         else{
-            this.asscroll = this.setMobileScroll();
+            //mobile scroll idea did not work
+            this.asscroll = this.setDesktopScroll();
 
         }
     }
