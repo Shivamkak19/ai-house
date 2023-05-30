@@ -21,9 +21,9 @@ export default class Room{
 
         
 
-        this.setModel();
+        // this.setModel();
         this.onMouseMove();
-        this.setAnimation();
+        // this.setAnimation();
 
     }
 
@@ -162,7 +162,7 @@ export default class Room{
         // this.lerp.current2 = GSAP.utils.interpolate(this.lerp.current2, this.lerp.target2, this.lerp.ease);
         
         //Control speed of animation
-        this.mixer.update(this.time.delta * 0.0009);
+        // this.mixer.update(this.time.delta * 0.0009);
 
 
         

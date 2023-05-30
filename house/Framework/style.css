@@ -68,7 +68,7 @@ svg{
 }
 
 .opacity-none{
-  opacity: 0;
+  opacity: 1;
 }
 
 .opacity-half{
@@ -184,6 +184,7 @@ svg{
 
 /* Navbar styles ---------------------------------------------- */
 .navContainer{
+  opacity: 1;
   position: fixed;
   height: 13vh;
   width: 100%;
