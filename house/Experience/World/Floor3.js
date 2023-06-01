@@ -19,7 +19,6 @@ export default class Floor{
         this.scene.add( this.pointLightHelper );
 
         this.setFloor();
-        //check
 
     }
 
