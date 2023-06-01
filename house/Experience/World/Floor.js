@@ -28,7 +28,7 @@ export default class Floor{
 
 
         this.onMouseMove();
-        this.generatePlane();
+        // this.generatePlane();
 
     }
 
