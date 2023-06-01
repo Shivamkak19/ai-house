@@ -45,14 +45,14 @@ export default class Room{
 
             //Set materials of individual objects by Name ID from Blender
             //Consider simulating an environment map here
-            if(child.name ==="fish_tank"){
-                child.children[0].material = new THREE.MeshPhysicalMaterial();
-                child.children[0].material.roughness = 0;
-                child.children[0].material.color.set(0x549dd2);
-                child.children[0].material.ior = 3;
-                child.children[0].material.transmission = 1;
-                child.children[0].material.opacity = 1;
-            }
+            // if(child.name ==="fish_tank"){
+            //     child.children[0].material = new THREE.MeshPhysicalMaterial();
+            //     child.children[0].material.roughness = 0;
+            //     child.children[0].material.color.set(0x549dd2);
+            //     child.children[0].material.ior = 3;
+            //     child.children[0].material.transmission = 1;
+            //     child.children[0].material.opacity = 1;
+            // }
 
             if(child.name ==="Computer"){
                 child.children[1].material = new THREE.MeshBasicMaterial({

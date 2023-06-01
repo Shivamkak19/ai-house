@@ -22,6 +22,7 @@ export default class Room{
         this.setModel();
         this.onMouseMove();
         this.setAnimation();
+        console.log(this.roomChildren);
 
         
 
@@ -47,14 +48,14 @@ export default class Room{
 
             //Set materials of individual objects by Name ID from Blender
             //Consider simulating an environment map here
-            if(child.name ==="fish_tank"){
-                child.children[0].material = new THREE.MeshPhysicalMaterial();
-                child.children[0].material.roughness = 0;
-                child.children[0].material.color.set(0x549dd2);
-                child.children[0].material.ior = 3;
-                child.children[0].material.transmission = 1;
-                child.children[0].material.opacity = 1;
-            }
+            // if(child.name ==="fish_tank"){
+            //     child.children[0].material = new THREE.MeshPhysicalMaterial();
+            //     child.children[0].material.roughness = 0;
+            //     child.children[0].material.color.set(0x549dd2);
+            //     child.children[0].material.ior = 3;
+            //     child.children[0].material.transmission = 1;
+            //     child.children[0].material.opacity = 1;
+            // }
 
             if(child.name ==="Computer"){
                 child.children[1].material = new THREE.MeshBasicMaterial({
@@ -77,11 +78,11 @@ export default class Room{
             // }
 
             // Old Version
-            // if(child.name ==="Computer"){
-            //     child.material = new THREE.MeshBasicMaterial({
-            //         map: this.resources.items.screen,
-            //     });
-            // }
+            if(child.name ==="Computer"){
+                child.material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.screen,
+                });
+            }
 
             child.scale.set(0, 0, 0);
 
