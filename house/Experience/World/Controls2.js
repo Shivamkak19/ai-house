@@ -37,65 +37,90 @@ export default class Controls{
 
     }
 
-    setOtherScroll(){
+    setDesktopScroll(){
         const scroller = document.querySelector('.scroller');
 
-const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.1, delegateTo: document, alwaysShowTracks: true });
+        const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.1, delegateTo: document, alwaysShowTracks: true });
 
-ScrollTrigger.scrollerProxy(".scroller", {
-  scrollTop(value) {
-    if (arguments.length) {
-      bodyScrollBar.scrollTop = value;
+        ScrollTrigger.scrollerProxy(".scroller", {
+        scrollTop(value) {
+            if (arguments.length) {
+            bodyScrollBar.scrollTop = value;
+            }
+            return bodyScrollBar.scrollTop;
+        }
+        });
+
+        bodyScrollBar.addListener(ScrollTrigger.update);
+
+        ScrollTrigger.defaults({ scroller: scroller });
+        console.log("operation");
     }
-    return bodyScrollBar.scrollTop;
-  }
-});
 
-bodyScrollBar.addListener(ScrollTrigger.update);
 
-ScrollTrigger.defaults({ scroller: scroller });
-console.log("operation");
-    }
+    setMobileScroll() {
+        const scroller = document.querySelector('.scroller');
+      
+        const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.5, delegateTo: document });
+      
+        ScrollTrigger.scrollerProxy(".scroller", {
+          scrollTop(value) {
+            if (arguments.length) {
+              bodyScrollBar.scrollTop = value;
+            }
+            return bodyScrollBar.scrollTop;
+          },
+          scrollLeft(value) {
+            // Prevent horizontal scrolling
+            return 0;
+          }
+        });
+      
+        bodyScrollBar.addListener(ScrollTrigger.update);
+      
+        ScrollTrigger.defaults({ scroller: scroller, vertical: true });
+      
+        // Disable touch-based horizontal scrolling
+        let isTouchMove = false;
+        let startX = 0;
+        let startY = 0;
+      
+        scroller.addEventListener('touchstart', function(event) {
+          startX = event.touches[0].clientX;
+          startY = event.touches[0].clientY;
+          isTouchMove = false;
+        });
+      
+        scroller.addEventListener('touchmove', function(event) {
+          const deltaX = Math.abs(event.touches[0].clientX - startX);
+          const deltaY = Math.abs(event.touches[0].clientY - startY);
+      
+          if (deltaX > deltaY) {
+            event.preventDefault();
+            isTouchMove = true;
+          }
+        });
+      
+        scroller.addEventListener('touchend', function(event) {
+          if (isTouchMove) {
+            event.preventDefault();
+            isTouchMove = false;
+          }
+        });
+      
+        console.log("operation");
+      }
 
-    setupASScroll() {
-        // https://github.com/ashthornton/asscroll
-        const asscroll = new ASScroll({
-            disableRaf: true
-        });
-    
-        GSAP.ticker.add(asscroll.update);
-    
-        ScrollTrigger.defaults({
-            scroller: asscroll.containerElement
-        });
-    
-        ScrollTrigger.scrollerProxy(asscroll.containerElement, {
-            scrollTop(value) {
-                if (arguments.length) {
-                    asscroll.currentPos = value;
-                    return;
-                }
-                return asscroll.currentPos;
-            },
-            getBoundingClientRect() {
-                return { top: 100, left: 100, width: window.innerWidth, height: window.innerHeight }
-            },
-            fixedMarkers: true
-        });
-    
-        asscroll.on("update", ScrollTrigger.update);
-        ScrollTrigger.addEventListener("refresh", asscroll.resize);
-        
-        requestAnimationFrame(() => {
-           asscroll.enable({
-                newScrollElements: document.querySelectorAll(".gsap-marker-start, .gsap-marker-end, [asscroll]")
-            }); 
-        });
-        return asscroll;
-    }
 
     setSmoothScroll(){
-        this.asscroll = this.setOtherScroll();
+        if(this.device === "desktop"){
+            this.asscroll = this.setDesktopScroll();
+        }
+        else{
+            //mobile scroll idea did not work
+            this.asscroll = this.setMobileScroll();
+
+        }
     }
     
     setScrollTrigger(){

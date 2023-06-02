@@ -125,7 +125,7 @@ export default class Controls{
         }
         else{
             //mobile scroll idea did not work
-            this.asscroll = this.setDesktopScroll();
+            this.asscroll = this.setMobileScroll();
 
         }
     }
@@ -335,7 +335,7 @@ export default class Controls{
             "all": () => {
 
                 //Grabs the section class to animate progress bar
-                this.sections = document.querySelectorAll(".section");
+                this.sections = document.querySelectorAll(".section-notIndexPage");
                 this.sections.forEach((section) => {
                     this.progressWrapper = section.querySelector(".progress-wrapper");
                     this.progressBar = section.querySelector(".progress-bar");

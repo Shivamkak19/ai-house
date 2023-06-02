@@ -8,6 +8,8 @@ import { EventEmitter } from "events";
 
 import Room2 from "./Room2";
 import Controls2 from "./Controls2"
+import Controls3 from "./Controls3"
+
 
 
 export default class World extends EventEmitter{
@@ -26,7 +28,7 @@ export default class World extends EventEmitter{
             this.environment = new Environment();
             this.floor = new Floor();
             this.room = new Room2();
-            this.controls = new Controls2();
+            this.controls = new Controls3();
             console.log("reached world2");
             this.emit("worldready");
         });
