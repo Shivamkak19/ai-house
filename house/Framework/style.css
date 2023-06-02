@@ -629,6 +629,18 @@ END OF CSS FOR DESKTOP
 /* Media Queries for Mobile Responsiveness ---------------------------------------------------------------- */
 @media (max-width: 968px){
 
+  .left{
+    margin-right: auto;
+    border-top-right-radius: 200px 200px;
+    border-bottom-right-radius: 200px 200px;
+  }
+  
+  .right{
+    margin-left: auto;
+    border-top-left-radius: 200px 200px;
+    border-bottom-left-radius: 200px 200px;
+  }
+
 /* General ---------------------------------------- */
 
 .scroller{
