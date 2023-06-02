@@ -6,6 +6,7 @@ import Floor from "./Floor";
 import * as THREE from "three"
 import { EventEmitter } from "events";
 
+import Controls3 from "./Controls3"
 
 export default class World extends EventEmitter{
     constructor(){
@@ -23,7 +24,7 @@ export default class World extends EventEmitter{
             this.environment = new Environment();
             this.floor = new Floor();
             this.room = new Room();
-            this.controls = new Controls();
+            this.controls = new Controls3();
             this.emit("worldready");
         });
 

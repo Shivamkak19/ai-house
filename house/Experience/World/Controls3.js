@@ -29,13 +29,12 @@ export default class Controls{
         GSAP.registerPlugin(ScrollTrigger);        
 
         console.log("hit alternate controls3");
-        this.setSmoothScroll();
+        // this.setSmoothScroll();
         this.setScrollTrigger();
-        // document.querySelector(".aitt-page").style.overflowy = "visible";
 
     }
 
-    setOtherScroll(){
+    setDesktopScroll(){
         const scroller = document.querySelector('.scroller');
 
         const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.1, delegateTo: document, alwaysShowTracks: true });
@@ -46,18 +45,80 @@ export default class Controls{
             bodyScrollBar.scrollTop = value;
             }
             return bodyScrollBar.scrollTop;
-        }
+        },
+
         });
 
         bodyScrollBar.addListener(ScrollTrigger.update);
 
         ScrollTrigger.defaults({ scroller: scroller });
-        console.log("alternate scrolling operational");
+        console.log("operation");
     }
 
 
+    setMobileScroll() {
+        const scroller = document.querySelector('.scroller');
+      
+        const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.5, delegateTo: document });
+      
+        ScrollTrigger.scrollerProxy(".scroller", {
+          scrollTop(value) {
+            if (arguments.length) {
+              bodyScrollBar.scrollTop = value;
+            }
+            return bodyScrollBar.scrollTop;
+          },
+          scrollLeft(value) {
+            // Prevent horizontal scrolling
+            return 0;
+          }
+        });
+      
+        bodyScrollBar.addListener(ScrollTrigger.update);
+      
+        ScrollTrigger.defaults({ scroller: scroller, vertical: true });
+      
+        // Disable touch-based horizontal scrolling
+        let isTouchMove = false;
+        let startX = 0;
+        let startY = 0;
+      
+        scroller.addEventListener('touchstart', function(event) {
+          startX = event.touches[0].clientX;
+          startY = event.touches[0].clientY;
+          isTouchMove = false;
+        });
+      
+        scroller.addEventListener('touchmove', function(event) {
+          const deltaX = Math.abs(event.touches[0].clientX - startX);
+          const deltaY = Math.abs(event.touches[0].clientY - startY);
+      
+          if (deltaX > deltaY) {
+            event.preventDefault();
+            isTouchMove = true;
+          }
+        });
+      
+        scroller.addEventListener('touchend', function(event) {
+          if (isTouchMove) {
+            event.preventDefault();
+            isTouchMove = false;
+          }
+        });
+      
+        console.log("operation");
+      }
+
+
     setSmoothScroll(){
-        this.asscroll = this.setOtherScroll();
+        if(this.device === "desktop"){
+            this.asscroll = this.setDesktopScroll();
+        }
+        else{
+            //mobile scroll idea did not work
+            this.asscroll = this.setDesktopScroll();
+
+        }
     }
 
     setScrollTrigger(){
@@ -170,28 +231,63 @@ export default class Controls{
                 //Grabs the section class to animate progress bar
                 this.sections = document.querySelectorAll(".section-notIndexPage");
                 this.sections.forEach((section) => {
+                    this.progressWrapper = section.querySelector(".progress-wrapper");
+                    this.progressBar = section.querySelector(".progress-bar");
 
+                    //Puts the scroll trigger directly inside the tween because there is only 1 tween so this parses
+                    if(section.classList.contains("right")){
+                        GSAP.to(section, {
+                            borderTopLeftRadius: 100,
+                            scrollTrigger:{
+                                trigger: section,
+                                start: "top bottom",
+                                end: "top top",
+                                scrub: 0.6,
+                            }
+                        })
+                        GSAP.to(section, {
+                            borderBottomLeftRadius: 700,
+                            scrollTrigger:{
+                                trigger: section,
+                                start: "bottom bottom",
+                                end: "bottom top",
+                                scrub: 0.6,
+                            }
+                        })
+                    }
+                    //For left sections
+                    else{
+                        GSAP.to(section, {
+                            borderTopRightRadius: 100,
+                            scrollTrigger:{
+                                trigger: section,
+                                start: "top bottom",
+                                end: "top top",
+                                scrub: 0.6,
+                            }
+                        })
+                        GSAP.to(section, {
+                            borderBottomRightRadius: 700,
+                            scrollTrigger:{
+                                trigger: section,
+                                start: "bottom bottom",
+                                end: "bottom top",
+                                scrub: 0.6,
+                            }
+                        })                        
+                    }
 
-                    console.log("hit section2");
-                    GSAP.to(section, {
-                        borderTopLeftRadius: 0,
-                        scrollTrigger:{
+                    GSAP.from(this.progressBar, {
+                        scaleY: 0,
+                        scrollTrigger: {
                             trigger: section,
-                            start: "top bottom",
-                            end: "top top",
-                            scrub: 0.6,
+                            start: "+=100",
+                            end: "+=500",
+                            scrub: 0.8,
+                            pin: this.progressWrapper,
+                            pinSpacing: false,
                         }
                     })
-                    GSAP.to(section, {
-                        borderBottomLeftRadius: 700,
-                        scrollTrigger:{
-                            trigger: section,
-                            start: "bottom bottom",
-                            end: "bottom top",
-                            scrub: 0.6,
-                        }
-                    })
-
                 })
 
              }
