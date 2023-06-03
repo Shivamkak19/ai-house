@@ -24,6 +24,7 @@ html, body{
   font-family: "Montserrat", sans-serif;
   color: var(--text-black);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* .aitt-body, .resources-body, .home-body{
@@ -35,14 +36,14 @@ html, body{
   z-index: 1000;
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 .aitt-page, .home-page, .resources-page{
   z-index: 1000;
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  overflow-x: hidden;
   
 }
 
