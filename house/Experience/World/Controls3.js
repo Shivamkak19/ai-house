@@ -30,7 +30,7 @@ export default class Controls{
 
         console.log("hit alternate controls3");
         // this.setSmoothScroll();
-        this.setScrollTrigger();
+        // this.setScrollTrigger();
 
     }
 
