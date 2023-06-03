@@ -75,9 +75,20 @@ export default class Floor{
     this.plane.geometry.attributes.position.originalPosition = this.plane.geometry.attributes.position.array
     
     const colors = []
-    for (let i = 0; i < this.plane.geometry.attributes.position.count; i++){
-      colors.push(242 /255, 185/255, 18 /255)
+
+    if(this.device === "desktop"){
+      for (let i = 0; i < this.plane.geometry.attributes.position.count; i++){
+        colors.push(242 /255, 185/255, 18 /255)
+      }
+
     }
+    else{
+      for (let i = 0; i < this.plane.geometry.attributes.position.count; i++){
+        colors.push(255 /255, 172/255, 51 /255)
+        // colors.push(140 /255, 94/255, 8 /255) //darker orange
+      }
+    }
+
     //set to (0.1, 0.1, 1) for purple
 
     this.plane.geometry.setAttribute(
