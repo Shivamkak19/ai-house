@@ -226,71 +226,71 @@ export default class Controls{
             },
           
             //All - Animated GSAP for all media queries /////////////////////////////////
-            "all": () => {
+            // "all": () => {
 
-                //Grabs the section class to animate progress bar
-                this.sections = document.querySelectorAll(".section-notIndexPage");
-                this.sections.forEach((section) => {
-                    this.progressWrapper = section.querySelector(".progress-wrapper");
-                    this.progressBar = section.querySelector(".progress-bar");
+            //     //Grabs the section class to animate progress bar
+            //     this.sections = document.querySelectorAll(".section-notIndexPage");
+            //     this.sections.forEach((section) => {
+            //         this.progressWrapper = section.querySelector(".progress-wrapper");
+            //         this.progressBar = section.querySelector(".progress-bar");
 
-                    //Puts the scroll trigger directly inside the tween because there is only 1 tween so this parses
-                    if(section.classList.contains("right")){
-                        GSAP.to(section, {
-                            borderTopLeftRadius: 100,
-                            scrollTrigger:{
-                                trigger: section,
-                                start: "top bottom",
-                                end: "top top",
-                                scrub: 0.6,
-                            }
-                        })
-                        GSAP.to(section, {
-                            borderBottomLeftRadius: 700,
-                            scrollTrigger:{
-                                trigger: section,
-                                start: "bottom bottom",
-                                end: "bottom top",
-                                scrub: 0.6,
-                            }
-                        })
-                    }
-                    //For left sections
-                    else{
-                        GSAP.to(section, {
-                            borderTopRightRadius: 100,
-                            scrollTrigger:{
-                                trigger: section,
-                                start: "top bottom",
-                                end: "top top",
-                                scrub: 0.6,
-                            }
-                        })
-                        GSAP.to(section, {
-                            borderBottomRightRadius: 700,
-                            scrollTrigger:{
-                                trigger: section,
-                                start: "bottom bottom",
-                                end: "bottom top",
-                                scrub: 0.6,
-                            }
-                        })                        
-                    }
+            //         //Puts the scroll trigger directly inside the tween because there is only 1 tween so this parses
+            //         if(section.classList.contains("right")){
+            //             GSAP.to(section, {
+            //                 borderTopLeftRadius: 100,
+            //                 scrollTrigger:{
+            //                     trigger: section,
+            //                     start: "top bottom",
+            //                     end: "top top",
+            //                     scrub: 0.6,
+            //                 }
+            //             })
+            //             GSAP.to(section, {
+            //                 borderBottomLeftRadius: 700,
+            //                 scrollTrigger:{
+            //                     trigger: section,
+            //                     start: "bottom bottom",
+            //                     end: "bottom top",
+            //                     scrub: 0.6,
+            //                 }
+            //             })
+            //         }
+            //         //For left sections
+            //         else{
+            //             GSAP.to(section, {
+            //                 borderTopRightRadius: 100,
+            //                 scrollTrigger:{
+            //                     trigger: section,
+            //                     start: "top bottom",
+            //                     end: "top top",
+            //                     scrub: 0.6,
+            //                 }
+            //             })
+            //             GSAP.to(section, {
+            //                 borderBottomRightRadius: 700,
+            //                 scrollTrigger:{
+            //                     trigger: section,
+            //                     start: "bottom bottom",
+            //                     end: "bottom top",
+            //                     scrub: 0.6,
+            //                 }
+            //             })                        
+            //         }
 
-                    GSAP.from(this.progressBar, {
-                        scaleY: 0,
-                        scrollTrigger: {
-                            trigger: section,
-                            start: "+=100",
-                            end: "+=500",
-                            scrub: 0.8,
-                            pin: this.progressWrapper,
-                            pinSpacing: false,
-                        }
-                    })
-                })
+            //         GSAP.from(this.progressBar, {
+            //             scaleY: 0,
+            //             scrollTrigger: {
+            //                 trigger: section,
+            //                 start: "+=100",
+            //                 end: "+=500",
+            //                 scrub: 0.8,
+            //                 pin: this.progressWrapper,
+            //                 pinSpacing: false,
+            //             }
+            //         })
+            //     })
 
-             }
+            //  }
         })
     }
 
