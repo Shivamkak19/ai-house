@@ -46,9 +46,9 @@ export default class Experience{
             this.world = new World();
             this.preloader = new Preloader();
 
-            this.preloader.on("enablecontrols", ()=>{
-                this.controls = new Controls();
-            })
+            // this.preloader.on("enablecontrols", ()=>{
+            //     this.controls = new Controls3();
+            // })
         }
         if(currentPage === "home"){
             console.log("loading second customization");
