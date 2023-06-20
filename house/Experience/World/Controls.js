@@ -37,7 +37,7 @@ export default class Controls{
         this.preloader.on("enablecontrols", ()=>{
             this.setSmoothScroll();
             this.setScrollTrigger();
-            // document.querySelector(".index-page").style.overflowy = "visible";
+            document.querySelector(".index-page").style.overflowy = "visible";
             
         })
 
@@ -335,7 +335,7 @@ export default class Controls{
             "all": () => {
 
                 //Grabs the section class to animate progress bar
-                this.sections = document.querySelectorAll(".section-notIndexPage");
+                this.sections = document.querySelectorAll(".section");
                 this.sections.forEach((section) => {
                     this.progressWrapper = section.querySelector(".progress-wrapper");
                     this.progressBar = section.querySelector(".progress-bar");

@@ -8,6 +8,6 @@ export default [
     {
         name: "screen",
         type: "videoTexture",
-        path: "/Textures/Spongebob singing Goofy Goober Rock.mp4", //path in public to access model
+        path: "/Textures/AI@P video.mp4", //path in public to access model
     }
 ]
