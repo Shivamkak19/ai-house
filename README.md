@@ -88,7 +88,6 @@ Below, I have included the necessary steps to set up ai-house locally.
 
 To run this project, you must download the latest version of the npm package manager and Blender 3.6.1.
 
-* npm
   ```sh
   npm install npm@latest -g
   ```
