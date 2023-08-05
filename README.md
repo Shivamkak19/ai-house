@@ -125,7 +125,7 @@ To run this project, you must download the latest version of the npm package man
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Design Blender model
+- [ ] Design 3D model in Blender
     - [ ] Export GLTF, import in three.js scene via DracoLoader
 - [ ] Construct Three.js scene via Singleton design pattern
 - [ ] Overlay scene onto HTML/CSS
@@ -170,7 +170,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 * []() Woan Coding, three.js dev youtuber (https://www.youtube.com/@pandawoan) for blender and three.js instruction.
 * []() Chris Courses, web development youtuber (https://www.youtube.com/@ChrisCourses), for tutorials on three.js scene creation.
-* []() Tadeus, 3D graphics artist, for the blender model of the low-poly tiger available as "Low Poly - Tiger" (https://skfb.ly/6YOEX) by tadeus is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+* []() Tadeus, 3D graphics artist, for the blender model of the low-poly tiger available as:
+
+<br />
+ "Low Poly - Tiger" (https://skfb.ly/6YOEX) by tadeus is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
