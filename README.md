@@ -62,7 +62,7 @@ Ai-house is a three.js learning project that utilizes a GLTF model loaded into t
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About the Project
+## Project Design
 
 [![Product Name Screen Shot][product-screenshot]](https://ai-house.vercel.app/)
 
