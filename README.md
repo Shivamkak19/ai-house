@@ -86,7 +86,7 @@ Below, I have included the necessary steps to set up ai-house locally.
 
 ### Prerequisites
 
-To run this project, you must download the latest version of the npm package manager and Blender 3.6.1
+To run this project, you must download the latest version of the npm package manager and Blender 3.6.1.
 
 * npm
   ```sh
@@ -169,9 +169,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []() Woan Coding, three.js dev youtuber (https://www.youtube.com/@pandawoan) for blender and three.js instruction 
-* []() Chris Courses, web development youtuber (https://www.youtube.com/@ChrisCourses), for tutorials on three.js scene creation
-* []() Tadeus, 3D graphics artist, for the blender model of the low-poly tiger available as "Low Poly - Tiger" (https://skfb.ly/6YOEX) by tadeus is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
+* []() Woan Coding, three.js dev youtuber (https://www.youtube.com/@pandawoan) for blender and three.js instruction.
+* []() Chris Courses, web development youtuber (https://www.youtube.com/@ChrisCourses), for tutorials on three.js scene creation.
+* []() Tadeus, 3D graphics artist, for the blender model of the low-poly tiger available as "Low Poly - Tiger" (https://skfb.ly/6YOEX) by tadeus is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
