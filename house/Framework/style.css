@@ -124,7 +124,8 @@ svg{
 
   /* Light Themed Variables */
   --color-text-light: rgb(47, 47, 47);
-  --color-background-light: rgba(250,244,229, 0.9);
+  --color-background-light: rgba(255, 255, 255, 0.916);
+  /* --color-background-light: rgba(250,244,229, 0.9); */
   --color2: rgba(187, 187, 187, 0.802);
 
   /* --color-background-light: rgba(72, 72, 72, .8); */
@@ -427,6 +428,39 @@ color: var(--color-text);
   transform: translate(-50%, -50%); /* the text, moves 50% of its height/width */
 }
 
+.animation-toggle{
+  opacity: 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-text);
+  transform: translate(-50%, -50%); /* the text, moves 50% of its height/width */
+
+/* Different from intro-text: */
+  top: 87.5%;
+  left: 50%;
+  text-decoration: none;
+}
+
+.animation-toggle:hover {
+  color: #19bdff;
+  text-emphasis-color: #ffffff;
+}
+
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 5;
+  }
+}
+
 /* Sun/Night Mode Toggle Bar Styles ------------------------------------------ */
 .toggle-bar{
   position: fixed;
@@ -612,7 +646,7 @@ of the number in the container, even as the container moves relatively to the pa
 }
 
 .slideMod{
-  padding: 10% 5%;
+  padding: 5% 5%;
 }
 
 .aitt-slide-text{
@@ -849,3 +883,218 @@ END OF CSS FOR DESKTOP
 
 }
 
+/* ----------------------------------------------------------- */
+
+/* TEAM STYLES */
+/* Style the team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style each team member box */
+.team-member {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.team-member img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.team-member:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the long bio reveal on hover */
+.team-member .bio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.bio a{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+  border-radius: 0;
+  box-shadow: 0px 0px 10px var(--color-blue-light);
+
+  /* Overrides  */
+  padding: 10px 20px;
+  font-size: 0.75rem;
+}
+
+.bio-name{
+  color: var(--color-text);
+}
+
+.team-member:hover .bio {
+  opacity: 1;
+}
+
+.team-member:hover .long-bio{
+  opacity: 1;
+}
+
+
+
+/* ----------------------------- */
+/* TEAM STYLES */
+/* Style the team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style each team member box */
+.team-member {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.team-member img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.team-member:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the long bio reveal on hover */
+.team-member .bio-aitt {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.bio-aitt a{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  border-radius: 0;
+  box-shadow: 0px 0px 10px var(--color-blue-light);
+
+  /* Overrides  */
+  padding: 10px 20px;
+  font-size: 0.75rem;
+}
+
+.bio-name-aitt{
+  color: var(--color-text);
+}
+
+.team-member:hover .bio-aitt {
+  opacity: 1;
+}
+
+.team-member:hover .long-bio-aitt{
+  opacity: 1;
+}
+
+.social-github{
+  width: 25px;
+  height: auto;
+  position: absolute;
+  bottom: 2vh;
+  left: 0;
+  margin-left: 1vw;
+  cursor: pointer;
+
+  -webkit-filter: drop-shadow(0px 0px 10px var(--color-blue-light));
+  filter: drop-shadow(0px 0px 10px var(--color-blue-light));
+
+  transition: all 1s;
+}
+
+.social-linkedin{
+  width: 25px;
+  height: auto;
+  position: absolute;
+  bottom: 2vh;
+  left: 0;
+  margin-left: 4vw;
+  cursor: pointer;
+
+  -webkit-filter: drop-shadow(0px 0px 10px var(--color-blue-light));
+  filter: drop-shadow(0px 0px 10px var(--color-blue-light));
+
+  /* box-shadow: 0px 0px 10px var(--color-blue-light); */
+  transition: all 1s;
+}
+
+.social-github:hover {
+  -webkit-filter: drop-shadow(0px 0px 10px var(--color-orange1-light));
+  filter: drop-shadow(0px 0px 10px var(--color-orange1-light));
+
+  transform: translateY(-3px);
+  transform: scale(1.05);
+  /* background-color: var(--color-background); */
+}
+
+.social-linkedin:hover {
+  -webkit-filter: drop-shadow(0px 0px 10px var(--color-orange1-light));
+  filter: drop-shadow(0px 0px 10px var(--color-orange1-light));
+
+  transform: translateY(-3px);
+  transform: scale(1.05);
+  /* background-color: var(--color-background); */
+}
+
+
+
+/* Tippy Themes -------------------------------- */
+
+:root{
+--colorDark: #314755;
+--colorBlue: #26a0da;
+}
+
+.tippy-box[data-theme~='teamMember'] {
+
+  background-image: linear-gradient(-225deg, #2CD8D5 0%, #ffbc00 100%);
+}
+
+
+.tippy-box:hover{
+  background-image: linear-gradient(-225deg, #ffbc00 0%, #2CD8D5 80%);
+}
+
+.tippy-box[data-animation='rotate'][data-state='hidden'] {
+  opacity: 0;
+  transform: rotate(90deg);
+}

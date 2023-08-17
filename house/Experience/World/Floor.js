@@ -44,7 +44,7 @@ export default class Floor{
         //this.plane.rotation.x = Math.PI / 2;
         this.plane.position.x = 0; 
         this.plane.position.y = 0; 
-        this.plane.position.z = -20; 
+        this.plane.position.z = -10; 
         this.plane.visible = true; // Will set to true with GSAP
         this.plane.receiveShadow = true; //not working
     }
@@ -141,8 +141,8 @@ export default class Floor{
       const {array, originalPosition, randomValues} = this.plane.geometry.attributes.position
       for(let i = 0; i < array.length; i+= 3){
     
-        array[i] = originalPosition[i] + Math.cos(this.frame + randomValues[i]) * 0.005
-        array[i + 1] = originalPosition[i + 1] + Math.sin(this.frame + randomValues[i + 1]) * 0.005
+        array[i] = originalPosition[i] + Math.cos(this.frame + randomValues[i]) * 0.002
+        array[i + 1] = originalPosition[i + 1] + Math.sin(this.frame + randomValues[i + 1]) * 0.002
       }
     
       this.plane.geometry.attributes.position.needsUpdate = true

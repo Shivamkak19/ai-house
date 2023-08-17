@@ -17,6 +17,8 @@ export default class Controls{
         this.camera = this.experience.camera;
         this.room = this.experience.world.room.actualRoom;
 
+        this.device = this.sizes.device;
+
         this.room.children.forEach(child =>{
             if(child.type==="RectAreaLight"){
                 this.rectLight = child;
@@ -34,7 +36,6 @@ export default class Controls{
         this.setSmoothScroll();
         this.setScrollTrigger();
         document.querySelector(".home-page").style.overflowy = "visible";
-
     }
 
     setDesktopScroll(){
@@ -55,6 +56,12 @@ export default class Controls{
 
         ScrollTrigger.defaults({ scroller: scroller });
         console.log("operation");
+
+        // Used to override the scroll DOM event when the Scrollbar plug in updates
+        bodyScrollBar.addListener(({ offset }) => {
+            window.dispatchEvent(new Event('scroll-manual'));
+            // console.log("Scroll position updated:", offset.y);
+        });
     }
 
 
@@ -114,9 +121,11 @@ export default class Controls{
 
     setSmoothScroll(){
         if(this.device === "desktop"){
+            console.log("THIS IS A DESKTOP")
             this.asscroll = this.setDesktopScroll();
         }
         else{
+            console.log("THIS IS A MOBILE")
             //mobile scroll idea did not work
             this.asscroll = this.setMobileScroll();
 

@@ -17,6 +17,9 @@ export default class Controls{
         this.camera = this.experience.camera;
         this.room = this.experience.world.room.actualRoom;
 
+        this.device = this.sizes.device;
+
+
         this.camera.orthographicCamera.position.set(0, 6.5, 10);
 
         this.room.children.forEach(child =>{
@@ -29,8 +32,13 @@ export default class Controls{
         GSAP.registerPlugin(ScrollTrigger);        
 
         console.log("hit alternate controls3");
-        // this.setSmoothScroll();
+        this.setSmoothScroll();
         this.setScrollTrigger();
+
+        // console.log("hit alternate controls3");
+        // this.setSmoothScroll();
+        // this.setScrollTrigger();
+        // document.querySelector(".aitt-page").style.overflowy = "visible";
 
     }
 
@@ -45,14 +53,20 @@ export default class Controls{
             bodyScrollBar.scrollTop = value;
             }
             return bodyScrollBar.scrollTop;
-        },
-
+        }
         });
 
         bodyScrollBar.addListener(ScrollTrigger.update);
 
         ScrollTrigger.defaults({ scroller: scroller });
         console.log("operation");
+
+        // Used to override the scroll DOM event when the Scrollbar plug in updates
+        bodyScrollBar.addListener(({ offset }) => {
+            window.dispatchEvent(new Event('scroll-manual'));
+            // console.log("Scroll position updated:", offset.y);
+        });
+                
     }
 
 
@@ -116,7 +130,7 @@ export default class Controls{
         }
         else{
             //mobile scroll idea did not work
-            this.asscroll = this.setDesktopScroll();
+            this.asscroll = this.setMobileScroll();
 
         }
     }

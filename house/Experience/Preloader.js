@@ -100,11 +100,15 @@ export default class Preloader extends EventEmitter{
             }
             
             // Separate timeline for text so that it does not appear simultaneously with room
-            this.timeline.to(".intro-text .animated", {
+            this.timeline.to(".animation-toggle", {
+                opacity: 1,
+            })
+            .to(".intro-text .animated", {
                 yPercent: 0,
                 stagger: 0.05, //Staggers each character's entrance
                 ease: "back.out(1.7)", //same ease, less intensity
             })
+
             .to(".arrow-svg-wrapper", {
                 opacity: 1,
                 onComplete: resolve,
@@ -323,11 +327,21 @@ export default class Preloader extends EventEmitter{
                 ease: "back.out.(2.2)",
                 duration: 0.4,
             }, "chair")
+
+            // Add the tiger model in intro sequence
+            .to(this.roomChildren.tiger_model.scale, {
+                x: 0.15,
+                y: 0.15,
+                z: 0.15,
+                ease: "back.out.(2.2)",
+                duration: 0.4,
+            })
             
             //Last arrow-svg animation after room animation is complete ////////////////////////////
             .to(".arrow-svg-wrapper", {
                 opacity: 1,
             })
+
             ////////////////////////////////////
 
             .to(this.roomChildren.garden_floor.scale, {
@@ -346,11 +360,14 @@ export default class Preloader extends EventEmitter{
                 opacity: 1,
             }, "chair")
 
+            .to(".animation-toggle", {
+                opacity: 0,
+            }, ">-0.2")
+
             .to(".navContainer", {
                 opacity: 1,
                 onComplete: resolve,
             }, "chair")
-
 
             
         })

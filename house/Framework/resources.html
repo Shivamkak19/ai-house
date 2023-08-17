@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Princeton Website</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 
   </head>
 
@@ -58,7 +61,7 @@
         </div>
       </div>
 </div>
-  
+
     <div class="aitt-page scroller">
 
       <!-- Must apply asscroll for the smooth scrolling -->
@@ -80,7 +83,7 @@
                  <!-- Text Section 2 -->
         <div class="second-move section-margin" id="anchor2"></div>
 
-        <section class="section-notIndexPage right">
+        <section class="section-notIndexPage right" id="checker">
 
           <div class="progress-wrapper progress-bar-wrapper-right">
             <div class="progress-bar blue-background"></div>
@@ -113,16 +116,104 @@
             <p class="section-text">
 
             </p>
-            <h3 class="section-heading">Recommended Reads</h3>
+            <h3 class="section-heading">Keywords</h3>
+
+            <div class="text-button section-text">Transformer Architecture</div>
+            <div class="text-button section-text">Random Forests</div>
+            <div class="text-button section-text">Accelerated SGD</div>
+            <div class="text-button section-text">ResNets</div>
+            <div class="text-button section-text">Stable Diffusion</div>
+            <div class="text-button section-text">Convolutions</div>
+            <div class="text-button section-text">Theoretical ML</div>
             
-            <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
-             class="text-button section-text">Transformers Primer</a>
-
-            <a href="https://docs.google.com/presentation/d/1MhbDvxc5a9nAsIbczTYtxvxGR9WcdGFFKaruzxsm0qw/edit"
-             class="text-button section-text">Physics-Inspired ML</a>
-
-            <a href="https://docs.google.com/presentation/d/1DmclZdQr3DmZUKBku1nkJwzsGdLjJJ6VKVtKxPsFIxM/edit#slide=id.g1248f570055_0_217"
-             class="text-button section-text">DALL-E2</a>
+              <div class="team-grid">
+                  <div class="team-member">
+                      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+                      <div class="bio-name">
+                        <h3>Team Member 1</h3>
+                        <p>Short bio here...</p>
+                      </div>
+                      <div class="bio">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Transformers Primer</a>
+                          <p class="long-bio">Include a description of the topic here.</p>
+                      </div>
+                  </div>
+                  <div class="team-member">
+                      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+                      <div class="bio-name">
+                        <h3>Team Member 1</h3>
+                        <p>Short bio here...</p>
+                      </div>
+                      <div class="bio">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Transformers Primer</a>
+                          <p class="long-bio">Include a description of the topic here.</p>
+                      </div>
+                  </div>
+                  <div class="team-member">
+                      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+                      <div class="bio-name">
+                        <h3>Team Member 1</h3>
+                        <p>Short bio here...</p>
+                      </div>
+                      <div class="bio">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Transformers Primer</a>
+                          <p class="long-bio">Include a description of the topic here.</p>
+                      </div>
+                  </div>
+                  <div class="team-member">
+                      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+                      <div class="bio-name">
+                        <h3>Team Member 1</h3>
+                        <p>Short bio here...</p>
+                      </div>
+                      <div class="bio">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Transformers Primer</a>
+                          <p class="long-bio">Include a description of the topic here.</p>
+                      </div>
+                  </div>
+                  <div class="team-member">
+                      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+                      <div class="bio-name">
+                        <h3>Team Member 1</h3>
+                        <p>Short bio here...</p>
+                      </div>
+                      <div class="bio">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Transformers Primer</a>
+                          <p class="long-bio">Include a description of the topic here.</p>
+                      </div>
+                  </div>
+                  <div class="team-member">
+                      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+                      <div class="bio-name">
+                        <h3>Team Member 1</h3>
+                        <p>Short bio here...</p>
+                      </div>
+                      <div class="bio">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Transformers Primer</a>
+                          <p class="long-bio">Include a description of the topic here.</p>
+                      </div>
+                  </div>
+                  <div class="team-member">
+                      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+                      <div class="bio-name">
+                        <h3>Team Member 1</h3>
+                        <p>Short bio here...</p>
+                      </div>
+                      <div class="bio">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Transformers Primer</a>
+                          <p class="long-bio">Include a description of the topic here.</p>
+                      </div>
+                  </div>                                                             
+                  <!-- Repeat the above structure for other team members -->
+              </div>
+        
 
           </div>
         </section>
@@ -143,6 +234,10 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="main.js"></script>
+    <script type="module" src="team.js"></script>
+
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 
   </body>
 </html>

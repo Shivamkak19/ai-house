@@ -23,6 +23,9 @@ export default class Room{
         this.onMouseMove();
         this.setAnimation();
 
+        console.log("UPA:SDF:SDKJF")
+        console.log(this.room);
+
     }
 
 
@@ -54,10 +57,13 @@ export default class Room{
             //     child.children[0].material.opacity = 1;
             // }
 
+
+
             if(child.name ==="Computer"){
                 child.children[1].material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen,
                 });
+
             }
 
             //Setting the scale for animations
@@ -81,7 +87,7 @@ export default class Room{
             //     });
             // }
 
-            child.scale.set(1, 1, 1);
+            // child.scale.set(1, 1, 1);
 
             if(child.name ==="cubicle"){
                 // child.scale.set(1, 1, 1);
@@ -131,9 +137,29 @@ export default class Room{
     }
 
     setAnimation(){
+        // Fish animation mixer
         this.mixer =  new THREE.AnimationMixer(this.actualRoom);
         this.swim = this.mixer.clipAction(this.room.animations[1]);
         this.swim.play();
+
+        // Tiger animation mixer
+        this.mixerTiger = new THREE.AnimationMixer(this.actualRoom);
+        this.tigerWalk = this.mixerTiger.clipAction(this.room.animations[25]);
+        this.tigerWalk.play();
+
+        //Control tiger animation with User Scroll
+        window.addEventListener("scroll-manual", () => {
+            console.log("tigerUpdate");
+            
+            this.mixerTiger.update(this.time.delta * 0.0015)
+
+        })
+
+        // this.mixerTiger.addEventListener('finished',function(e){
+        //     console.log("tiger has reached")
+        //     // some code
+         
+        //   });
 
     }
 
@@ -146,6 +172,8 @@ export default class Room{
             //For up/down rotation, target clientY as well
             this.lerp.target = this.rotation * .1;
             this.lerp.target2 = this.scale * .1;
+
+            console.log("click hit")
 
         })
     }
@@ -163,8 +191,5 @@ export default class Room{
         
         //Control speed of animation
         this.mixer.update(this.time.delta * 0.0009);
-
-
-        
     }
 }

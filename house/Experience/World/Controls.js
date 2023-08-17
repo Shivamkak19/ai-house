@@ -61,7 +61,13 @@ export default class Controls{
         bodyScrollBar.addListener(ScrollTrigger.update);
 
         ScrollTrigger.defaults({ scroller: scroller });
-        console.log("operation");
+        console.log("OPERATION");
+
+        // Used to override the scroll DOM event when the Scrollbar plug in updates
+        bodyScrollBar.addListener(({ offset }) => {
+            window.dispatchEvent(new Event('scroll-manual'));
+            // console.log("Scroll position updated:", offset.y);
+        });
     }
 
 

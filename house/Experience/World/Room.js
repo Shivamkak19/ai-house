@@ -3,6 +3,10 @@ import * as THREE from "three"
 import GSAP from "gsap"
 import { RectAreaLightHelper }  from "three/examples/jsm/helpers/RectAreaLightHelper.js"
 
+// Use console.log(this.actualRoom) to find:
+// Tiger animation clip - this.room.animations[25]
+// Fish animation clip - this.room.animations[1]
+
 export default class Room{
     constructor(){
         this.experience = new Experience();
@@ -24,7 +28,8 @@ export default class Room{
         this.setAnimation();
         console.log(this.roomChildren);
 
-        
+        console.log("UPA:SDF:SDKJF")
+        console.log(this.room);
 
     }
 
@@ -56,6 +61,8 @@ export default class Room{
             //     child.children[0].material.transmission = 1;
             //     child.children[0].material.opacity = 1;
             // }
+
+
 
             if(child.name ==="Computer"){
                 child.children[1].material = new THREE.MeshBasicMaterial({
@@ -138,6 +145,19 @@ export default class Room{
         this.swim = this.mixer.clipAction(this.room.animations[1]);
         this.swim.play();
 
+
+        // Tiger animation mixer
+        this.mixerTiger = new THREE.AnimationMixer(this.actualRoom);
+        this.tigerWalk = this.mixerTiger.clipAction(this.room.animations[25]);
+        this.tigerWalk.play();
+
+        //Control tiger animation with User Scroll
+        window.addEventListener("scroll-manual", () => {
+            console.log("tigerUpdate");
+            this.mixerTiger.update(this.time.delta * 0.001)
+
+        })
+
     }
 
     onMouseMove(){
@@ -164,10 +184,14 @@ export default class Room{
 
         // this.lerp.current2 = GSAP.utils.interpolate(this.lerp.current2, this.lerp.target2, this.lerp.ease);
         
-        //Control speed of animation
+        //Control speed of animation - fish
         this.mixer.update(this.time.delta * 0.0009);
 
 
-        
+        //Control tiger animation with User Scroll
+        // document.addEventListener("scroll", () =>{
+        //     this.mixerTiger.update(this.time.delta * 0.0003)
+        // })
+
     }
 }

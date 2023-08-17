@@ -135,6 +135,14 @@ export default class Room{
         this.swim = this.mixer.clipAction(this.room.animations[1]);
         this.swim.play();
 
+        //Control tiger animation with User Scroll
+        window.addEventListener("scroll-manual", () => {
+            console.log("tigerUpdate");
+            
+            this.mixerTiger.update(this.time.delta * 0.0015)
+
+        })
+
     }
 
     onMouseMove(){
