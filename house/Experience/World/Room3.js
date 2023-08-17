@@ -134,6 +134,11 @@ export default class Room{
         this.mixer =  new THREE.AnimationMixer(this.actualRoom);
         this.swim = this.mixer.clipAction(this.room.animations[1]);
         this.swim.play();
+        
+        // Tiger animation mixer
+        this.mixerTiger = new THREE.AnimationMixer(this.actualRoom);
+        this.tigerWalk = this.mixerTiger.clipAction(this.room.animations[25]);
+        this.tigerWalk.play();
 
         //Control tiger animation with User Scroll
         window.addEventListener("scroll-manual", () => {

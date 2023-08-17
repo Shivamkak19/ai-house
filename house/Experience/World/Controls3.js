@@ -59,14 +59,14 @@ export default class Controls{
         bodyScrollBar.addListener(ScrollTrigger.update);
 
         ScrollTrigger.defaults({ scroller: scroller });
-        console.log("operation");
+        console.log("operation 3");
 
         // Used to override the scroll DOM event when the Scrollbar plug in updates
         bodyScrollBar.addListener(({ offset }) => {
             window.dispatchEvent(new Event('scroll-manual'));
             // console.log("Scroll position updated:", offset.y);
         });
-                
+
     }
 
 
@@ -126,9 +126,11 @@ export default class Controls{
 
     setSmoothScroll(){
         if(this.device === "desktop"){
+            console.log("hite desktop 3")
             this.asscroll = this.setDesktopScroll();
         }
         else{
+            console.log("hite mobile 3")
             //mobile scroll idea did not work
             this.asscroll = this.setMobileScroll();
 
