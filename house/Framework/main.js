@@ -1,6 +1,10 @@
 import './style.css'
 import Experience from "../Experience/Experience"
 
+// Vercel Analytics
+import { inject } from '@vercel/analytics';
+inject();
+
 // Get the current page URL
 const currentPageUrl = window.location.pathname;
 
