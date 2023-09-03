@@ -3,6 +3,9 @@
 /* import from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
 /* General Blueprint Style */
 @font-face {
 	font-family: 'bpicons';
@@ -11,6 +14,8 @@
 	src: url('../fonts/bpicons/bpicons.eot');
 	src: url('../fonts/bpicons/bpicons.eot?#iefix') format('embedded-opentype'), url('../fonts/bpicons/bpicons.woff') format('woff'), url('../fonts/bpicons/bpicons.ttf') format('truetype'), url('../fonts/bpicons/bpicons.svg#bpicons') format('svg');
 }
+
+
 
 
 /* Basic page settings ------------------------------------- */
@@ -189,11 +194,30 @@ svg{
 /* Navbar styles ---------------------------------------------- */
 .navContainer{
   position: fixed;
-  height: 13vh;
+  height: 10vh;
   width: 100%;
   z-index: 1500;
-  background-color: var(--color-header);
+  /* background-color: var(--color-header); */
+  background-color: #00b7ea67;
+
+
+  /* Border Effect */
+  border-bottom: 0px solid;
+  border-bottom-color: #099BE4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  transition: all 0.1s;
+
 }
+
+.navContainer:hover{
+  background-color: var(--color-header);
+  border-bottom-color: #099BE4;
+
+  border-bottom: 5px solid #FCB908;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;}
 
 #logoID{
   width: 16vw;
@@ -217,13 +241,14 @@ svg{
 
 .navbar{
   font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
 
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  top: 6vh;
+  top: 4vh;
   right: 48px;
   z-index: 1000;
 }
@@ -268,6 +293,8 @@ color: var(--color-text);
   color: rgba(var(--color-navText), 0.1);
 }
 
+
+
 /* Footer styles ----------------------------------------------------- */
 .footer{
   position: absolute;
@@ -282,6 +309,110 @@ color: var(--color-text);
   align-items: center;
   font-size: 1em;
   }
+
+
+/* styles.css */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1e1e1ec9;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer a{
+  text-decoration: none;
+  color: var(--color-orange1-light);
+}
+
+footer a:hover{
+  -webkit-filter: drop-shadow(0px 0px 10px #ffffff);
+  filter: drop-shadow(0px 0px 10px #ffffff);
+
+}
+
+
+.footer-logo{
+  width: 15vw;
+  height: auto;
+  margin-top: -50px;
+  /* position: absolute;
+  right: 100px; */
+}
+
+.footer-column {
+  /* flex: 1; */
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+  line-height: 30px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+form {
+  text-align: left;
+  display: flex;
+}
+
+.form-column {
+  /* flex: 1; */
+  margin-right: 20px;
+}
+
+.form-column-mod{
+  position: relative;
+  bottom: -5vh;
+}
+
+.rounded-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  background-color: rgba(203, 129, 0, 0.1);
+  border-radius: 5px;
+  color: #ffffff;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.rounded-input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  color: var(--color-orange1-light);
+}
+
+footer button {
+  background-color: var(--color-orange1-light);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-blue-light);
+}
 
   /* General Button Styles ------------------------------------------------ */
   .text-button {
@@ -468,7 +599,7 @@ color: var(--color-text);
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  top: 6vh;
+  top: 4vh;
   right: 10.5vw;
   z-index: 3000;
 }
