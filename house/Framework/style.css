@@ -414,6 +414,35 @@ button:hover {
   background-color: var(--color-blue-light);
 }
 
+.footer2{
+  background-color: #00b7ea97;
+}
+
+.footer3{
+  background-color: #eabf0097;
+  /* display: inline-flex; */
+}
+
+.listserv-button{
+  margin-left: 50px;
+}
+
+.fullMode-open{
+  background-color: transparent;
+  width: 100vw; /* 100% of viewport width */
+  height: 100vh; /* 100% of viewport height */
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  z-index: 9999; /* Set a high z-index to ensure it's on top of other elements */
+  transition: all 0.3s; /* Add transition for smooth animation */
+}
+
+.fullMode-button{
+  margin-left: 5vw;
+  width: 80vw;
+}
+
   /* General Button Styles ------------------------------------------------ */
   .text-button {
     display: inline-block;

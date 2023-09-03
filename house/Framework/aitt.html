@@ -158,9 +158,7 @@
               <div style="display: none;">
                 <div id="one">
                   <strong> 
-                      'Description of person quite long Description of person quite long Description 
-                      of person quite long Description of person quite longDescription of person quite
-                       long Description of person quite long Description of person quite long Description
+                    Hi! I'm a senior from California studying CS — I work on language agents and interpretability, although I can't seem to stop thinking about related open problems in tech policy, statistics, and algorithms. In my spare time, I play with words and cards (poetry / cardistry).
                   </strong>
                 </div>
                 <div id="two">
@@ -211,10 +209,10 @@
 
             <div class="team-grid">
                 <div data-template="one" class="team-member">
-                    <img style = "height: 250px; width: auto;" src="../public/monsters/sully.jpg" alt="Team Member 1">
+                    <img style = "height: 250px; width: auto;" src="../public/monsters/michael_tang.jpg" alt="Team Member 1">
                     <div class="bio-name-aitt">
-                      <h3>Team Member 1</h3>
-                      <p>Short bio here...</p>
+                      <h3>Michael Tang</h3>
+                      <p>Hover for Michael's Bio</p>
                     </div>
                     <div class="bio-aitt">
                       <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
@@ -390,13 +388,103 @@
           <!-- End of AITT content -->
 
 
-            <div class="footer">
-                <li>
-                    <img src="../public/madewithloveatPrinceton.png" style = "height: 50px; width: auto;">
-                    <div class="nav-link"></div><p class="page-link">AI @ Princeton</p>
-                        <p class="page-link">January 2023</p>
-                </li>
+          <footer class = "footer2">
+            <h1>View our recent Emails </h1>
+          </footer>
+
+          <footer class = "footer3">
+            <h1 style="padding-top: 20px;">Or, join the listserv! </h1>
+            <a href="mailto:shivamkak9@gmail.com?subject=YourSubjectHere&body=YourMessageHere" target="_blank"
+            class="text-button section-text listserv-button">Join</a>
+          </footer>
+
+        <div class="team-grid">
+          <div class="team-member emailFeed1">
+              <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+              <div class="bio-name">
+                <h3>Team Member 1</h3>
+                <p>Short bio here...</p>
+              </div>
+              <div class="bio">
+                <a 
+                class="fullMode1 text-button section-text">Read Full</a>
+                  <p class="long-bio">Include a description of the topic here.</p>
+              </div>
+          </div>
+          <div class="team-member emailFeed2">
+            <img src="../public/AI-slide2.jpg" alt="Team Member 2">
+            <div class="bio-name">
+              <h3>Team Member 2</h3>
+              <p>Short bio here...</p>
             </div>
+            <div class="bio">
+              <a 
+              class="fullMode2 text-button section-text">Read Full 2</a>
+                <p class="long-bio">Include a description of the topic here.</p>
+            </div>
+        </div>
+        <div class="team-member emailFeed3">
+          <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+          <div class="bio-name">
+            <h3>Team Member 3</h3>
+            <p>Short bio here...</p>
+          </div>
+          <div class="bio">
+            <a 
+            class="fullMode3 text-button section-text">Read Full3</a>
+              <p class="long-bio">Include a description of the topic here.</p>
+          </div>
+      </div>
+      <div class="team-member emailFeed4">
+        <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+        <div class="bio-name">
+          <h3>BLOB</h3>
+          <p>Short bio blob here...</p>
+        </div>
+        <div class="bio">
+          <a 
+          class="fullMode4 text-button section-text">Read Full 4</a>
+            <p class="long-bio">Include a description of the topic here.</p>
+        </div>
+    </div>
+                                  
+          <!-- Repeat the above structure for other email posts -->
+      </div>
+
+          <footer>
+            <div class="footer-column">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">AI Tiger Trek</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                  <h3>Meetings</h3>
+                  <p>Weekly meetings at:</p>
+                  <p>4:30 PM - 5:30 PM Fridays</p>
+                  <p>Room 209 Frist Campus Center</p>
+                  <p><a href="#">Link to presentations</a></p>
+            </div>
+            <div class="footer-column">
+              <img class = "footer-logo" src="/public/AI-logo4.png" alt="AI Logo">
+          </div>
+            <div class="footer-column">
+              <form id="contact-form" action="mailto:shivamkak9@gmail.com" method="post" enctype="text/plain">
+                  <div class="form-column">
+                      <h3>Contact Us</h3>
+                      <input type="text" name="name" placeholder="Name" class="rounded-input">
+                      <input type="text" name="topic" placeholder="Topic" class="rounded-input">
+                      <input type="email" name="email" placeholder="Email" class="rounded-input">
+                  </div>
+                  <div class="form-column form-column-mod">
+                      <textarea name="message" placeholder="Message" class="rounded-input"></textarea>
+                      <button type="submit" value="Send">Submit</button>
+                  </div>
+              </form>
+
+        </footer>
 
 
         </div>
@@ -408,6 +496,8 @@
     <script type="module" src="main.js"></script>
     <script type="module" src="slides.js"></script>
     <script type="module" src="tippy.js"></script>
+    <script type="module" src="emailfeed.js"></script>
+
   </body>
 </html>
 

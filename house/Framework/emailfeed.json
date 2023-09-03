@@ -1,0 +1,34 @@
+{
+    "email1": {
+        "title": "Email 1",
+        "date": "9/3/2023",
+        "short": "short description of email",
+        "long": "long description of email",
+        "img": "../public/AI-slide2.jpg"
+        },
+
+    "email2": {
+        "title": "Email 2",
+        "date": "8/3/2023",
+        "short": "short description of email2",
+        "long": "long description of email2",
+        "img": "../public/AI-slide2.jpg"
+        },
+
+    "email3": {
+        "title": "Email 1",
+        "date": "09032023",
+        "short": "short description of email3",
+        "long": "long description of email3",
+        "img": "../public/AI-slide2.jpg"
+        },
+
+    "email4": {
+        "title": "Email 4",
+        "date": "08032023",
+        "short": "short description of email4",
+        "long": "long description of email4",
+        "img": "../public/AI-slide2.jpg"
+        }        
+  
+}

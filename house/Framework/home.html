@@ -210,17 +210,70 @@
             </div>
           </section>
 
+<!-- Footer Content ------------------------------------------------------------------------------------------->
 
-          <!-- <footer class="footer">
+          <footer class = "footer2">
+            <h1>View our recent Emails </h1>
+          </footer>
 
-            <li>
-              <div class="nav-link"></div><p class="page-link">AI @ Princeton</p>
-              <p class="page-link">January 2023</p>
-            </li>
+          <footer class = "footer3">
+            <h1 style="padding-top: 20px;">Or, join the listserv! </h1>
+            <a href="mailto:shivamkak9@gmail.com?subject=YourSubjectHere&body=YourMessageHere" target="_blank"
+            class="text-button section-text listserv-button">Join</a>
+          </footer>
 
-          </footer> -->
-
-
+        <div class="team-grid">
+          <div class="team-member emailFeed1">
+              <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+              <div class="bio-name">
+                <h3>Team Member 1</h3>
+                <p>Short bio here...</p>
+              </div>
+              <div class="bio">
+                <a 
+                class="fullMode1 text-button section-text">Read Full</a>
+                  <p class="long-bio">Include a description of the topic here.</p>
+              </div>
+          </div>
+          <div class="team-member emailFeed2">
+            <img src="../public/AI-slide2.jpg" alt="Team Member 2">
+            <div class="bio-name">
+              <h3>Team Member 2</h3>
+              <p>Short bio here...</p>
+            </div>
+            <div class="bio">
+              <a 
+              class="fullMode2 text-button section-text">Read Full 2</a>
+                <p class="long-bio">Include a description of the topic here.</p>
+            </div>
+        </div>
+        <div class="team-member emailFeed3">
+          <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+          <div class="bio-name">
+            <h3>Team Member 3</h3>
+            <p>Short bio here...</p>
+          </div>
+          <div class="bio">
+            <a 
+            class="fullMode3 text-button section-text">Read Full3</a>
+              <p class="long-bio">Include a description of the topic here.</p>
+          </div>
+      </div>
+      <div class="team-member emailFeed4">
+        <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+        <div class="bio-name">
+          <h3>BLOB</h3>
+          <p>Short bio blob here...</p>
+        </div>
+        <div class="bio">
+          <a 
+          class="fullMode4 text-button section-text">Read Full 4</a>
+            <p class="long-bio">Include a description of the topic here.</p>
+        </div>
+    </div>
+                                  
+          <!-- Repeat the above structure for other email posts -->
+      </div>
 
           <footer>
             <div class="footer-column">
@@ -242,7 +295,7 @@
               <img class = "footer-logo" src="/public/AI-logo4.png" alt="AI Logo">
           </div>
             <div class="footer-column">
-              <form id="contact-form" action="shivamkak9@gmail.com" method="post" enctype="text/plain">
+              <form id="contact-form" action="mailto:shivamkak9@gmail.com" method="post" enctype="text/plain">
                   <div class="form-column">
                       <h3>Contact Us</h3>
                       <input type="text" name="name" placeholder="Name" class="rounded-input">
@@ -262,6 +315,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="emailfeed.js"></script>
     <script type="module" src="main.js"></script>
 
   </body>
