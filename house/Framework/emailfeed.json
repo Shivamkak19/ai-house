@@ -4,7 +4,7 @@
         "date": "5/19/2023",
         "short": "Hey guys, thought some of you might be personally interested, or backprop will: Sydney von Arx, co-founder of the Atlas Fellowship, graduate of Stanford CS, is running a beta test of an introductory AI alignment workshop",
         "long": "Hey guys, thought some of you might be personally interested, or backprop will: Sydney von Arx, co-founder of the Atlas Fellowship, graduate of Stanford CS, is running a beta test of an introductory AI alignment workshop which has roughly the same content as the seminar offered at Princeton. Apply ASAP as spots will fill up soon! ---- AI Risk 101 Workshop Beta Test (June 2-4) Hi! I’m Sydney and I’m running a pilot test of a free workshop in Berkeley, CA intended to introduce people to the fundamentals of AI risk. It will cover questions like: What kinds of capabilities might ML models develop? Will models be misused? What approaches exist to make ML models optimize for various goals? This workshop centers on existential risks that ML systems might pose — ways in which models could permanently hurt the trajectory of humanity. We will try to be balanced in our presentations and focus on giving you tools to come to your own conclusions. But we can't escape the fact that we have our own opinions, and we aren't a representative group of people thinking about AI risk. Most of us are gravely worried about the risks that models pose — that's why we're taking the time to help people think about it. We’ll cover all costs associated with the workshop (travel, food, accommodations, etc). We’re passing around this document outlining the beta workshop around our circles because we don’t want to formally launch quite yet. Please feel free to pass the opportunity along to anyone you think might be interested, but don’t post it publicly on the internet quite yet. Apply here ASAP! Admissions are rolling. You’ll hear back about your application within 3 days of applying. More info here: https://docs.google.com/document/d/1wjaJFnBy8yHBMUEv9yrd-dimFn3R58XeLO8bT2jkMHo/edit?usp=sharing",
-        "img": "../public/emailFeed/05192023.png"
+        "img": "../emailFeed/05192023.png"
         },
 
     "email2": {
@@ -12,7 +12,7 @@
         "date": "4/27/2023",
         "short": "I will present a unified perspective on the field of machine learning, following the structure of my recent book, 'Probabilistic Machine Learning: Advanced Topics' which is centered on the '4 pillars of ML'",
         "long": "CS Distinguished Colloquium Speaker: Kevin Murphy, Google Brain Date: Monday, May 1 Time: 12:30pm EST Location: CS 105 Host: Elad Hazan Event page: https://www.cs.princeton.edu/events/26404 View live-stream online here: https://mediacentrallive.princeton.edu/ Title: The Four Pillars of Machine Learning Abstract: I will present a unified perspective on the field of machine learning, following the structure of my recent book, 'Probabilistic Machine Learning: Advanced Topics' which is centered on the '4 pillars of ML': predictions, decisions, discovery and generation. For each of these tasks, I will give a brief summary of some recent methods, including a few of my own contributions. Bio: Kevin was born in Ireland, but grew up in England. He got his BA from U. Cambridge, his MEng from U. Pennsylvania, and his PhD from UC Berkeley. He then did a postdoc at MIT, and was an associate professor of computer science and statistics at the University of British Columbia in Vancouver, Canada, from 2004 to 2012. After getting tenure, he went to Google in California on his sabbatical and then ended up staying. He currently runs a team of 6 researchers inside of Google Brain; the team works on generative models, Bayesian inference, and various other topics. Kevin has published over 125 papers in refereed conferences and journals, as well 3 textbooks on machine learning published in 2012, 2022 and 2023 by MIT Press. (The 2012 book was awarded the DeGroot Prize for best book in the field of Statistical Science.) Kevin was also the (co) Editor-in-Chief of JMLR 2014--2017.",
-        "img": "../public/emailFeed/04272023.png"
+        "img": "../emailFeed/04272023.png"
         },
 
     "email3": {
@@ -20,7 +20,7 @@
         "date": "4/25/2023",
         "short": "Hi AI@Princeton! Hope the final weeks of classes are going well! We're excited to announce that our next meeting (this Friday, 4:30pm in Frist 208) will be hosted by Thomas Dhome-Casanova",
         "long": "Hi AI@Princeton! Hope the final weeks of classes are going well! We're excited to announce that our next meeting (this Friday, 4:30pm in Frist 208) will be hosted by Thomas Dhome-Casanova, who will be presenting on compiling neural networks to NVIDIA’s deep learning accelerator (NVDLA) using Instruction-Level Abstractions (ILAs)! ILAs were created at Princeton to model neural network accelerators. These models can then be used to create a portable neural network to accelerator compiler stack that isn’t OS dependent. Let us know if you have any questions for Thomas (or submit them on the RSVP form). As always, sign up for boba here. Thanks, ai@p team",
-        "img": "../public/emailFeed/04252023.png"
+        "img": "../emailFeed/04252023.png"
         },
 
     "email4": {
@@ -28,7 +28,7 @@
         "date": "4/16/2023",
         "short": "Hi AI@Princeton! Hope your weekend has been going well! We're excited to announce that our next meeting (this Friday, 4:45pm in Frist 208) will be not be me or Evan for the first time",
         "long": "Hi AI@Princeton! Hope your weekend has been going well! We're excited to announce that our next meeting (this Friday, 4:45pm in Frist 208) will be not be me or Evan for the first time, but an AI@P regular, Gabe Laniewski, who will be presenting on LangChain, a new open-source tool that allows language-models to interact with APIs! LangChain makes it easier to work with language models and can be used to build chatbots, personal assistants, and more. Let us know if you have any questions for Gabe (or submit them on the RSVP form). As always, sign up for boba here :) thanks, ai@p team",
-        "img": "../public/emailFeed/04162023.png"
+        "img": "../emailFeed/04162023.png"
         }        
   
 }

@@ -288,7 +288,7 @@
           </div>
       </div>
       <div class="team-member emailFeed4">
-        <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+        <img src="../public/emailFeed/04162023.png" alt="Team Member 1">
         <div class="bio-name">
           <h3>BLOB</h3>
           <p>Short bio blob here...</p>
@@ -307,9 +307,10 @@
             <div class="footer-column">
                 <h3>Links</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">AI Tiger Trek</a></li>
-                    <li><a href="#">Resources</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aitt.html">AI Tiger Trek</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="team.html">Team</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -317,7 +318,7 @@
                   <p>Weekly meetings at:</p>
                   <p>4:30 PM - 5:30 PM Fridays</p>
                   <p>Room 209 Frist Campus Center</p>
-                  <p><a href="#">Link to presentations</a></p>
+                  <p><a href="resources.html">Link to presentations</a></p>
             </div>
             <div class="footer-column">
               <img class = "footer-logo" src="/public/AI-logo4.png" alt="AI Logo">
@@ -346,6 +347,30 @@
     <script type="module" src="emailfeed.js"></script>
     <script type="module" src="main.js"></script>
 
-    <script type="text/javascript" src="contact.js"></script>
+
+    <!-- Hard Coded, facing issues with MIME types (deploy only)
+    TODO: Resolve issue with importing contact.js -->
+    <!-- <script type="text/javascript" src="contact.js"> -->
+    <script>
+
+        function sendEmail() {
+
+          const name = document.getElementById("name").value;
+          const topic = document.getElementById("topic").value;
+          const message = document.getElementById("message").value;
+          const email = document.getElementById("email").value;
+
+          // Encode the subject and message for the mailto URL
+          const subject = encodeURIComponent(topic);
+          const body = encodeURIComponent(message);
+
+          // Generate the mailto link
+          const mailtoLink = `mailto:alzhang@princeton.edu?subject=${subject}&body=${body}`;
+
+          // Open the user's default email client with the mailto link
+          window.location.href = mailtoLink;
+        }
+
+    </script>
   </body>
 </html>

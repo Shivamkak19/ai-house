@@ -22,7 +22,10 @@ module.exports = defineConfig({
         main: './index.html',
         aitt: './Framework/aitt.html',
         resources: './Framework/resources.html',
-        home: './Framework/home.html'
+        team: './Framework/team.html',
+        home: './Framework/home.html',
+        emailfeed: './Framework/emailfeed.json',
+        contact: './Framework/contact.js'
       },
     },
     outDir: 'dist',

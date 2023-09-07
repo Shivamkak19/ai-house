@@ -3,8 +3,9 @@ import emailFeed from "./emailfeed.json"
 // Convert to array to grab first 3 elements of array
 const emailFeedArray = Object.values(emailFeed)
 
-// console.log(emailFeedArray)
-
+console.log(emailFeedArray)
+console.log(emailFeedArray[0])
+console.log(emailFeedArray[0].img)
 
 // Grab relevant DOM elements
 // Feed Display 1
