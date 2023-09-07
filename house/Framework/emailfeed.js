@@ -20,7 +20,7 @@ const date1 = emailFeed1.children[1].lastElementChild
 // Feed Display 2
 const fullModeButton2 = document.querySelector(".fullMode2")
 const emailFeed2 = fullModeButton2.parentElement.parentElement
-const longBio2 = emailFeed1.lastElementChild.lastElementChild
+const longBio2 = emailFeed2.lastElementChild.lastElementChild
 
 const image2 = emailFeed2.firstElementChild
 const title2 = emailFeed2.children[1].firstElementChild
@@ -30,7 +30,7 @@ const date2 = emailFeed2.children[1].lastElementChild
 // Feed Display 3
 const fullModeButton3 = document.querySelector(".fullMode3")
 const emailFeed3 = fullModeButton3.parentElement.parentElement
-const longBio3 = emailFeed1.lastElementChild.lastElementChild
+const longBio3 = emailFeed3.lastElementChild.lastElementChild
 
 const image3 = emailFeed3.firstElementChild
 const title3 = emailFeed3.children[1].firstElementChild
@@ -39,7 +39,7 @@ const date3 = emailFeed3.children[1].lastElementChild
 // Feed Display 4
 const fullModeButton4 = document.querySelector(".fullMode4")
 const emailFeed4 = fullModeButton4.parentElement.parentElement
-const longBio4 = emailFeed1.lastElementChild.lastElementChild
+const longBio4 = emailFeed4.lastElementChild.lastElementChild
 
 const image4 = emailFeed4.firstElementChild
 const title4 = emailFeed4.children[1].firstElementChild
@@ -51,18 +51,24 @@ const date4 = emailFeed4.children[1].lastElementChild
 image1.src = emailFeedArray[0].img
 title1.innerHTML = emailFeedArray[0].title
 date1.innerHTML = emailFeedArray[0].date
+longBio1.innerHTML =  emailFeedArray[0].short
 
 image2.src = emailFeedArray[1].img
 title2.innerHTML = emailFeedArray[1].title
 date2.innerHTML = emailFeedArray[1].date
+longBio2.innerHTML =  emailFeedArray[1].short
+
 
 image3.src = emailFeedArray[2].img
 title3.innerHTML = emailFeedArray[2].title
 date3.innerHTML = emailFeedArray[2].date
+longBio3.innerHTML =  emailFeedArray[2].short
+
 
 image4.src = emailFeedArray[3].img
 title4.innerHTML = emailFeedArray[3].title
 date4.innerHTML = emailFeedArray[3].date
+longBio4.innerHTML =  emailFeedArray[3].short
 
 
 
@@ -79,47 +85,92 @@ function handleClickFullMode(buttonProp, emailFeedProp, longBioProp, jsonProp) {
     buttonProp.addEventListener("click", () =>{
 
         if (!emailFeedProp.classList.contains("fullMode-open")) {
-            expandElement(jsonProp.long, longBioProp);
+            expandElement(emailFeedProp, jsonProp.long, longBioProp);
+
+            // Sets display to none on all other email feed boxes
+            handleInvisible(emailFeedProp)
+
           } 
         else {
-            revertElement(jsonProp.short, longBioProp);
+            revertElement(emailFeedProp, jsonProp.short, longBioProp);
+            
+            // Set all email feeds to visible
+            removeInvisible()
+
           }
     
         setButton(buttonProp)
+        
     })
 }
 
 // Set Button text
 function setButton(buttonProp) {
     //   Change button text
-    if (fullModeButton1.innerHTML === "Read Full") {
+    if (buttonProp.innerHTML === "Read Full") {
 
-        fullModeButton1.innerHTML = "Go back to list";
-        fullModeButton1.classList.add("fullMode-button")
+        buttonProp.innerHTML = "Go back to list";
+        buttonProp.classList.add("fullMode-button")
+
     } 
     else {
 
-        fullModeButton1.innerHTML = "Read Full";
-        fullModeButton1.classList.remove("fullMode-button")
+        buttonProp.innerHTML = "Read Full";
+        buttonProp.classList.remove("fullMode-button")
+
     }
 }
 // Function to expand the element
-function expandElement(textProp, longBioProp) {
+function expandElement(emailFeedProp, textProp, longBioProp) {
     // fullMode.classList.add("fullMode-open");
-    emailFeed1.classList.add("fullMode-open");
+    emailFeedProp.classList.add("fullMode-open");
     longBioProp.innerHTML = textProp;
   }
   
 // Function to revert the element to its original size
-function revertElement(textProp, longBioProp) {
+function revertElement(emailFeedProp, textProp, longBioProp) {
 // fullMode.classList.remove("fullMode-open");
-emailFeed1.classList.remove("fullMode-open");
+emailFeedProp.classList.remove("fullMode-open");
 longBioProp.innerHTML = textProp;
 
 }
   
 
-console.log(emailFeed1)
+function handleInvisible(emailFeedProp) {
+
+    if (emailFeedProp.classList.contains("emailFeed1")) {
+        emailFeed2.classList.add("invisible")
+        emailFeed3.classList.add("invisible")
+        emailFeed4.classList.add("invisible")
+    }
+
+    if (emailFeedProp.classList.contains("emailFeed2")) {
+        emailFeed1.classList.add("invisible")
+        emailFeed3.classList.add("invisible")
+        emailFeed4.classList.add("invisible")
+    }
+
+    if (emailFeedProp.classList.contains("emailFeed3")) {
+        emailFeed1.classList.add("invisible")
+        emailFeed2.classList.add("invisible")
+        emailFeed4.classList.add("invisible")
+    }
+
+    if (emailFeedProp.classList.contains("emailFeed4")) {
+        emailFeed1.classList.add("invisible")
+        emailFeed2.classList.add("invisible")
+        emailFeed3.classList.add("invisible")
+    }
+}
+
+
+function removeInvisible() {
+
+    emailFeed1.classList.remove("invisible")
+    emailFeed2.classList.remove("invisible")
+    emailFeed3.classList.remove("invisible")
+    emailFeed4.classList.remove("invisible")
+}
 
 
 // SANDBOX

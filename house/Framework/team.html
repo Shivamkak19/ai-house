@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Princeton Website</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+  </head>
+
+  <body class="light-theme resources-body">
+
+    <div class="experience">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="preloader opacity-half">
+      <div class="preloader-wrapper">
+        <div class="loading">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="header">
+
+
+      <div class="logo-wrapper">
+        <a href="home.html"><image class ="opacity-full" id="logoID" src="../AI-logo4.png"></image></a>
+      </div>
+
+
+      <div class="navContainer opacity-full">
+
+        <nav class="navbar">
+            <div class="nav-link"><a class="page-link" href="home.html">Home</a></div>
+            <div class="nav-link"><a class="page-link" href="aitt.html">AI Tiger Trek</a></div>
+            <div class="nav-link"><a class="page-link" href="resources.html">Resources</a></div>
+            <div class="nav-link"><a class="page-link" href="team.html">Team</a></div>
+
+        </nav>
+      </div>
+
+      <div class="toggle-bar opacity-full">
+
+        <div class="sun-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M11 5V1h2v4Zm6.65 2.75-1.375-1.375 2.8-2.875 1.4 1.425ZM19 13v-2h4v2Zm-8 10v-4h2v4ZM6.35 7.7 3.5 4.925l1.425-1.4L7.75 6.35Zm12.7 12.8-2.775-2.875 1.35-1.35 2.85 2.75ZM1 13v-2h4v2Zm3.925 7.5-1.4-1.425 2.8-2.8.725.675.725.7ZM12 18q-2.5 0-4.25-1.75T6 12q0-2.5 1.75-4.25T12 6q2.5 0 4.25 1.75T18 12q0 2.5-1.75 4.25T12 18Zm0-2q1.65 0 2.825-1.175Q16 13.65 16 12q0-1.65-1.175-2.825Q13.65 8 12 8q-1.65 0-2.825 1.175Q8 10.35 8 12q0 1.65 1.175 2.825Q10.35 16 12 16Zm0-4Z"/></svg>
+        </div>
+        <button class="toggle-button">
+          <!-- <div class="circle-wrapper"> -->
+          <div class="toggle-circle">
+            
+          </div>
+        <!-- </div> -->
+        </button>
+        <div class="moon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 21q-3.75 0-6.375-2.625T3 12q0-3.75 2.625-6.375T12 3q.35 0 .688.025.337.025.662.075-1.025.725-1.637 1.887Q11.1 6.15 11.1 7.5q0 2.25 1.575 3.825Q14.25 12.9 16.5 12.9q1.375 0 2.525-.613 1.15-.612 1.875-1.637.05.325.075.662Q21 11.65 21 12q0 3.75-2.625 6.375T12 21Zm0-2q2.2 0 3.95-1.212 1.75-1.213 2.55-3.163-.5.125-1 .2-.5.075-1 .075-3.075 0-5.238-2.162Q9.1 10.575 9.1 7.5q0-.5.075-1t.2-1q-1.95.8-3.162 2.55Q5 9.8 5 12q0 2.9 2.05 4.95Q9.1 19 12 19Zm-.25-6.75Z"/></svg>
+        </div>
+      </div>
+</div>
+
+    <div class="aitt-page scroller">
+
+      <!-- Must apply asscroll for the smooth scrolling -->
+        <div class="page-wrapper aitt-wrapper"> 
+    
+            <div id="anchor1"></div>
+
+            <section class="hero">
+            <div class="hero-wrapper">
+                <div class="hero-main">
+                <h1 class="hero-main-title">AI @ Princeton</h1>
+                <p class="hero-main-description"> Our Team</p>
+                </div>
+
+            </div>
+            </section>
+
+
+                 <!-- Text Section 2 -->
+        <div class="second-move section-margin" id="anchor2"></div>
+
+        <section class="section-notIndexPage right" id="checker">
+
+          <div class="progress-wrapper progress-bar-wrapper-right">
+            <div class="progress-bar blue-background"></div>
+          </div>
+
+          <div class="section-intro-wrapper blue-text blue-border">
+            <h1 class="section-title blue-text blue-border">
+            
+              <h1 class="hero-main-title-sub"> 2023 Officers </h1>
+
+            </h1>
+            <span class="section-number blue-text"> 2 </span>
+          </div>
+
+          <div class="section-detail-wrapper">
+            
+
+            <!-- Content for TEAM MEMBER Tippy.js boxes ---------------->
+            <div style="display: none;">
+                <div id="one">
+                    <strong> 
+                    Hi! I'm a senior from California studying CS — I work on language agents and interpretability, although I can't seem to stop thinking about related open problems in tech policy, statistics, and algorithms. In my spare time, I play with words and cards (poetry / cardistry).
+                    </strong>
+                </div>
+                <div id="two">
+                    <strong> 
+                    'Description of person quite long Description of person quite long Description 
+                    of person quite long Description of person quite longDescription of person quite
+                        long Description of person quite long Description of person quite long Description
+                </strong>
+                </div>
+                <div id="three">
+                    <strong> 
+                    'Description of person quite long Description of person quite long Description 
+                    of person quite long Description of person quite longDescription of person quite
+                        long Description of person quite long Description of person quite long Description
+                </strong>
+                </div>
+                <div id="four">
+                    <strong> 
+                    'Description of person quite long Description of person quite long Description 
+                    of person quite long Description of person quite longDescription of person quite
+                        long Description of person quite long Description of person quite long Description
+                </strong>
+                </div>
+                <div id="five">
+                    <strong> 
+                    'Description of person quite long Description of person quite long Description 
+                    of person quite long Description of person quite longDescription of person quite
+                        long Description of person quite long Description of person quite long Description
+                </strong>
+                </div>
+                <div id="six">
+                    <strong> 
+                    'Description of person quite long Description of person quite long Description 
+                    of person quite long Description of person quite longDescription of person quite
+                        long Description of person quite long Description of person quite long Description
+                </strong>
+                </div>
+                <div id="seven">
+                    <strong> 
+                    'Description of. person quite long Description of person quite long Description 
+                    of person quite long Description of person quite longDescription of person quite
+                        long Description of person quite long Description of person quite long Description
+                </strong>
+                </div>
+                </div>
+                <!-- Content for TEAM MEMBER Tippy.js boxes ---------------->
+
+
+            <div class="team-grid">
+                <div data-template="one" class="team-member">
+                    <img style = "height: 250px; width: auto;" src="../public/monsters/michael_tang.jpg" alt="Team Member 1">
+                    <div class="bio-name-aitt">
+                        <h3>Michael Tang</h3>
+                        <p>Hover for Michael's Bio</p>
+                    </div>
+                    <div class="bio-aitt">
+                        <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                        class="text-button section-text">Michael</a>
+                        <div class="social-bar">
+                        <img class="social-github" src = "../public/github.png">
+                        <img class="social-linkedin" src = "../public/linkedin.png">
+                        </div>
+                        <!-- <p class="long-bio-aitt">Include a description of the topic here.</p> -->
+                    </div>
+                </div>
+
+                <div data-template="two" class="team-member">
+                    <img style = "height: 250px; width: auto;" src="../public/monsters/mike.png" alt="Team Member 1">
+                    <div class="bio-name-aitt">
+                    <h3>Alex Zhang</h3>
+                    <p>Hover for Alex's Bio</p>
+                    </div>
+                    <div class="bio-aitt">
+                    <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                    class="text-button section-text">Alex</a>
+                    <div class="social-bar">
+                        <img class="social-github" src = "../public/github.png">
+                        <img class="social-linkedin" src = "../public/linkedin.png">
+                    </div>
+                    </div>
+                </div>
+
+                <div data-template="three" class="team-member">
+                <img style = "height: 250px; width: auto;" src="../public/monsters/squishy.jpeg" alt="Team Member 1">
+                <div class="bio-name-aitt">
+                    <h3>Evan Dogariu</h3>
+                    <p>Hover for Evan's Bio</p>
+                </div>
+                <div class="bio-aitt">
+                    <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                    class="text-button section-text">Evan</a>
+                    <div class="social-bar">
+                    <img class="social-github" src = "../public/github.png">
+                    <img class="social-linkedin" src = "../public/linkedin.png">
+                    </div>
+                </div>
+                </div>
+
+                <div data-template="four" class="team-member">
+                <img style = "height: 250px; width: auto;" src="../public/monsters/art.jpg" alt="Team Member 1">
+                <div class="bio-name-aitt">
+                    <h3>Jiatong Yu</h3>
+                    <p>Hover for Jiatong's Bio</p>
+                </div>
+                <div class="bio-aitt">
+                    <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                    class="text-button section-text">Jiatong</a>
+                    <div class="social-bar">
+                    <img class="social-github" src = "../public/github.png">
+                    <img class="social-linkedin" src = "../public/linkedin.png">
+                    </div>
+                </div>
+                </div>
+
+
+                <div data-template="five" class="team-member">
+                <img style = "height: 250px; width: auto;" src="../public/monsters/don.jpg" alt="Team Member 1">
+                <div class="bio-name-aitt">
+                    <h3>Sanjana Venkatesh</h3>
+                    <p>Hover for Sanjana's Bio</p>
+                </div>
+                <div class="bio-aitt">
+                    <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                    class="text-button section-text">Sanjana</a>
+                    <div class="social-bar">
+                    <img class="social-github" src = "../public/github.png">
+                    <img class="social-linkedin" src = "../public/linkedin.png">
+                    </div>
+                </div>
+            </div>
+
+            <div data-template="six" class="team-member">
+                <img style = "height: 250px; width: auto;" src="../public/monsters/roz.jpg" alt="Team Member 1">
+                <div class="bio-name-aitt">
+                <h3>Stefan Elez</h3>
+                <p>Hover for Stefan's Bio</p>
+                </div>
+                <div class="bio-aitt">
+                <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                class="text-button section-text">Stefan</a>
+                <div class="social-bar">
+                    <img class="social-github" src = "../public/github.png">
+                    <img class="social-linkedin" src = "../public/linkedin.png">
+                </div>
+                </div>
+            </div>
+
+            <div data-template="seven" class="team-member">
+                <img style = "height: 250px; width: auto;" src="../public/monsters/sully.jpg" alt="Team Member 1">
+                <div class="bio-name-aitt">
+                    <h3>Shivam Kak</h3>
+                    <p>Hover for Shivam's Bio</p>
+                </div>
+                <div class="bio-aitt">
+                    <a href="https://docs.google.com/presentation/d/1Flpza3Yvp3AWqEs3QQqJvJcfGz9K1jlGdWEW6JCm0bs/edit#slide=id.p"
+                    class="text-button section-text">Shivam</a>
+                    <div class="social-bar">
+                    <img class="social-github" src = "../public/github.png">
+                    <img class="social-linkedin" src = "../public/linkedin.png">
+                    </div>
+                </div>
+            </div>                                                          
+                <!-- Repeat the above structure for other team members -->
+            </div>
+        
+
+          </div>
+        </section>
+
+        <!-- End of resources content -->
+
+          
+
+        <footer class = "footer2">
+          <h1>View our recent Emails </h1>
+        </footer>
+
+        <footer class = "footer3">
+          <h1 style="padding-top: 20px;">Or, join the listserv! </h1>
+          <a href="mailto:shivamkak9@gmail.com?subject=YourSubjectHere&body=YourMessageHere" target="_blank"
+          class="text-button section-text listserv-button">Join</a>
+        </footer>
+
+      <div class="team-grid">
+        <div class="team-member emailFeed1">
+            <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+            <div class="bio-name">
+              <h3>Team Member 1</h3>
+              <p>Short bio here...</p>
+            </div>
+            <div class="bio">
+              <a 
+              class="fullMode1 text-button section-text">Read Full</a>
+                <p class="long-bio">Include a description of the topic here.</p>
+            </div>
+        </div>
+        <div class="team-member emailFeed2">
+          <img src="../public/AI-slide2.jpg" alt="Team Member 2">
+          <div class="bio-name">
+            <h3>Team Member 2</h3>
+            <p>Short bio here...</p>
+          </div>
+          <div class="bio">
+            <a 
+            class="fullMode2 text-button section-text">Read Full</a>
+              <p class="long-bio">Include a description of the topic here.</p>
+          </div>
+      </div>
+      <div class="team-member emailFeed3">
+        <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+        <div class="bio-name">
+          <h3>Team Member 3</h3>
+          <p>Short bio here...</p>
+        </div>
+        <div class="bio">
+          <a 
+          class="fullMode3 text-button section-text">Read Full</a>
+            <p class="long-bio">Include a description of the topic here.</p>
+        </div>
+    </div>
+    <div class="team-member emailFeed4">
+      <img src="../public/AI-slide2.jpg" alt="Team Member 1">
+      <div class="bio-name">
+        <h3>BLOB</h3>
+        <p>Short bio blob here...</p>
+      </div>
+      <div class="bio">
+        <a 
+        class="fullMode4 text-button section-text">Read Full</a>
+          <p class="long-bio">Include a description of the topic here.</p>
+      </div>
+  </div>
+                                
+        <!-- Repeat the above structure for other email posts -->
+    </div>
+
+
+
+        <footer>
+          <div class="footer-column">
+              <h3>Links</h3>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">AI Tiger Trek</a></li>
+                  <li><a href="#">Resources</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+                <h3>Meetings</h3>
+                <p>Weekly meetings at:</p>
+                <p>4:30 PM - 5:30 PM Fridays</p>
+                <p>Room 209 Frist Campus Center</p>
+                <p><a href="#">Link to presentations</a></p>
+          </div>
+          <div class="footer-column">
+            <img class = "footer-logo" src="/public/AI-logo4.png" alt="AI Logo">
+        </div>
+          <div class="footer-column">
+            <form id="contact-form" action="mailto:shivamkak9@gmail.com" method="post" enctype="text/plain">
+                <div class="form-column">
+                    <h3>Contact Us</h3>
+                    <input type="text" name="name" placeholder="Name" class="rounded-input">
+                    <input type="text" name="topic" placeholder="Topic" class="rounded-input">
+                    <input type="email" name="email" placeholder="Email" class="rounded-input">
+                </div>
+                <div class="form-column form-column-mod">
+                    <textarea name="message" placeholder="Message" class="rounded-input"></textarea>
+                    <button type="submit" value="Send">Submit</button>
+                </div>
+            </form>
+
+      </footer>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="team.js"></script>
+    <script type="module" src="emailfeed.js"></script>
+    <script type="module" src="tippy.js"></script>
+
+
+  </body>
+</html>

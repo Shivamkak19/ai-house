@@ -64,7 +64,7 @@ export default class Experience{
             this.preloader = new Preloader2();
 
         }
-        else if(currentPage === "resources"){
+        else if(currentPage === "resources" || currentPage === "team"){
             console.log("loading resources customization");
             
             this.world = new World3();

@@ -17,6 +17,8 @@ if (currentPageUrl.includes("index")) {
   sessionStorage.setItem("currentPage", "aitt");
 } else if (currentPageUrl.includes("resources")) {
   sessionStorage.setItem("currentPage", "resources");
+} else if (currentPageUrl.includes("team")) {
+  sessionStorage.setItem("currentPage", "team");
 }
 
 const currentCanvas = document.querySelector("#canvas");

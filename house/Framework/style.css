@@ -443,6 +443,14 @@ button:hover {
   width: 80vw;
 }
 
+/* .emailFeed1, .emailFeed2, .emailFeed3{
+display: none;
+background-color: #099BE4;
+} */
+
+.invisible{
+  display: none;
+}
   /* General Button Styles ------------------------------------------------ */
   .text-button {
     display: inline-block;
@@ -467,6 +475,10 @@ button:hover {
     transform: translateY(-3px);
     transform: scale(1.05);
     background-color: var(--color-background);
+  }
+
+  .inline-button{
+    background-color: #00b7eaab;
   }
 
   #twitter{
@@ -819,6 +831,9 @@ of the number in the container, even as the container moves relatively to the pa
   cursor: none;
 }
 
+.aitt-subtitle-mod{
+  font-size: 1.25em;
+}
 
 
 /* //////////////////////-------------------------------------------------------
@@ -1111,6 +1126,11 @@ END OF CSS FOR DESKTOP
 
 .team-member:hover .long-bio{
   opacity: 1;
+}
+
+.long-bio{
+  width: 90%;
+  line-height: 2.5em;
 }
 
 
