@@ -23,8 +23,7 @@ export default class Room{
         this.onMouseMove();
         this.setAnimation();
 
-        console.log("UPA:SDF:SDKJF")
-        console.log(this.room);
+        // console.log(this.room);
 
     }
 
@@ -149,7 +148,7 @@ export default class Room{
 
         //Control tiger animation with User Scroll
         window.addEventListener("scroll-manual", () => {
-            console.log("tigerUpdate");
+            // console.log("tigerUpdate");
             
             this.mixerTiger.update(this.time.delta * 0.0015)
 
@@ -173,7 +172,7 @@ export default class Room{
             this.lerp.target = this.rotation * .1;
             this.lerp.target2 = this.scale * .1;
 
-            console.log("click hit")
+            // console.log("click hit")
 
         })
     }

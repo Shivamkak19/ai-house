@@ -142,7 +142,7 @@ export default class Room{
 
         //Control tiger animation with User Scroll
         window.addEventListener("scroll-manual", () => {
-            console.log("tigerUpdate");
+            // console.log("tigerUpdate");
             
             this.mixerTiger.update(this.time.delta * 0.0015)
 

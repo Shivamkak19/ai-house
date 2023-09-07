@@ -1,4 +1,4 @@
-console.log("log in OPAQUE.js")
+// console.log("log in OPAQUE.js")
 var prevOpacity = 0;
 
 window.addEventListener("scroll-manual", ()=> {
