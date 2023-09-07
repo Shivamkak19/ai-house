@@ -832,7 +832,9 @@ of the number in the container, even as the container moves relatively to the pa
 }
 
 .aitt-subtitle-mod{
-  font-size: 1.25em;
+  font-size: 1.25rem;
+
+
 }
 
 
@@ -861,6 +863,7 @@ END OF CSS FOR DESKTOP
     border-bottom-right-radius: 300px 300px;
     border-bottom-left-radius: 300px 300px;
   }
+
 
 /* General ---------------------------------------- */
 
@@ -995,6 +998,11 @@ END OF CSS FOR DESKTOP
   font-size: 3em;
 }
 
+
+/* AITT Page subtitle mobile page resize */
+.aitt-subtitle-mod{
+  font-size: 12px;
+}
 
 /* Intro text animation styles ------------------------ */
 .intro-text{
