@@ -349,7 +349,7 @@ export default class Controls{
                     //Puts the scroll trigger directly inside the tween because there is only 1 tween so this parses
                     if(section.classList.contains("right")){
                         GSAP.to(section, {
-                            borderTopLeftRadius: 100,
+                            borderTopLeftRadius: 0,
                             scrollTrigger:{
                                 trigger: section,
                                 start: "top bottom",
@@ -370,7 +370,7 @@ export default class Controls{
                     //For left sections
                     else{
                         GSAP.to(section, {
-                            borderTopRightRadius: 100,
+                            borderTopRightRadius: 0,
                             scrollTrigger:{
                                 trigger: section,
                                 start: "top bottom",

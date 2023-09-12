@@ -758,13 +758,14 @@ background-color: #099BE4;
 .left{
   margin-right: auto;
   border-top-right-radius: 700px 700px;
-  border-bottom-right-radius: 200px 200px;
+  /* was originally 200px 200px, requested to put to 0px 0px by Alex */
+  border-bottom-right-radius: 0px 0px;
 }
 
 .right{
   margin-left: auto;
   border-top-left-radius: 700px 700px;
-  border-bottom-left-radius: 200px 200px;
+  border-bottom-left-radius: 0px 0px;
 }
 
 
