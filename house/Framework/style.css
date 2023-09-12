@@ -198,7 +198,7 @@ svg{
   width: 100%;
   z-index: 1500;
   /* background-color: var(--color-header); */
-  background-color: #00b7ea67;
+  background-color: #00b7ea92;
 
 
   /* Border Effect */
@@ -1138,7 +1138,7 @@ END OF CSS FOR DESKTOP
 
 .long-bio{
   width: 90%;
-  line-height: 2.5em;
+  line-height: 2em;
 }
 
 
