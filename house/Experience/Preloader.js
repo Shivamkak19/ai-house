@@ -309,6 +309,26 @@ export default class Preloader extends EventEmitter{
                 ease: "back.out.(2.2)",
                 duration: 0.4,
             }, ">-0.2")
+
+            // DEPARTMENT DEMO 
+
+            // .to(this.roomChildren.cos002.scale, {
+            //     x: 1,
+            //     y: 1,
+            //     z: 1,
+            //     ease: "back.out.(2.2)",
+            //     duration: 0.4,
+            // }, ">-0.2")
+
+            // .to(this.roomChildren.cos001.scale, {
+            //     x: 1,
+            //     y: 1,
+            //     z: 1,
+            //     ease: "back.out.(2.2)",
+            //     duration: 0.4,
+            // }, ">-0.2")
+
+            //
             
             .to(this.roomChildren.chair.scale, {
                 x: 1,

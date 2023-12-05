@@ -5,6 +5,8 @@ export default [
         path: "/Models/house28.gltf", //path in public to access model
     },
 
+    // ORIGINAL: house28
+
     {
         name: "screen",
         type: "videoTexture",
