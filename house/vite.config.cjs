@@ -16,6 +16,9 @@ const { defineConfig } = require('vite');
 const { copy } = require('fs-extra');
 
 module.exports = defineConfig({
+  optimizeDeps: {
+    include: ['tippy.js']
+  },
   build: {
     rollupOptions: {
       input: {
