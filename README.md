@@ -100,22 +100,27 @@ To run this project, you must download the latest version of the npm package man
    git clone https://github.com/Shivamkak19/ai-house.git
    ```
 
-2. Install NPM packages
+2. Go into 'house' folder
+   ```sh
+   cd house
+   ```
+
+3. Install NPM packages
    ```sh
    npm install
    ```
 
-3. Vite local deployment
+4. Vite local deployment
    ```sh
    npm run dev
    ```
 
-4. Vite build
+5. Vite build
    ```sh
    npm run build
    ```
 
-5. Vite preview
+6. Vite preview
    ```sh
    npm run preview
    ```
