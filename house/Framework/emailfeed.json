@@ -1,4 +1,28 @@
 {
+    "email8": {
+        "title": "Prof. Ellen Zhong Talk: Cutting Edge Research in ML x Structural Biology",
+        "date": "10/4/2024",
+        "short": "Al@Princeton is thrilled to invite Professor Ellen Zhong to talk about her exciting current research on the intersection of ML and Structural Biology.",
+        "long": "Al@Princeton is thrilled to invite Professor Ellen Zhong to talk about her exciting current research on the intersection of ML and Structural Biology. Prof Zhong has been at the cutting edge on protein structure determination with cryo-electron microscopy (cryo-EM), worked the AlphaFold team, built deep learning molecular dynamics algorithms, infrastructure for drug discovery, etc. Come for the talk and an open-ended discussion about things you want to learn about her work -- We highly recommend coming to this talk, and it is meant to be beginner-friendly! When? FRIDAY, 4:30PM - 6:00PM. Where? Frist 302. Sign up through this form, boba provided as always.",
+        "img": "../emailFeed/ellen_zhong.png"
+    },
+
+    "email7": {
+        "title": "Method Discovered to Jailbreak GPT4 and Bypass its Filters-by our own Benjamin Lemkin '26",
+        "date": "3/29/2024",
+        "short": "Hope everybody's had a great first week back from spring break! This Friday, we're excited to announce a very cool presentation—our very own Benjamin Lemkin (26') has discovered a clever methodology to jailbreak and circumvent the safety filters of GPT4!",
+        "long": "Hope everybody's had a great first week back from spring break! This Friday, we're excited to announce a very cool presentation—our very own Benjamin Lemkin (26') has discovered a clever methodology to jailbreak and circumvent the safety filters of GPT4! Join us at Frist 212, this Friday, March 29 at 4:45pm to hear Benjamin present and demonstrate his findings! As always, feel free to fill out RSVP for boba here. Presentation Description: LLMs are initially trained on vast amounts of data, then fine-tuned to provide appropriate and safe responses. I will discuss a novel method I found to manipulate the \"safe\" version of the model into losing its filter and creating innapropriate content. The exploit currently works for GPT4, Claude Sonnet, and (to some extent) for Inflection-2.5. Unlike other jailbreaks (for example, the popular \"Do Anything Now\" (DAN) ), the method does not rely on instructing the LLM to override its RLHF policy; instead, we cause the model to hallucinate using reversed text, which turns the model back into a word bucket, effectively pausing the model's filter. Our exploit shows a fundamental vulnerability in LLMs, as well as an opportunity to better understand the inner workings of LLMs during hallucinations.",
+        "img": "../emailFeed/jailbreak_gpt.png"
+    },
+
+    "email6": {
+        "title": "[Al@PRINCETON] FRIDAY PRESENTATION!!!",
+        "date": "2/16/2024",
+        "short": "Have you ever wondered about how machines learn from their own experiences? Do you want to discover the secrets behind the success of Atari games and robotic control?",
+        "long": "Have you ever wondered about how machines learn from their own experiences? Do you want to discover the secrets behind the success of Atari games and robotic control? Join us for this week's Reinforcement Learning (RL) presentation on Q-learning and Deep Q-Network (led by Isabel and Kevin)! We'll be talking about the intersection between deep learning and reinforcement learning, how Q-learning works, and how to use deep neural networks to model the Q function to achieve RL objectives.",
+        "img": "../emailFeed/q_learning.png"
+    },
+
     "email5": {
         "title": "AI@PRINCETON FALL 2023 KICKOFF 🚀",
         "date": "9/11/2023",
